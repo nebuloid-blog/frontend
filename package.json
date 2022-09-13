@@ -24,7 +24,13 @@
 	"main": "",
 	"type": "module",
 	"scripts": { },
-	"dependencies": { },
+	"dependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.37.0",
+		"@typescript-eslint/parser": "^5.37.0",
+		"eslint": "^8.23.1",
+		"eslint-config-tabbify-typescript": "^0.1.9",
+		"eslint-plugin-import": "^2.26.0"
+	},
 	"devDependencies": {
 		"typescript": "^4.8.3"
 	}

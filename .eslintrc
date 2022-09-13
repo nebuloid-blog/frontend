@@ -14,5 +14,8 @@
 		}
 	},
 	"plugins": ["@typescript-eslint"],
-	"extends": ["tabbify-typescript"]
+	"extends": [
+		"next/core-web-vitals",
+		"tabbify-typescript"
+	]
 }

@@ -1,5 +1,6 @@
 {
-	"include": ["src", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"files": ["next.config.js", "next-env.d.ts"],
+	"include": ["src"],
 	"exclude": ["node_modules"],
 	"compilerOptions": {
 		/* Visit https://aka.ms/tsconfig.json to read more about this file */

@@ -1,7 +1,3 @@
-.container {
-	padding: 0 2rem;
-}
-
 .main {
 	min-height: 100vh;
 	padding: 4rem 0;
@@ -10,22 +6,6 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-}
-
-.footer {
-	display: flex;
-	flex: 1;
-	padding: 2rem 0;
-	border-top: 1px solid #eaeaea;
-	justify-content: center;
-	align-items: center;
-}
-
-.footer a {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-grow: 1;
 }
 
 .title a {
@@ -65,15 +45,7 @@
 		Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
-.logo {
-	height: 1em;
-	margin-left: 0.5rem;
-}
-
 @media (prefers-color-scheme: dark) {
-	.footer {
-		border-color: #222;
-	}
 	.code {
 		background: #111;
 	}

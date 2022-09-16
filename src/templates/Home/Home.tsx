@@ -1,5 +1,5 @@
 import type {NextPage} from 'next'
-import styles from '@styles/Home.module.css'
+import styles from './home.module.css'
 
 const Home: NextPage = ( ) => (
 	<main className={styles.main}>

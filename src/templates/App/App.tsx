@@ -1,7 +1,7 @@
 import type {AppProps} from 'next/app'
 import Head from 'next/head'
+import styles from './app.module.css'
 import {Footer} from '@components/Footer'
-import styles from '@styles/Home.module.css'
 
 const App = ({Component, pageProps}: AppProps) => (
 	<div className={styles.container}>

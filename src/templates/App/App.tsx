@@ -1,6 +1,6 @@
 import type {AppProps} from 'next/app'
 import Head from 'next/head'
-import styles from './app.module.css'
+import styles from './app.module.scss'
 import {Footer} from '@components/Footer'
 
 const App = ({Component, pageProps}: AppProps) => (

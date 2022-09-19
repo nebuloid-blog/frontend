@@ -13,7 +13,7 @@ const App = ({Component, pageProps}: AppProps) => (
 			/>
 			<link
 				rel='icon'
-				href='/favicon.ico'
+				href='/vercel.ico'
 			/>
 		</Head>
 

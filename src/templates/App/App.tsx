@@ -2,6 +2,7 @@ import type {AppProps} from 'next/app'
 import Head from 'next/head'
 import styles from './app.module.scss'
 import {Footer} from '@components/Footer'
+import {Header} from '@components/Header'
 
 const App = ({Component, pageProps}: AppProps) => (
 	<div className={styles.container}>
@@ -16,6 +17,8 @@ const App = ({Component, pageProps}: AppProps) => (
 				href='/vercel.ico'
 			/>
 		</Head>
+
+		<Header />
 
 		{/* Component injection point is here! */}
 		<Component {...pageProps} />

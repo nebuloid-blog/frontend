@@ -1,0 +1,23 @@
+.header {
+	display: flex;
+	overflow-x: hidden;
+	padding: 1rem 0;
+	border-bottom: 1px solid var(--border-color);
+}
+
+.header a {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+}
+
+.logo {
+	width: 3rem;
+}
+
+@media (prefers-color-scheme: dark) {
+	.logo img {
+		filter: invert(1);
+	}
+}

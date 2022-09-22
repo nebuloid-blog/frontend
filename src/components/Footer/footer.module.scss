@@ -1,21 +1,19 @@
+@import '@styles/generics.scss';
+
 .footer {
-	display: flex;
-	flex: 1;
+	@extend %flex-row;
+	justify-content: center;
+
 	padding: 2rem 0;
 	border-top: 1px solid var(--border-color);
-	justify-content: center;
-	align-items: center;
 }
 
 .footer a {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-grow: 1;
+	@extend %flex-row;
 }
 
 .logo {
-	height: 1em;
+	@extend %flex-row;
 	margin-left: 0.5rem;
 }
 

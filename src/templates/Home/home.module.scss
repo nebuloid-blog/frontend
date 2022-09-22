@@ -1,13 +1,5 @@
-.main {
-	padding: 4rem 0;
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.title a {
+.title a,
+.description a {
 	color: #0070f3;
 	text-decoration: none;
 }

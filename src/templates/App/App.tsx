@@ -20,8 +20,10 @@ const App = ({Component, pageProps}: AppProps) => (
 
 		<Header />
 
-		{/* Component injection point is here! */}
-		<Component {...pageProps} />
+		<div className={styles.content}>
+			{/* Component injection point is here! */}
+			<Component {...pageProps} />
+		</div>
 
 		<Footer />
 	</div>

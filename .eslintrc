@@ -1,0 +1,21 @@
+{
+	"root": true,
+	"env": {
+		"node": true,
+		"es2022": true
+	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": "./tsconfig.json",
+		"sourceType": "module",
+		"ecmaVersion": "latest",
+		"ecmaFeatures": {
+			"impliedStrict": true
+		}
+	},
+	"plugins": ["@typescript-eslint"],
+	"extends": [
+		"next/core-web-vitals",
+		"tabbify-typescript"
+	]
+}

@@ -1,0 +1,24 @@
+@import '@styles/generics.scss';
+
+.footer {
+	@extend %flex-row;
+	justify-content: center;
+
+	padding: 2rem 0;
+	border-top: 1px solid var(--border-color);
+}
+
+.footer a {
+	@extend %flex-row;
+}
+
+.logo {
+	@extend %flex-row;
+	margin-left: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+	.logo img {
+		filter: invert(1);
+	}
+}

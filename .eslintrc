@@ -17,5 +17,11 @@
 	"extends": [
 		"next/core-web-vitals",
 		"tabbify-typescript"
-	]
+	],
+	"rules": {
+		"import/no-unassigned-import": [
+			"error",
+			{"allow": ["**/*.scss"]}
+		]
+	}
 }

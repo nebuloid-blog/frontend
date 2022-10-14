@@ -12,7 +12,7 @@ const metadata: ComponentMeta<typeof Footer> = {
 
 // More on component templates:
 // https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStoryFn<typeof Footer> = (args) => <Footer {...args} />
+const Template: ComponentStoryFn<typeof Footer> = (args) => <Footer />
 const Normal = Template.bind({ })
 
 export {Normal}

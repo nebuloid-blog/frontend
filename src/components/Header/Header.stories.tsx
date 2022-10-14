@@ -12,7 +12,7 @@ const metadata: ComponentMeta<typeof Header> = {
 
 // More on component templates:
 // https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStoryFn<typeof Header> = (args) => <Header {...args} />
+const Template: ComponentStoryFn<typeof Header> = (args) => <Header />
 const Normal = Template.bind({ })
 
 export {Normal}

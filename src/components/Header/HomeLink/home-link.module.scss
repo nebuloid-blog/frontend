@@ -1,0 +1,17 @@
+@import '@styles/generics.scss';
+
+a.home {
+	@extend %flex-row;
+	gap: 1rem;
+}
+
+a.home .logo {
+	@extend %flex-row;
+	width: 3rem;
+}
+
+@media (prefers-color-scheme: dark) {
+	.logo img {
+		filter: invert(1);
+	}
+}

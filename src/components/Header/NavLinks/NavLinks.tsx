@@ -14,17 +14,17 @@ const NavLinks = ( ) => (
 			</Link>
 		</li>
 
-		{/*
-			<li>
-				<Link href='./blog'>
-					<a>
-						<p>
-							blog
-						</p>
-					</a>
-				</Link>
-			</li>
+		<li>
+			<Link href='./blog'>
+				<a>
+					<p>
+						blog
+					</p>
+				</a>
+			</Link>
+		</li>
 
+		{/*
 			<li>
 				<Link href='./about'>
 					<a>

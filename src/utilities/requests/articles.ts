@@ -1,4 +1,6 @@
-const getArticle = /* GraphQL */ `
+import {graphql} from '@nebuloid-types/generated'
+
+const getArticle = graphql(/* GraphQL */ `
 	query GetArticle($branch: String, $file: String!) {
 		getArticle(branch: $branch, file: $file) {
 			title
@@ -6,9 +8,9 @@ const getArticle = /* GraphQL */ `
 			html
 		}
 	}
-`
+`)
 
-const indexArticles = /* GraphQL */ `
+const indexArticles = graphql(/* GraphQL */ `
 	query IndexArticles($branch: String) {
 		indexArticles(branch: $branch) {
 			title
@@ -16,7 +18,7 @@ const indexArticles = /* GraphQL */ `
 			html
 		}
 	}
-`
+`)
 
 export {
 	getArticle,

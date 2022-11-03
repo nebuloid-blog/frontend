@@ -28,17 +28,32 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
+
 		"storybook": "npx storybook dev -s public -p 6006",
-		"build-storybook": "npx storybook build"
+		"build-storybook": "npx storybook build",
+
+		"indent": "replace-in-files --string='  ' --replacement='\t'",
+
+		"generate":
+			"yarn generate:code && yarn generate:lint --fix; yarn generate:indent",
+		"generate:indent":
+			"yarn indent ./src/**/generated/**/*.ts",
+		"generate:code":
+			"echo generating... && graphql-codegen --config .codegenrc.json",
+		"generate:lint":
+			"echo linting... && eslint ./src/**/generated/**/*.ts --no-ignore --rule '@typescript-eslint/consistent-type-definitions: 0'"
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^4.14.1",
+		"graphql": "^16.6.0",
 		"next": "^12.3.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.19.1",
+		"@graphql-codegen/cli": "^2.13.8",
+		"@graphql-codegen/client-preset": "^1.1.1",
 		"@mdx-js/react": "^1.6.22",
 		"@storybook/addon-essentials": "^7.0.0-alpha.33",
 		"@storybook/addon-interactions": "^7.0.0-alpha.33",
@@ -56,10 +71,11 @@
 		"eslint-config-next": "^12.3.0",
 		"eslint-config-tabbify-typescript": "^0.1.9",
 		"eslint-plugin-import": "^2.26.0",
+		"replace-in-files-cli": "^2.0.0",
 		"sass": "^1.54.9",
 		"storybook": "^7.0.0-alpha.33",
 		"storybook-addon-next": "^1.6.9",
 		"storybook-addon-swc": "^1.1.8",
-		"typescript": "^4.8.3"
+		"typescript": "^4.8.4"
 	}
 }

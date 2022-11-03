@@ -8,18 +8,7 @@
 	border-bottom: 1px solid var(--border-color);
 }
 
-.header a {
+.header nav {
 	@extend %flex-row;
 	gap: 1rem;
-}
-
-.logo {
-	@extend %flex-row;
-	width: 3rem;
-}
-
-@media (prefers-color-scheme: dark) {
-	.logo img {
-		filter: invert(1);
-	}
 }

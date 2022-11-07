@@ -70,18 +70,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@nebuloid/frontend@workspace:."
   dependencies:
-    "@types/node": 18.11.9
-    "@types/react": 18.0.25
-    "@types/react-dom": 18.0.8
+    "@types/node": ^18.11.9
+    "@types/react": ^18.0.25
+    "@types/react-dom": ^18.0.8
     "@typescript-eslint/eslint-plugin": ^5.42.1
     "@typescript-eslint/parser": ^5.42.1
     eslint: ^8.27.0
-    eslint-config-next: 13.0.2
+    eslint-config-next: ^13.0.2
     eslint-config-tabbify-typescript: ^0.1.9
     eslint-plugin-import: ^2.26.0
-    next: 13.0.2
-    react: 18.2.0
-    react-dom: 18.2.0
+    next: ^13.0.2
+    react: ^18.2.0
+    react-dom: ^18.2.0
     typescript: ^4.8.4
   languageName: unknown
   linkType: soft
@@ -264,7 +264,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.11.9":
+"@types/node@npm:^18.11.9":
   version: 18.11.9
   resolution: "@types/node@npm:18.11.9"
   checksum: cc0aae109e9b7adefc32eecb838d6fad931663bb06484b5e9cbbbf74865c721b03d16fd8d74ad90e31dbe093d956a7c2c306ba5429ba0c00f3f7505103d7a496
@@ -278,7 +278,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.0.8":
+"@types/react-dom@npm:^18.0.8":
   version: 18.0.8
   resolution: "@types/react-dom@npm:18.0.8"
   dependencies:
@@ -287,7 +287,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.0.25":
+"@types/react@npm:*, @types/react@npm:^18.0.25":
   version: 18.0.25
   resolution: "@types/react@npm:18.0.25"
   dependencies:
@@ -838,7 +838,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-next@npm:13.0.2":
+"eslint-config-next@npm:^13.0.2":
   version: 13.0.2
   resolution: "eslint-config-next@npm:13.0.2"
   dependencies:
@@ -1884,7 +1884,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:13.0.2":
+"next@npm:^13.0.2":
   version: 13.0.2
   resolution: "next@npm:13.0.2"
   dependencies:
@@ -2182,7 +2182,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.2.0":
+"react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -2201,7 +2201,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0":
+"react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:

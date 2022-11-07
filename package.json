@@ -25,5 +25,7 @@
 	"type": "module",
 	"scripts": { },
 	"dependencies": { },
-	"devDependencies": { }
+	"devDependencies": {
+		"typescript": "^4.8.4"
+	}
 }

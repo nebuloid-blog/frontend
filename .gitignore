@@ -185,11 +185,12 @@ dist
 !.yarn/sdks
 !.yarn/versions
 
-# if you are NOT using Zero-installs, then:
-# comment the following lines
-!.yarn/cache
+# WARNING! We are NOT using Zero-installs in this project.
+# If you are NOT using Zero-installs, then...
+# ...comment the following lines:
+# !.yarn/cache
 
-# and uncomment the following lines
-# .pnp.*
+# ...and uncomment the following lines:
+.pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/git,yarn,node,visualstudiocode

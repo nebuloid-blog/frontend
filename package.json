@@ -4,22 +4,37 @@
 	"license": "MIT",
 	"version": "0.0.0",
 	"description": "The frontend for my portfolio.",
-	"keywords": [ ],
-	"homepage": "https://github.com/noltron000-portfolio/frontend#README.md",
+	"keywords": [
+		"React",
+		"ReactJS",
+		"Next",
+		"NextJS",
+		"TypeScript",
+		"portfolio",
+		"personal",
+		"website"
+	],
+	"homepage": "https://nebuloid.dev",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/noltron000-portfolio/frontend.git"
+		"url": "git+https://github.com/nebuloid-blog/frontend.git"
 	},
 	"bugs": {
-		"url": "https://github.com/noltron000-portfolio/frontend/issues",
-		"email": "noltron000@gmail.com"
+		"email": "noltron000@gmail.com",
+		"url": "https://github.com/nebuloid-blog/frontend/issues"
 	},
 	"author": {
-		"name": "noltron000",
+		"name": "Nolan Kovacik",
 		"email": "noltron000@gmail.com",
-		"url": "https://noltron000.com/"
+		"url": "https://nebuloid.dev/"
 	},
-	"contributors": [ ],
+	"contributors": [
+		{
+			"name": "Frances Coronel",
+			"email": "fvcproductions@gmail.com",
+			"url": "https://francescoronel.com/"
+		}
+	],
 	"packageManager": "yarn@3.2.1",
 	"main": "",
 	"type": "module",

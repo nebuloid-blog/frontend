@@ -27,7 +27,9 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
 	},
 	"dependencies": {
 		"next": "^13.0.2",
@@ -35,6 +37,13 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
+		"@storybook/addon-docs": "^7.0.0-alpha.40",
+		"@storybook/addon-essentials": "^7.0.0-alpha.40",
+		"@storybook/addon-interactions": "^7.0.0-alpha.40",
+		"@storybook/addon-links": "^7.0.0-alpha.40",
+		"@storybook/react": "^7.0.0-alpha.40",
+		"@storybook/react-webpack5": "^7.0.0-alpha.40",
+		"@storybook/testing-library": "^0.0.13",
 		"@types/node": "^18.11.9",
 		"@types/react": "^18.0.25",
 		"@types/react-dom": "^18.0.8",
@@ -45,6 +54,7 @@
 		"eslint-config-tabbify-typescript": "^0.1.9",
 		"eslint-plugin-import": "^2.26.0",
 		"sass": "^1.56.0",
+		"storybook": "^7.0.0-alpha.40",
 		"typescript": "^4.8.4"
 	}
 }

@@ -1,5 +1,11 @@
-# Created by https://www.toptal.com/developers/gitignore/api/git,yarn,node,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=git,yarn,node,visualstudiocode
+### Custom Configuration ###################################
+# NextJS documentation specifies that this file should be ignored:
+# https://nextjs.org/docs/basic-features/typescript#existing-projects
+next-env.d.ts
+
+### GitIgnore.IO Configuration #############################
+# Created by https://www.toptal.com/developers/gitignore/api/git,yarn,node,visualstudiocode,nextjs,react
+# Edit at https://www.toptal.com/developers/gitignore?templates=git,yarn,node,visualstudiocode,nextjs,react
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -16,15 +22,46 @@
 *_LOCAL_*.txt
 *_REMOTE_*.txt
 
+### NextJS ###
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
 ### Node ###
 # Logs
 logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 lerna-debug.log*
-.pnpm-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -93,10 +130,6 @@ web_modules/
 
 # dotenv environment variable files
 .env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -156,6 +189,19 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+### react ###
+.DS_*
+**/*.backup.*
+**/*.back.*
+
+node_modules
+
+*.sublime*
+
+psd
+thumb
+sketch
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -193,4 +239,4 @@ dist
 # ...and uncomment the following lines:
 .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/git,yarn,node,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/git,yarn,node,visualstudiocode,nextjs,react

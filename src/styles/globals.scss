@@ -1,5 +1,21 @@
 @import "./reset.scss";
 
+/* CSS Variables */
+:root {
+	--foreground-color-light: black;
+	--foreground-color-dark: white;
+
+	--background-color-light: white;
+	--background-color-dark: black;
+}
+
+/* Base Styling */
+:root {
+	color-scheme: light;
+	--foreground-color: var(--foreground-color-light);
+	--background-color: var(--background-color-light);
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -19,6 +35,9 @@ body {
 
 	font-size: 16px;
 	line-height: 1.5;
+
+	color: var(--foreground-color);
+	background: var(--background-color);
 }
 
 /* Primary / Block Stylings */
@@ -74,4 +93,13 @@ a {
 	// Remove default styling from links.
 	color: inherit;
 	text-decoration: inherit;
+}
+
+/* Enable Dark Mode */
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+		--foreground-color: var(--foreground-color-dark);
+		--background-color: var(--background-color-dark);
+	}
 }

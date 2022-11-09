@@ -1,5 +1,6 @@
 import type {NextPage} from 'next'
 import Head from 'next/head'
+import styles from './home.module.scss'
 
 const Home: NextPage = ( ) => (
 	<>
@@ -15,9 +16,11 @@ const Home: NextPage = ( ) => (
 			/>
 		</Head>
 
-		<main>
-			<h1>Welcome to Nebuloid!</h1>
-			<p>Get started by checking out the site's blog.</p>
+		<main className={styles.home}>
+			<div className={styles.hero}>
+				<h1>Welcome to Nebuloid!</h1>
+				<p>Get started by checking out the site's blog.</p>
+			</div>
 		</main>
 	</>
 )

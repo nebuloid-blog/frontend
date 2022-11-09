@@ -28,7 +28,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"storybook": "storybook dev -p 6006",
+		"storybook": "storybook dev -s public -p 6006",
 		"build-storybook": "storybook build"
 	},
 	"dependencies": {
@@ -37,7 +37,6 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"@storybook/addon-docs": "^7.0.0-alpha.40",
 		"@storybook/addon-essentials": "^7.0.0-alpha.40",
 		"@storybook/addon-interactions": "^7.0.0-alpha.40",
 		"@storybook/addon-links": "^7.0.0-alpha.40",
@@ -55,6 +54,8 @@
 		"eslint-plugin-import": "^2.26.0",
 		"sass": "^1.56.0",
 		"storybook": "^7.0.0-alpha.40",
+		"storybook-addon-next": "^1.6.10",
+		"storybook-addon-swc": "^1.1.9",
 		"typescript": "^4.8.4"
 	}
 }

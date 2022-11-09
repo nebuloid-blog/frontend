@@ -6,8 +6,13 @@ const settings = {
 	],
 	addons: [
 		'@storybook/addon-links',
-		'@storybook/addon-essentials',
-		'@storybook/addon-interactions'
+		{
+			name: '@storybook/addon-essentials',
+			options: {docs: false},
+		},
+		'@storybook/addon-interactions',
+		'storybook-addon-next',
+		'storybook-addon-swc',
 	],
 	framework: {
 		name: '@storybook/react-webpack5',

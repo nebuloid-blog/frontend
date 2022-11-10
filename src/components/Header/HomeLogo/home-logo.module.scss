@@ -11,6 +11,20 @@ a.home {
 	text-decoration: none;
 }
 
+
+// Create a stacked-view
+a.home .website {
+	@extend %flex-column;
+}
+
+a.home .website h1 {
+	font-size: 1.5rem;
+}
+
+a.home .website p {
+	font-size: 0.75rem;
+}
+
 // Center the logo image in its container.
 a.home span.logo {
 	@extend %flex-row;

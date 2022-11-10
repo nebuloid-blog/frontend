@@ -9,11 +9,15 @@ const HomeLogo: React.FC = ( ) => (
 			<Image
 				src='/vercel.ico'
 				alt='vercel&apos;s logo'
-				width={56}
-				height={56}
+				width={30}
+				height={30}
 			/>
 		</span>
-		<h1>Nebuloid</h1>
+
+		<hgroup className={styles.website}>
+			<h1>Nebuloid</h1>
+			<p>Blog &amp; Portfolio</p>
+		</hgroup>
 	</Link>
 )
 

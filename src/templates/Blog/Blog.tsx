@@ -1,4 +1,5 @@
 import type {NextPage} from 'next'
+import {ArticleCard} from './ArticleCard'
 import styles from './blog.module.scss'
 import {DefaultHead} from '@components/DefaultHead'
 import {Footer} from '@components/Footer'
@@ -26,8 +27,7 @@ const Blog: NextPage<Props> = ({articles}) => (
 					{/* Article Previews */}
 					{articles.map((article) => (
 						<li key={article.slug}>
-							<h3>{article.title}</h3>
-							{/* With thumbnail, description, etc. */}
+							<ArticleCard {...article} />
 						</li>
 					))}
 				</ul>

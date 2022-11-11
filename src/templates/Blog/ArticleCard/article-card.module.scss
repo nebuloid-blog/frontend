@@ -1,0 +1,27 @@
+@import '@styles/placeholders.scss';
+
+// Represents a whole article preview card.
+.card {
+	// Fill content to full width of card.
+	flex: 1;
+
+	// Fit content to top of card.
+	@extend %flex-row;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	// Create a gap between content and thumbnail.
+	gap: 1rem;
+
+	// Add an aesthetic to the card.
+	border-radius: 0.25rem;
+	background-color: var(--border-color);
+	width: 480px;
+	padding: 0.75rem;
+}
+
+// This represents the thumbnail on the side.
+.card .thumbnail {
+	@extend %flex-column;
+	img {border-radius: 0.25rem}
+}

@@ -12,16 +12,16 @@ const NavLinks: React.FC = ( ) => (
 			</Link>
 		</li>
 
+		<li>
+			<Link href='./blog'>
+				<p>
+					blog
+				</p>
+			</Link>
+		</li>
+
 		{/* Links to other pages */}
 		{/*
-			<li>
-				<Link href='./blog'>
-					<p>
-						blog
-					</p>
-				</Link>
-			</li>
-
 			<li>
 				<Link href='./about'>
 					<p>

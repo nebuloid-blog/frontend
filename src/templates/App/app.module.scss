@@ -1,7 +1,8 @@
+@import '@styles/placeholders.scss';
+
 .app-container {
 	// Stack content and stretch across page width.
-	display: flex;
-	flex-direction: column;
+	@extend %flex-column;
 	align-items: stretch;
 	justify-content: space-between;
 

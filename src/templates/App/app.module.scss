@@ -1,0 +1,21 @@
+@import '@styles/placeholders.scss';
+
+.app-container {
+	// Stack content and stretch across page width.
+	@extend %flex-column;
+	align-items: stretch;
+	justify-content: space-between;
+
+	// The content stretches across the whole page height.
+	// Scrollable behavior is used if its taller than this.
+	min-height: 100vh;
+
+	// Expand or stretch main content to
+	//  fill the any remaining vertical space.
+	// If the content is too tall, it will
+	//  expand past the min-height of 100vh.
+	main {
+		flex-grow: 1;
+		padding: 2rem;
+	};
+}

@@ -1,0 +1,10 @@
+@import '@styles/placeholders.scss';
+
+.home {
+	// Stack content vertically & center
+	@extend %flex-column;
+}
+
+.home > .hero {
+	text-align: center;
+}

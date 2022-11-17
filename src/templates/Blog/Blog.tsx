@@ -1,16 +1,12 @@
-import type {NextPage} from 'next'
+import type {InferGetStaticPropsType, NextPage} from 'next'
 import {ArticleCard} from './ArticleCard'
 import styles from './blog.module.scss'
+import type {getStaticProps} from './get-static-data'
 import {DefaultHead} from '@components/DefaultHead'
 import {Footer} from '@components/Footer'
 import {Header} from '@components/Header'
 
-interface Props {
-	articles: Array<{
-		slug: string,
-		title: string,
-	}>,
-}
+type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 const Blog: NextPage<Props> = ({articles}) => (
 	<>
@@ -23,14 +19,16 @@ const Blog: NextPage<Props> = ({articles}) => (
 				{/* Article Search? */}
 				{/* ... */}
 
-				<ul>
-					{/* Article Previews */}
-					{articles.map((article) => (
-						<li key={article.slug}>
-							<ArticleCard {...article} />
-						</li>
-					))}
-				</ul>
+				{articles != null && (
+					<ul>
+						{/* Article Previews */}
+						{articles.map((article) => (
+							<li key={article.slug}>
+								<ArticleCard {...article} />
+							</li>
+						))}
+					</ul>
+				)}
 
 				{/* Pagination */}
 				{/* [1,2,3, ..., last] */}

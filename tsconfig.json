@@ -38,7 +38,8 @@
 			"@hooks/*": ["hooks/*"],
 			"@styles/*": ["styles/*"],
 			"@templates/*": ["templates/*"],
-			"@utilities/*": ["utilities/*"]
+			"@utilities/*": ["utilities/*"],
+			"@nebuloid-types/*": ["types/*"],
 		},
 		// "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
 		// "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */

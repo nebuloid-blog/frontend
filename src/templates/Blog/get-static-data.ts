@@ -1,11 +1,23 @@
+import {request} from 'graphql-request'
 import type {GetStaticProps} from 'next'
-import articles from '@assets/placeholder-articles.json'
+import type {IndexArticlesQuery} from '@nebuloid-types/generated/graphql'
+import {indexArticles} from '@utilities/requests/articles'
 
-// WARNING: TODO:
-// These functions are temporary mock data getters.
-// Replace with real API data once able.
-const getStaticProps: GetStaticProps = ( ) => ({
-	props: {articles},
-})
+interface IndexArticlesResponse {
+	articles?: IndexArticlesQuery['indexArticles'],
+}
+
+const getStaticProps: GetStaticProps<IndexArticlesResponse> = async (context) => {
+	const response = await request(
+		'https://api.nebuloid.dev',
+		indexArticles,
+		{ },
+	)
+
+	const articles = response.indexArticles
+	return {
+		props: {articles},
+	}
+}
 
 export {getStaticProps}

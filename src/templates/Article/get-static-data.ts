@@ -1,17 +1,20 @@
-import type {
-	GetStaticProps, GetStaticPaths,
-} from 'next'
-import articles from '@assets/placeholder-articles.json'
+import {request} from 'graphql-request'
+import type {GetStaticProps, GetStaticPaths} from 'next'
+import type {GetArticleQuery} from '@nebuloid-types/generated/graphql'
+import {indexArticles, getArticle} from '@utilities/requests/articles'
 
-// WARNING: TODO:
-// These functions are temporary mock data getters.
-// Replace with real API data once able.
-const getStaticPaths: GetStaticPaths = ( ) => {
-	const paths = articles.map((article) => ({
+const getStaticPaths: GetStaticPaths = async ( ) => {
+	const response = await request(
+		'https://api.nebuloid.dev',
+		indexArticles,
+		{ },
+	)
+
+	const paths = response.indexArticles?.map((article) => ({
 		params: {
 			slug: article.slug,
 		},
-	}))
+	})) ?? [ ]
 
 	return {
 		paths: paths,
@@ -19,7 +22,11 @@ const getStaticPaths: GetStaticPaths = ( ) => {
 	}
 }
 
-const getStaticProps: GetStaticProps = (context) => {
+interface GetArticleResponse {
+	article?: GetArticleQuery['getArticle'],
+}
+
+const getStaticProps: GetStaticProps<GetArticleResponse> = async (context) => {
 	const slug = context.params?.slug
 	if (slug == null || typeof slug !== 'string') {
 		return {
@@ -27,11 +34,17 @@ const getStaticProps: GetStaticProps = (context) => {
 		}
 	}
 
-	const article = articles.find((article) => (article.slug === slug))
+	const file = `${slug}.md`
+
+	const response = await request(
+		'https://api.nebuloid.dev',
+		getArticle,
+		{file},
+	)
+
+	const article = response.getArticle
 	return {
-		props: {
-			article,
-		},
+		props: {article},
 	}
 }
 

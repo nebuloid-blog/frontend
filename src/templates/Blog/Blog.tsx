@@ -1,12 +1,17 @@
 import type {NextPage} from 'next'
 import styles from './blog.module.scss'
-import articles from '@assets/placeholder-articles.json'
 import {DefaultHead} from '@components/DefaultHead'
 import {Footer} from '@components/Footer'
 import {Header} from '@components/Header'
 
+interface Props {
+	articles: Array<{
+		slug: string,
+		title: string,
+	}>,
+}
 
-const Blog: NextPage<void> = ( ) => (
+const Blog: NextPage<Props> = ({articles}) => (
 	<>
 		<DefaultHead />
 		<Header />

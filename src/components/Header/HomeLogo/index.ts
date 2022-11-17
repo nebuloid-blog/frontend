@@ -1,0 +1,1 @@
+export {HomeLogo} from './HomeLogo'

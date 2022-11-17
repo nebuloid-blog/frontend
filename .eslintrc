@@ -14,5 +14,32 @@
 		}
 	},
 	"plugins": ["@typescript-eslint"],
-	"extends": ["tabbify-typescript"]
+	"extends": ["tabbify-typescript"],
+	"rules": {
+		/* Temporary rules to be ported into Tabbify */
+		// Must allow "[ ]", empty array with single space.
+		"array-bracket-spacing": ["off"],
+		"max-lines-per-function": [
+			"warn",
+			{"max": 120}
+		],
+		"object-curly-newline": [
+			"error",
+			{
+				"multiline": true,
+				"minProperties": 0,
+				"consistent": true
+			}
+		],
+		"import/no-unassigned-import": [
+			"warn",
+			{
+				"allow": [
+					"**/*!(.module).css",
+					"**/*!(.module).scss",
+					"**/*!(.module).sass"
+				]
+			}
+		]
+	}
 }

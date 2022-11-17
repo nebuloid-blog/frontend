@@ -2,6 +2,7 @@ import type {NextPage} from 'next'
 import Head from 'next/head'
 import styles from './home.module.scss'
 import {Footer} from '@components/Footer'
+import {Header} from '@components/Header'
 
 const Home: NextPage = ( ) => (
 	<>
@@ -16,6 +17,8 @@ const Home: NextPage = ( ) => (
 				href='/vercel.ico'
 			/>
 		</Head>
+
+		<Header />
 
 		<main className={styles.home}>
 			<div className={styles.hero}>

@@ -1,6 +1,7 @@
 import type {NextPage} from 'next'
 import Head from 'next/head'
 import styles from './home.module.scss'
+import {Footer} from '@components/Footer'
 
 const Home: NextPage = ( ) => (
 	<>
@@ -22,6 +23,8 @@ const Home: NextPage = ( ) => (
 				<p>Get started by checking out the site's blog.</p>
 			</div>
 		</main>
+
+		<Footer />
 	</>
 )
 

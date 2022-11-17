@@ -7,6 +7,9 @@
 
 	--background-color-light: white;
 	--background-color-dark: black;
+
+	--border-color-light: #eaeaea;
+	--border-color-dark: #222;
 }
 
 /* Base Styling */
@@ -14,6 +17,7 @@
 	color-scheme: light;
 	--foreground-color: var(--foreground-color-light);
 	--background-color: var(--background-color-light);
+	--border-color: var(--border-color-light)
 }
 
 * {
@@ -101,5 +105,6 @@ a {
 		color-scheme: dark;
 		--foreground-color: var(--foreground-color-dark);
 		--background-color: var(--background-color-dark);
+		--border-color: var(--border-color-dark)
 	}
 }

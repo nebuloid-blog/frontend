@@ -1,0 +1,23 @@
+@import '@styles/placeholders.scss';
+
+// This represents the home logo with text,
+//  which links back to the homepage.
+a.home {
+	@extend %flex-row;
+	gap: 1rem;
+
+	// Reset anchor styling.
+	color: inherit;
+	text-decoration: none;
+}
+
+// Center the logo image in its container.
+a.home span.logo {
+	@extend %flex-row;
+}
+
+@media (prefers-color-scheme: dark) {
+	span.logo img {
+		filter: invert(1);
+	}
+}

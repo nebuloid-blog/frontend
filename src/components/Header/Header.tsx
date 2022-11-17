@@ -1,23 +1,22 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
+import {HomeLogo} from './HomeLogo'
+import {NavLinks} from './NavLinks'
 import styles from './header.module.scss'
 
 const Header: React.FC = ( ) => (
 	<header className={styles.header}>
+		{/* Navigation Items */}
 		<nav>
-			<Link href='/' className={styles.home}>
-				<span className={styles.logo}>
-					<Image
-						src='/vercel.ico'
-						alt='vercel&apos;s logo'
-						width={56}
-						height={56}
-					/>
-				</span>
-				<h1>Nebuloid</h1>
-			</Link>
+			<HomeLogo />
+			<NavLinks />
 		</nav>
+
+		{/* Authentication Options */}
+		{/*
+			Sign In / Register
+			Sign Out / View Profile
+			...
+		*/}
 	</header>
 )
 

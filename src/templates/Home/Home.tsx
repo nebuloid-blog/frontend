@@ -1,23 +1,12 @@
 import type {NextPage} from 'next'
-import Head from 'next/head'
 import styles from './home.module.scss'
+import {DefaultHead} from '@components/DefaultHead'
 import {Footer} from '@components/Footer'
 import {Header} from '@components/Header'
 
 const Home: NextPage = ( ) => (
 	<>
-		<Head>
-			<title>Nebuloid</title>
-			<meta
-				name='description'
-				content='Nebuloid: a personal dev blog &amp; portfolio'
-			/>
-			<link
-				rel='icon'
-				href='/vercel.ico'
-			/>
-		</Head>
-
+		<DefaultHead />
 		<Header />
 
 		<main className={styles.home}>

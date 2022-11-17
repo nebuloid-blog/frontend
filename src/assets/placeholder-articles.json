@@ -1,0 +1,113 @@
+
+[
+	{
+		"slug": "short",
+		"title": "Short!",
+		"description": "This is a short article.",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+	},
+	{
+		"slug": "some-article",
+		"title": "Some Article!",
+		"description": "This is just an example of what an article could be. Now you know what its about.",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+	},
+	{
+		"slug": "placeholder",
+		"title": "Placeholder",
+		"description": "This is a great description of a terrific article. Read more!",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "creating-a-graphql-api",
+		"title": "Creating a GraphQL API",
+		"description": "Nebuloid runs on a Node API, using GraphQL with Mongoose.",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "enhancing-the-nextjs-developer-experience",
+		"title": "Enhancing the NextJS Developer Experience",
+		"description": "How I structured Nebuloid's Frontend for the optimal engineering experience.",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "the-binding-of-isaac",
+		"title": "The Binding of Isaac",
+		"description": "The hellishly brutal game that keeps you coming back for more",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "placeholder",
+		"title": "Placeholder",
+		"description": "This is a great description of a terrific article. Read more!",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "placeholder",
+		"title": "Placeholder",
+		"description": "This is a great description of a terrific article. Read more!",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "placeholder",
+		"title": "Placeholder",
+		"description": "This is a great description of a terrific article. Read more!",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "placeholder",
+		"title": "Placeholder",
+		"description": "This is a great description of a terrific article. Read more!",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "placeholder",
+		"title": "Placeholder",
+		"description": "This is a great description of a terrific article. Read more!",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "placeholder",
+		"title": "Placeholder",
+		"description": "This is a great description of a terrific article. Read more!",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "placeholder",
+		"title": "Placeholder",
+		"description": "This is a great description of a terrific article. Read more!",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "placeholder",
+		"title": "Placeholder",
+		"description": "This is a great description of a terrific article. Read more!",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "placeholder",
+		"title": "Placeholder",
+		"description": "This is a great description of a terrific article. Read more!",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	},
+	{
+		"slug": "placeholder",
+		"title": "Placeholder",
+		"description": "This is a great description of a terrific article. Read more!",
+		"html": "<h1>Some Article!</h1><p>This is just an example of what an article could be. Now you know what its about.</p>"
+
+	}
+]

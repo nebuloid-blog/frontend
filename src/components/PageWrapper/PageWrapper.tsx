@@ -19,19 +19,21 @@ const PageWrapper: React.FC<Props> = ({
 	children,
 }) => {
 	const hero = heading != null
-	let introStyle = styles.intro
-	if (hero) introStyle = `${styles.intro} ${styles.hero}`
+
+	// If the wrapper has a hero-style, then the page intro
+	//  will span the whole height of the browser's view.
+	// It also adds a negative margin to the page element.
+	let wrapperStyle = styles.wrapper
+	if (hero) wrapperStyle = `${styles.wrapper} ${styles.hero}`
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={wrapperStyle}>
 			{/*
 				PAGE INTRO / THE WRAPPER'S HEADER
 				This header contains the site's logo link, and it
 				 may also contain the page's title and description.
-				If it has a title, then it spans the whole page.
-				This makes a sort of hero-image effect with the BG.
 			*/}
-			<header className={introStyle}>
+			<header className={styles.intro}>
 				{hero && (
 					<hgroup>
 						<h1>{heading}</h1>

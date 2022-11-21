@@ -1,8 +1,8 @@
 @import '@styles/placeholders.scss';
 
 /* BASE CONTAINER / THE WRAPPER */
-// The page wrapper provides a suitable
-//  background image for all screen sizes.
+// The page wrapper provides a suitable background
+//  image for all screen sizes.
 .wrapper {
 	min-height: 100vh;
 
@@ -28,18 +28,12 @@
 .intro {
 	@extend %flex-column;
 	text-align: center;
-
-	// Keeps a margin on subordinate pages,
-	//  in spite of the negative top margin.
-	min-height: calc(5rem + var(--banner-height));
 }
 
-// Sometimes the intro might appear in a
-//  full-screen hero presentation style.
-// As an example, you can expect this to
-//  occur on the site's landing page.
-.intro.hero {
-	min-height: 100vh;
+// If the wrapper has a hero style class,
+//  then the intro has a full-screen size.
+.hero.wrapper > .intro {
+	height: 100vh;
 }
 
 /* PAGE CONTENT */
@@ -52,18 +46,11 @@
 	width: 100%;
 	max-width: 72rem;
 
+	margin: 0 auto;
+
+	// This creates a frosted-glass-like effect.
 	background-color: var(--background-color);
 	backdrop-filter: blur(1rem);
-
-	margin:
-		// top
-		calc(-1 * var(--banner-height))
-		// left
-		auto
-		// bottom
-		10rem
-		//right
-		auto;
 }
 
 .page > .content {
@@ -71,15 +58,27 @@
 	padding: 2rem;
 }
 
+// If the wrapper has a hero style class,
+//  then the page also has a special negative margin size.
+// This allows the page banner to peak out at the bottom
+//  of the full-screen hero view.
+.hero.wrapper > .page {
+	margin-top: calc(-1 * var(--banner-height));
+}
+
 /* PAGE APPENDIX / THE WRAPPER'S FOOTER */
-// The appendix is slightly different from the page's footer.
-// It just contains some light copyright information, for now.
+// The wrapper's footer here is slightly different
+//  from the page's footer.
+// It just contains light copyright info, for now.
 .appendix {
 	flex: 1;
 
 	@extend %flex-column;
 	justify-content: flex-end;
-	margin: 2rem;
+
+	margin-top: 5rem;
+	padding: 2rem;
+
 	text-align: center;
-	color: #8888;
+	color: rgba(var(--foreground-shade), 50%);
 }

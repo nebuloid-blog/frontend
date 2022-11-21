@@ -1,1 +1,0 @@
-export {HomeLogo} from './HomeLogo'

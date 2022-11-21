@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import styles from './home-logo.module.scss'
+import styles from './site-logo.module.scss'
 
-const HomeLogo: React.FC = ( ) => (
+const SiteLogo: React.FC = ( ) => (
 	<Link href='/' className={styles.home}>
 		<span className={styles.logo}>
 			<Image
@@ -21,4 +21,4 @@ const HomeLogo: React.FC = ( ) => (
 	</Link>
 )
 
-export {HomeLogo}
+export {SiteLogo}

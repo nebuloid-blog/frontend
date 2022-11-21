@@ -1,7 +1,7 @@
 import React from 'react'
+import {Footer} from './Footer'
+import {Header} from './Header'
 import styles from './page-wrapper.module.scss'
-import {Footer} from '@components/Footer'
-import {Header} from '@components/Header'
 
 type Props = {
 	children: React.ReactNode,

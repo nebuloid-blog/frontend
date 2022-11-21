@@ -1,6 +1,6 @@
 import React from 'react'
-import {NavLinks} from './NavLinks'
-import {SiteLogo} from './SiteLogo'
+import {NavLinks} from '../NavLinks'
+import {SiteLogo} from '../SiteLogo'
 import styles from './header.module.scss'
 
 const Header: React.FC = ( ) => (

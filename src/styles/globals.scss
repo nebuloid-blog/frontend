@@ -1,4 +1,4 @@
-@import "./reset.scss";
+@import './reset.scss';
 
 /* CSS Variables */
 :root {
@@ -42,6 +42,11 @@ body {
 
 	color: var(--foreground-color);
 	background: var(--background-color);
+
+	// This always shows a scrollbar.
+	// It makes for a nicer transitions between pages...
+	// Otherwise, we'd have background image jitter!
+	overflow-y: scroll;
 }
 
 /* Primary / Block Stylings */

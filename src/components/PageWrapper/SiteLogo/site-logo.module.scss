@@ -12,17 +12,22 @@ a.home {
 }
 
 
-// Create a stacked-view
+// Create a stacked-view and adjust
+//  the behavior of each text-node child.
 a.home .website {
 	@extend %flex-column;
-}
+	> * {
+		margin: 0;
+		line-height: normal;
+	}
 
-a.home .website h1 {
-	font-size: 1.5rem;
-}
+	> h1 {
+		font-size: 1.5rem;
+	}
 
-a.home .website p {
-	font-size: 0.75rem;
+	> p {
+		font-size: 0.75rem;
+	}
 }
 
 // Center the logo image in its container.

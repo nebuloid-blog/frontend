@@ -1,6 +1,7 @@
 import React from 'react'
 import {Footer} from './Footer'
 import {Header} from './Header'
+import {SiteLogo} from './SiteLogo'
 import styles from './page-wrapper.module.scss'
 
 type Props = {
@@ -40,6 +41,10 @@ const PageWrapper: React.FC<Props> = ({
 						<p>{subheading}</p>
 					</hgroup>
 				)}
+
+				<div className={styles['floating-logo']}>
+					<SiteLogo />
+				</div>
 			</header>
 
 

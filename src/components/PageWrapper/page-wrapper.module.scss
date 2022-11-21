@@ -28,12 +28,23 @@
 .intro {
 	@extend %flex-column;
 	text-align: center;
+
+	> .floating-logo {
+		margin: 5rem 0;
+	}
 }
 
 // If the wrapper has a hero style class,
 //  then the intro has a full-screen size.
+// We'll also need to change the behavior of the logo.
 .hero.wrapper > .intro {
 	height: 100vh;
+
+	> .floating-logo {
+		position: absolute;
+		bottom: 0rem;
+		margin-bottom: calc(5rem + var(--banner-height));
+	}
 }
 
 /* PAGE CONTENT */

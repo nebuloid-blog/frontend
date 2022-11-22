@@ -4,20 +4,26 @@ import React from 'react'
 import styles from './site-logo.module.scss'
 
 const SiteLogo: React.FC = ( ) => (
-	<Link href='/' className={styles.home}>
-		<span className={styles.logo}>
-			<Image
-				src='/vercel.ico'
-				alt='vercel&apos;s logo'
-				width={30}
-				height={30}
-			/>
-		</span>
+	<Link href='/'>
+		<figure className={styles.logo}>
+			<div className={styles['image-container']}>
+				<Image
+					src='/vercel.ico'
+					alt='vercel&apos;s logo'
+					width={30}
+					height={30}
+				/>
+			</div>
 
-		<hgroup className={styles.website}>
-			<h1>Nebuloid</h1>
-			<p>Blog &amp; Portfolio</p>
-		</hgroup>
+			<div className={styles['brand-container']}>
+				<p className={styles.title}>
+					Nebuloid
+				</p>
+				<p className={styles.description}>
+					Blog &amp; Portfolio
+				</p>
+			</div>
+		</figure>
 	</Link>
 )
 

@@ -4,9 +4,10 @@
 header.header {
 	@extend %flex-row;
 	justify-content: flex-start;
+	align-items: stretch;
 
 	height: var(--banner-height);
-	padding: 1rem 2rem;
+	padding: 0;
 	border-bottom: 1px solid var(--border-color);
 }
 

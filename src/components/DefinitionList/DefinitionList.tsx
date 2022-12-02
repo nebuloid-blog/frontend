@@ -19,6 +19,7 @@ interface Props extends HTMLDefinitionListProps {
 	]>,
 }
 
+/* This function presses given "terms" into JSX. */
 const getTermsJSX = (
 	terms: TextNode | Array<TextNode>,
 ) => {
@@ -29,6 +30,7 @@ const getTermsJSX = (
 	))
 }
 
+/* This function presses given "definitions" into JSX. */
 const getDefinitionsJSX = (
 	definitions: DefinitionNode | Array<DefinitionNode>,
 ) => {
@@ -39,6 +41,25 @@ const getDefinitionsJSX = (
 	))
 }
 
+/* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+Definition List
+---------------
+This component might seem confusing at first.
+However, it merely emulates the behavior of
+ the <dl> element, with some additional benefits.
+The structure is very well-defined here, which makes things
+ like type-checking and styling easier for consumers.
+For example, it puts groups of <dd>/<dt> pairings
+ into <div>'s for easier styling.
+
+WARNING!
+The current naive implementation of this component may be
+ a bit slow, and could cause excessive re-renders.
+
+TODO!
+To fix this issue, use react state and hooks to help.
+It may also be pertinent to fix the div keys for this, too.
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
 const DefinitionList: React.FC<Props> = ({
 	items,
 }) => (

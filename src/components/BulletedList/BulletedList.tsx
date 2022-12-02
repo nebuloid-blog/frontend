@@ -15,6 +15,16 @@ type Props = BaseProps & (
 	| (HTMLOrderedListProps & {as: 'ol'})
 )
 
+/* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+Bulleted List
+-------------
+This component generates an ordered or unordered list.
+It leverages the ul, ol, and li elements, and adds some
+ additional type-checking for its children nodes.
+The component is structured for modularized styling as well.
+Be aware that it is specifically meant for block text,
+ and not for sectioning elements like navbars.
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
 const BulletedList: React.FC<Props> = ({
 	as: ListElement,
 	items,

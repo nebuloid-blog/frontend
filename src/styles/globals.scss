@@ -29,6 +29,9 @@
 	--background-color: rgba(var(--background-shade), var(--background-alpha));
 	--border-color: rgba(var(--border-shade), var(--border-alpha));
 
+	// For the navbar banner's height. Useful for positioning.
+	--banner-height: 4rem;
+
 	// Derivative CSS Variables
 	--foreground-shade-light: #{decompose(black)};
 	--foreground-shade-dark: #{decompose(white)};

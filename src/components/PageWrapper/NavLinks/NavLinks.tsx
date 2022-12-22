@@ -3,20 +3,16 @@ import React from 'react'
 import styles from './nav-links.module.scss'
 
 const NavLinks: React.FC = ( ) => (
-	<ul className={styles.links} role='list'>
+	<menu className={styles.links} role='list'>
 		<li>
 			<Link href='./'>
-				<p>
-					home
-				</p>
+				home
 			</Link>
 		</li>
 
 		<li>
 			<Link href='./blog'>
-				<p>
-					blog
-				</p>
+				blog
 			</Link>
 		</li>
 
@@ -24,13 +20,11 @@ const NavLinks: React.FC = ( ) => (
 		{/*
 			<li>
 				<Link href='./about'>
-					<p>
-						about
-					</p>
+					about
 				</Link>
 			</li>
 		*/}
-	</ul>
+	</menu>
 )
 
 export {NavLinks}

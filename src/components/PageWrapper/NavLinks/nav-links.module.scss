@@ -1,26 +1,29 @@
 @import '@styles/placeholders.scss';
 
 // Navbar items
-ul.links,
-ul.links > li {
+menu.links,
+menu.links > li {
 	@extend %flex-row;
 	align-items: stretch;
 }
 
 // Anchor elements dictate the clickable area.
-ul.links > li a {
+menu.links > li a {
 	@extend %flex-row;
 
 	// Add spacing and vertical lines between items.
 	// See how the last item must have a border-right as well?
-	padding: 0 1rem;
+	padding: 0 2rem;
+	min-width: 8rem;
 	border-left: 1px solid var(--border-color);
 
-	// Reset anchor/hyperlink styling.
-	color: inherit;
-	text-decoration: none;
+	// Font Properties
+	font-size: 0.875rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.125em;
 }
 
-ul.links > li:last-child a {
+menu.links > li:last-child a {
 	border-right: 1px solid var(--border-color);
 }

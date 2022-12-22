@@ -1,8 +1,7 @@
 import type {NextPage, InferGetStaticPropsType} from 'next'
 import type {getStaticProps} from './get-static-data'
 import {DefaultHead} from '@components/DefaultHead'
-import {Footer} from '@components/Footer'
-import {Header} from '@components/Header'
+import {PageWrapper} from '@components/PageWrapper'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -14,13 +13,12 @@ const Article: NextPage<Props> = ({article}) => {
 	return (
 		<>
 			<DefaultHead />
-			<Header />
 
-			<main>
-				{content}
-			</main>
-
-			<Footer />
+			<PageWrapper>
+				<main>
+					{content}
+				</main>
+			</PageWrapper>
 		</>
 	)
 }

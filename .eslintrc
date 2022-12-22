@@ -4,6 +4,9 @@
 		"node": true,
 		"es2022": true
 	},
+	"globals": {
+		"JSX": "readonly"
+	},
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"project": "./tsconfig.json",
@@ -41,5 +44,9 @@
 				]
 			}
 		]
-	}
+	},
+	"overrides": [{
+		"files": ["*.ts", "*.mts", "*.cts", "*.tsx"],
+		"rules": {"no-undef": "off"}
+	}]
 }

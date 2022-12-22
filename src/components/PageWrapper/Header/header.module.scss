@@ -4,7 +4,10 @@
 header.header {
 	@extend %flex-row;
 	justify-content: flex-start;
-	padding: 1rem 2rem;
+	align-items: stretch;
+
+	height: var(--banner-height);
+	padding: 0;
 	border-bottom: 1px solid var(--border-color);
 }
 
@@ -16,9 +19,4 @@ header.header nav {
 	// This ensures that anchors and links have a clickable
 	//  area that takes up the whole height of the bar.
 	align-items: stretch;
-}
-
-header.header hgroup * {
-	margin: 0;
-	line-height: 1em;
 }

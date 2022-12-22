@@ -1,0 +1,57 @@
+@import '@styles/placeholders.scss';
+
+/* BASE CONTAINER */
+// This component represents the home logo with text,
+//  which ultimately links back to the homepage.
+.logo {
+	@extend %flex-row;
+	gap: 0.5rem;
+
+	// Add some flair via the border.
+	border-width: 0.5rem;
+	border-color: var(--foreground-color);
+	border-style: solid;
+	padding:
+		// top
+		0.5rem
+		// right
+		1rem
+		// bottom
+		0.5rem
+		// left
+		0.75rem;
+}
+
+/* LOGO IMAGE */
+// Center the logo image in its container.
+.logo .image-container {
+	@extend %flex-row;
+}
+
+/* LOGO TEXT / BRANDING */
+// Create a stacked-view and adjust
+//  the behavior of each text-node child.
+.logo .brand-container {
+	text-align: center;
+
+	> * {
+		margin: 0;
+		line-height: normal;
+	}
+
+	> .title {
+		font-weight: 900;
+		font-size: 1.5rem;
+	}
+
+	> .description {
+		font-size: 0.75rem;
+	}
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+	.logo .image-container {
+		filter: invert(1);
+	}
+}

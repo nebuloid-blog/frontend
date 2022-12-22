@@ -3,12 +3,14 @@ import {Footer} from './Footer'
 import {Header} from './Header'
 import {SiteLogo} from './SiteLogo'
 import styles from './page-wrapper.module.scss'
+import {Heading} from '@components/Heading'
+import type {TextNode} from '@nebuloid-types/text-node'
 
 type Props = {
 	children: React.ReactNode,
 } & ({
-	heading: React.ReactNode,
-	subheading?: React.ReactNode,
+	heading: TextNode,
+	subheading?: TextNode,
 } | {
 	heading?: undefined,
 	subheading?: undefined,
@@ -36,10 +38,9 @@ const PageWrapper: React.FC<Props> = ({
 			*/}
 			<header className={styles.intro}>
 				{hero && (
-					<hgroup>
-						<h1>{heading}</h1>
-						<p>{subheading}</p>
-					</hgroup>
+					<Heading subheading={subheading}>
+						{heading}
+					</Heading>
 				)}
 
 				<div className={styles['floating-logo']}>

@@ -133,13 +133,49 @@ The inline tags are sorted in this way:
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
 
 // Inline Actions
-a, button.inline {
+// --------------
+// Also note that these styles can be undone by using
+//  the specified ".reset" class name, for special cases.
+// Useful for things like navbar links.
+a:not(.reset) {
 	text-decoration-line: underline;
-	text-decoration-style: solid;
-	text-decoration-thickness: 1px;
 
-	&:hover {}
-	&:visited {}
+	&[href] {
+		color: blue;
+
+		&:visited {
+			color: purple;
+		}
+		&:hover {
+			color: cornflowerblue;
+		}
+		&:active {
+			color: orange;
+		}
+		&:focus {
+			color: red;
+		}
+	}
+}
+
+button.inline:not(.reset) {
+	text-decoration-line: underline;
+	text-decoration-style: double;
+
+	&:not([disabled]) {
+		color: blue;
+		cursor: pointer;
+
+		&:hover {
+			color: cornflowerblue;
+		}
+		&:focus {
+			color: red;
+		}
+		&:active {
+			color: orange;
+		}
+	}
 }
 
 // Emboldened Text

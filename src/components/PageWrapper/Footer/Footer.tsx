@@ -5,6 +5,7 @@ import styles from './footer.module.scss'
 const Footer: React.FC = ( ) => (
 	<footer className={styles.footer}>
 		<a
+			className='reset'
 			href='https://vercel.com/home'
 			target='_blank'
 			rel='noopener noreferrer'

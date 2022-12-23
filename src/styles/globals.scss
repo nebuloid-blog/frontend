@@ -123,13 +123,6 @@ h1, h2, h3, h4, h5, h6, p {
 	}
 }
 
-/* Secondary / Inline Stylings */
-a {
-	// Remove default styling from links.
-	color: inherit;
-	text-decoration: inherit;
-}
-
 /* Enable Dark Mode */
 @media (prefers-color-scheme: dark) {
 	:root {

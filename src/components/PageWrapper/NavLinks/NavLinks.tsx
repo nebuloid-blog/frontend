@@ -2,7 +2,9 @@ import Link from 'next/link'
 import React from 'react'
 import styles from './nav-links.module.scss'
 
-const NavLinks: React.FC = ( ) => (
+type Props = Record<never, never>
+
+const NavLinks: React.FC<Props> = ( ) => (
 	<menu className={styles.links} role='list'>
 		<li>
 			<Link className='reset' href='./'>

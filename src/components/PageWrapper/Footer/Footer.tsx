@@ -2,7 +2,9 @@ import Image from 'next/image'
 import React from 'react'
 import styles from './footer.module.scss'
 
-const Footer: React.FC = ( ) => (
+type Props = Record<never, never>
+
+const Footer: React.FC<Props> = ( ) => (
 	<footer className={styles.footer}>
 		<a
 			className='reset'

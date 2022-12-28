@@ -3,7 +3,9 @@ import Link from 'next/link'
 import React from 'react'
 import styles from './site-logo.module.scss'
 
-const SiteLogo: React.FC = ( ) => (
+type Props = Record<never, never>
+
+const SiteLogo: React.FC<Props> = ( ) => (
 	<Link className='reset' href='/'>
 		<figure className={styles.logo}>
 			<div className={styles['image-container']}>

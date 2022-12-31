@@ -5,13 +5,13 @@ import styles from './nav-links.module.scss'
 const NavLinks: React.FC = ( ) => (
 	<menu className={styles.links} role='list'>
 		<li>
-			<Link href='./'>
+			<Link className='reset' href='./'>
 				home
 			</Link>
 		</li>
 
 		<li>
-			<Link href='./blog'>
+			<Link className='reset' href='./blog'>
 				blog
 			</Link>
 		</li>
@@ -19,7 +19,7 @@ const NavLinks: React.FC = ( ) => (
 		{/* Links to other pages */}
 		{/*
 			<li>
-				<Link href='./about'>
+				<Link className='reset' href='./about'>
 					about
 				</Link>
 			</li>

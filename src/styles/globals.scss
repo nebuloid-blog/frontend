@@ -1,5 +1,7 @@
 @use 'sass:color';
 @import './reset.scss';
+@import './elements/block-elements.scss';
+@import './elements/inline-elements.scss';
 
 /* SASS Functions */
 // The decompose function helps manipulate colors more easily.
@@ -73,61 +75,6 @@ body {
 	// It makes for a nicer transitions between pages...
 	// Otherwise, we'd have background image jitter!
 	overflow-y: scroll;
-}
-
-/* Primary / Block Stylings */
-h1 {
-	font-size: 3rem;
-	font-weight: 900;
-}
-
-h2 {
-	font-size: 2rem;
-	font-weight: 900;
-}
-
-h3 {
-	font-size: 1.5rem;
-	font-weight: 700;
-}
-
-h4 {
-	font-size: 1.25rem;
-	font-weight: 700;
-}
-
-h5 {
-	font-size: 1rem;
-	font-weight: 700;
-}
-
-h6 {
-	font-size: 1rem;
-	font-weight: 200;
-}
-
-p {
-	font-size: 1rem;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-	// Calculate the element's margin.
-	margin: calc(0.25em + 0.5rem) 0;
-
-	// Make margins smarter with these selectors.
-	&:last-child {
-		margin-bottom: 0;
-	}
-	&:first-child {
-		margin-top: 0;
-	}
-}
-
-/* Secondary / Inline Stylings */
-a {
-	// Remove default styling from links.
-	color: inherit;
-	text-decoration: inherit;
 }
 
 /* Enable Dark Mode */

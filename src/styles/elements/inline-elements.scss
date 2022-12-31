@@ -1,0 +1,174 @@
+/* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+Inline Text Modifiers
+---------------------
+The listed page content gets a bottom margin.
+Notice the omission of the top margin; this simplifies
+ certain instances of margin collapsing (or lack thereof).
+
+The inline tags are sorted in this way:
+1. Inline Actions (anchors and inline, textual buttons)
+2. Generic Font Semantics (bolded, emphasized, etc).
+3. References to meta-textual contexts
+    (abbreviations, variables, and quotes)
+4. Code Samples, etc
+5. Smaller Text representations (sup/sub/small)
+6. Comments on tags without stylistic changes
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
+
+
+// Inline Actions
+// --------------
+// Also note that these styles can be undone by using
+//  the specified ".reset" class name, for special cases.
+// Useful for things like navbar links.
+a:not(.reset) {
+	text-decoration-line: underline;
+
+	&[href] {
+		color: blue;
+
+		&:visited {
+			color: purple;
+		}
+		&:hover {
+			color: cornflowerblue;
+		}
+		&:active {
+			color: orange;
+		}
+		&:focus {
+			color: red;
+		}
+	}
+}
+
+button.inline:not(.reset) {
+	text-decoration-line: underline;
+	text-decoration-style: double;
+
+	&:not([disabled]) {
+		color: blue;
+		cursor: pointer;
+
+		&:hover {
+			color: cornflowerblue;
+		}
+		&:focus {
+			color: red;
+		}
+		&:active {
+			color: orange;
+		}
+	}
+}
+
+// Emboldened Text
+b,
+strong,
+dfn {
+	font-weight: bolder;
+}
+
+// Italicized Text
+i,
+em,
+cite {
+	font-style: italic;
+}
+
+// Semantically Underlined Text
+u {
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-decoration-thickness: 1px;
+}
+
+// Struck-Out Text
+s {
+	text-decoration-line: line-through;
+	text-decoration-style: solid;
+	text-decoration-thickness: 1px;
+}
+
+// Quoted Text
+q {
+	quotes: auto;
+}
+
+// Abbreviations & Definitions with Hoverable Text
+abbr[title],
+dfn[title] {
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+	text-decoration-thickness: 1px;
+}
+
+// Variable Indicators
+var {
+	font-family: serif;
+}
+
+// Computer-Related Text Samples
+kbd,
+code,
+samp {
+	padding: 0.125em 0.5em;
+	margin: 0 0.125em;
+
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 0.25em;
+}
+
+kbd {
+	color: rgb(var(--background-shade));
+	border-color:rgb(var(--foreground-shade), 75%);
+	background-color: rgba(var(--foreground-shade), 75%);
+}
+
+code,
+samp {
+	font-family: monospace;
+	color: rgb(var(--foreground-shade));
+	border-color:rgb(var(--background-shade));
+	background-color: rgba(var(--background-shade), 50%);
+}
+
+// Superscripted & Subscripted Text
+sup,
+sub {
+	position: relative;
+
+	// Don't resize nested sup/sub combos; it gets too small!
+	&:not(& &) {
+		font-size: calc(7em/8);
+	}
+}
+
+sup {
+	// Could also use vertical-align: super
+	top: calc(-3em/8);
+};
+
+sub {
+	// Could also use vertical-align: sub
+	top: calc(3em/8);
+};
+
+// Tiny Legal Details
+small {
+	font-size: calc(7em/8);
+}
+
+
+/* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+Missing Inline Elements
+-----------------------
+There were some elements that were specifically not styled:
+- <br>: functions as expected without additional styling.
+- <data>:
+- <time>: currently no need for different styles.
+   it may be useful later to add some hover-text.
+- <bdo>:
+- <bdi>: multi-lingual element; not supported.
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / */

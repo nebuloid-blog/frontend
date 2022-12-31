@@ -1,22 +1,29 @@
+// Apply stylesheet resetter
 @import './reset.scss';
 
+// Import styling variables
 @import './variables/colors.scss';
 @import './variables/layouts.scss';
 
+// Apply custom rules for global elements
 @import './elements/block-elements.scss';
 @import './elements/inline-elements.scss';
 
-/* Base Styling */
+
 :root {
-	// For the navbar banner's height. Useful for positioning.
+	// This is dangling variable the navbar banner's height.
+	// It's useful for positioning items between stylesheets.
 	--banner-height: 4rem;
 }
 
 * {
+	// Base box-model settings
 	box-sizing: border-box;
 }
 
+html,
 body {
+	// Base site font settings
 	font-family:
 		-apple-system,
 		BlinkMacSystemFont,
@@ -32,11 +39,14 @@ body {
 	font-size: 16px;
 	line-height: 1.5;
 
+	// Base site color settings
 	color: var(--foreground-color);
 	background: var(--background-color);
+}
 
-	// This always shows a scrollbar.
+body {
+	// This always shows a scrollbar in the main browser area.
 	// It makes for a nicer transitions between pages...
-	// Otherwise, we'd have background image jitter!
+	// Otherwise, we'd have some background image jitter!
 	overflow-y: scroll;
 }

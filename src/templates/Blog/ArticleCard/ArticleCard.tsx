@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import styles from './article-card.module.scss'
+import {combineClassNames} from '@utilities/combine-class-names'
 
 interface Props {
 	slug: string,
@@ -16,7 +17,10 @@ const ArticleCard: React.FC<Props> = ({
 }) => (
 	<Link
 		href={`/blog/${slug}`}
-		className={styles.card}
+		className={combineClassNames(
+			'reset',
+			styles.card,
+		)}
 	>
 		<article>
 			<section>

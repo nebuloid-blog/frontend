@@ -1,6 +1,7 @@
 @use 'sass:color';
 @import './reset.scss';
 @import './elements/block-elements.scss';
+@import './elements/inline-elements.scss';
 
 /* SASS Functions */
 // The decompose function helps manipulate colors more easily.

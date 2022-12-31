@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './button.module.scss'
+import {combineClassNames} from '@utilities/combine-class-names'
 
 type ButtonSize =
 	| 'small'
@@ -30,30 +31,30 @@ const Button: React.FC<Props> = ({
 	priority = 'primary',
 	className,
 	...props
-}) => {
-	// Stitch each className together into a single string...
-	const classNames
-	= `${className ?? ''} ${styles.button} ${styles[size]} ${styles[priority]}`
+}) => (
+	<Component
+		className={
+			combineClassNames([
+				styles.button,
+				styles[size],
+				styles[priority],
+			])
+		}
 
-	return (
-		<Component
-			className={classNames}
-
-			// WARNING!
-			// There is a problem that I am encountering with
-			//  Polymorphic Components and Discrimitory Unions,
-			//  relating to extending Base HTML Attributes.
-			// Point is, we shouldn't need to assert this type!
-			//
-			// TODO!
-			// Resolve and delete the type assertion below.
-			// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-			{...props as Record<string, unknown>}
-		>
-			{props.children}
-		</Component>
-	)
-}
+		// WARNING!
+		// There is a problem that I am encountering with
+		//  Polymorphic Components and Discrimitory Unions,
+		//  relating to extending Base HTML Attributes.
+		// Point is, we shouldn't need to assert this type!
+		//
+		// TODO!
+		// Resolve and delete the type assertion below.
+		// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+		{...props as Record<string, unknown>}
+	>
+		{props.children}
+	</Component>
+)
 
 export {Button}
 export type {

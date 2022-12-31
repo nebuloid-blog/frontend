@@ -1,51 +1,15 @@
-@use 'sass:color';
 @import './reset.scss';
+
+@import './variables/colors.scss';
+@import './variables/layouts.scss';
+
 @import './elements/block-elements.scss';
 @import './elements/inline-elements.scss';
 
-/* SASS Functions */
-// The decompose function helps manipulate colors more easily.
-// It extrapolates a color's "shade", which is a tuple of colors.
-// This "shade" can't be used without an rgb() or rgba() function.
-//
-// Once Dynamic Color Manipulation with CSS Relative Colors
-//  is in spec for CSS in most browsers, we can remove this.
-@function decompose($color) {
-	$r: color.red($color);
-	$g: color.green($color);
-	$b: color.blue($color);
-	$shade: ($r,$g,$b);
-	@return $shade;
-}
-
 /* Base Styling */
 :root {
-	// Primary CSS Variables & other root settings
-	color-scheme: light;
-
-	--foreground-shade: var(--foreground-shade-light);
-	--background-shade: var(--background-shade-light);
-	--border-shade: var(--border-shade-light);
-
-	--foreground-color: rgba(var(--foreground-shade), var(--foreground-alpha));
-	--background-color: rgba(var(--background-shade), var(--background-alpha));
-	--border-color: rgba(var(--border-shade), var(--border-alpha));
-
 	// For the navbar banner's height. Useful for positioning.
 	--banner-height: 4rem;
-
-	// Derivative CSS Variables
-	--foreground-shade-light: #{decompose(black)};
-	--foreground-shade-dark: #{decompose(white)};
-	--foreground-alpha: 100%;
-
-	--background-shade-light: #{decompose(white)};
-	--background-shade-dark: #{decompose(black)};
-	--background-alpha: 50%;
-
-	--border-shade-light: #{decompose(#eaeaea)};
-	--border-shade-dark: #{decompose(#222)};
-	--border-alpha: 75%;
 }
 
 * {
@@ -75,14 +39,4 @@ body {
 	// It makes for a nicer transitions between pages...
 	// Otherwise, we'd have background image jitter!
 	overflow-y: scroll;
-}
-
-/* Enable Dark Mode */
-@media (prefers-color-scheme: dark) {
-	:root {
-		color-scheme: dark;
-		--foreground-shade: var(--foreground-shade-dark);
-		--background-shade: var(--background-shade-dark);
-		--border-shade: var(--border-shade-dark);
-	}
 }

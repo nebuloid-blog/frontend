@@ -5,6 +5,7 @@ import {SiteLogo} from './SiteLogo'
 import styles from './page-wrapper.module.scss'
 import {Heading} from '@components/Heading'
 import type {TextNode} from '@nebuloid-types/text-node'
+import {combineClassNames} from '@utilities/combine-class-names'
 
 type Props = {
 	children: React.ReactNode,
@@ -26,11 +27,15 @@ const PageWrapper: React.FC<Props> = ({
 	// If the wrapper has a hero-style, then the page intro
 	//  will span the whole height of the browser's view.
 	// It also adds a negative margin to the page element.
-	let wrapperStyle = styles.wrapper
-	if (hero) wrapperStyle = `${styles.wrapper} ${styles.hero}`
-
 	return (
-		<div className={wrapperStyle}>
+		<div
+			className={
+				combineClassNames([
+					styles.wrapper,
+					hero && styles.hero,
+				])
+			}
+		>
 			{/*
 				PAGE INTRO / THE WRAPPER'S HEADER
 				This header contains the site's logo link, and it

@@ -109,7 +109,7 @@ dfn[title] {
 
 // Variable Indicators
 var {
-	font-family: serif;
+	@extend %monospace-typeface;
 }
 
 // Computer-Related Text Samples
@@ -139,7 +139,7 @@ samp {
 
 	code:not(& code),
 	samp:not(& samp) {
-		font-family: monospace;
+		@extend %monospace-typeface;
 	}
 }
 

@@ -1,3 +1,4 @@
+// Use SASS color extensions
 @use 'sass:color';
 
 /* SASS Functions */
@@ -15,10 +16,12 @@
 	@return $shade;
 }
 
+/* Color Settings & Variable Declarations */
 :root {
-	// Primary CSS Variables & other root settings
 	color-scheme: light;
 
+	// Primary CSS Variables
+	// These should be referenced often in other stylesheets.
 	--foreground-shade: var(--foreground-shade-light);
 	--background-shade: var(--background-shade-light);
 	--border-shade: var(--border-shade-light);
@@ -28,6 +31,7 @@
 	--border-color: rgba(var(--border-shade), var(--border-alpha));
 
 	// Derivative CSS Variables
+	// These shouldn't be directly referenced, except here.
 	--foreground-shade-light: #{decompose(black)};
 	--foreground-shade-dark: #{decompose(white)};
 	--foreground-alpha: 100%;
@@ -41,10 +45,11 @@
 	--border-alpha: 75%;
 }
 
-/* Enable Dark Mode */
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
 	:root {
 		color-scheme: dark;
+
 		--foreground-shade: var(--foreground-shade-dark);
 		--background-shade: var(--background-shade-dark);
 		--border-shade: var(--border-shade-dark);

@@ -2,7 +2,7 @@ import {Heading} from '@components/Heading'
 import {PageWrapper} from '@components/PageWrapper'
 
 const BlockElements = ( ) => (
-	<PageWrapper heading='Nebuloid' subheading='Developer Portfolio'>
+	<PageWrapper hero>
 		<main>
 			<Heading>Block Elements Reference Sheet</Heading>
 

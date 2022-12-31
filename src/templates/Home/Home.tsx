@@ -6,10 +6,7 @@ const Home: NextPage = ( ) => (
 	<>
 		<DefaultHead />
 
-		<PageWrapper
-			heading='Welcome to Nebuloid.'
-			subheading='Created by @noltron000 with care.'
-		>
+		<PageWrapper hero>
 			<main>
 				<div>
 					<h2>Welcome to Nebuloid!</h2>

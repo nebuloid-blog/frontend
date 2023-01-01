@@ -1,0 +1,95 @@
+@import '@styles/variables/layouts.scss';
+
+/* BASE CONTAINER / THE WRAPPER */
+// The page wrapper provides a suitable background
+//  image for all screen sizes.
+.wrapper {
+	min-height: 100vh;
+
+	// Stack items vertically, justified from top.
+	@extend %flex-column;
+	justify-content: flex-start;
+	align-items: stretch;
+
+	// This extends the background
+	//  past contained bottom margins.
+	overflow: hidden;
+
+	// Here are the background-image options, including
+	//  stretching, repeating, vignette, etc.
+	background-image: url('https://i.imgur.com/wpRIAgS.png');
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* PAGE INTRO / THE WRAPPER'S HEADER */
+// This represents the full-screen title and site logo.
+.intro {
+	@extend %flex-column;
+	text-align: center;
+
+	> .floating-logo {
+		margin: 5rem 0;
+	}
+}
+
+// If the wrapper has a hero style class,
+//  then the intro has a full-screen size.
+// We'll also need to change the behavior of the logo.
+.hero.wrapper > .intro {
+	height: 100vh;
+
+	> .floating-logo {
+		position: absolute;
+		bottom: 0rem;
+		margin-bottom: calc(5rem + var(--banner-height));
+	}
+}
+
+/* PAGE CONTENT */
+// This inner wrapper contains the page's actual content,
+//  alongisde a template for the page's navigation banner.
+.page {
+	@extend %flex-column;
+	align-items: stretch;
+
+	width: 100%;
+	max-width: 72rem;
+
+	margin: 0 auto;
+
+	// This creates a frosted-glass-like effect.
+	background-color: var(--background-color);
+	backdrop-filter: blur(1rem);
+}
+
+.page > .content {
+	flex: 1;
+	padding: 2rem;
+}
+
+// If the wrapper has a hero style class,
+//  then the page also has a special negative margin size.
+// This allows the page banner to peak out at the bottom
+//  of the full-screen hero view.
+.hero.wrapper > .page {
+	margin-top: calc(-1 * var(--banner-height));
+}
+
+/* PAGE APPENDIX / THE WRAPPER'S FOOTER */
+// The wrapper's footer here is slightly different
+//  from the page's footer.
+// It just contains light copyright info, for now.
+.appendix {
+	flex: 1;
+
+	@extend %flex-column;
+	justify-content: flex-end;
+
+	margin-top: 5rem;
+	padding: 2rem;
+
+	text-align: center;
+	color: rgba(var(--foreground-shade), 50%);
+}

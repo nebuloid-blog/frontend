@@ -1,0 +1,109 @@
+/* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+Page Content Margins
+--------------------
+The listed page content gets a bottom margin.
+Notice the omission of the top margin; this simplifies
+ certain instances of margin collapsing (or not collapsing).
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
+
+
+// Heading Elements
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+
+// The Paragraph Element
+p,
+
+// Figure & Grouping Containers
+blockquote,
+figure,
+figcaption,
+hgroup,
+pre,
+table,
+
+// List Containers
+ul,
+ol,
+dl,
+
+// List Node Elements
+dl dd:last-child,
+dl dt:last-child,
+ul > li:last-child,
+ol > li:last-child,
+
+// Data Node Elements
+data,
+time {
+	:where(#page-content) & {
+		margin-bottom: min(1.5rem, calc(0.25em + 0.75rem));
+	}
+}
+
+// Heading Groups do not have this extra margin within.
+// This makes the text and subtext appear closer together.
+hgroup :not(:last-child) {
+	margin-bottom: 0;
+}
+
+// The horizontal rule element gets its own special margin.
+// We've opted to include a top and bottom margin for this.
+// Note: 1.5rem is the maximum margin from the above calc.
+hr {
+	color: var(--border-color);
+	margin: 1.5rem;
+}
+
+
+/* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+Headings & Paragraphs
+---------------------
+This defines the most palpable styling of the website.
+Typography is everything!
+
+You will notice the global heading and hero classes here.
+The heading class gives any text a heading-style typeface.
+The hero class uses a bolder looking display-style font.
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+	@extend %heading-typeface;
+	&.hero {
+		@extend %hero-typeface;
+	}
+}
+
+h1 {
+	font-size: 4rem;
+}
+
+h2 {
+	font-size: 3rem;
+}
+
+h3 {
+	font-size: 2rem;
+}
+
+h4 {
+	font-size: 1.5rem;
+}
+
+h5 {
+	font-size: 1.25rem;
+}
+
+h6 {
+	font-size: 1rem;
+}

@@ -1,0 +1,34 @@
+@import '@styles/variables/layouts.scss';
+
+// The %flex-row placeholder is heavily used here.
+// It applies flexbox to align things nicely.
+
+.footer {
+	@extend %flex-row;
+
+	// Style the footer bar
+	padding: 2rem;
+	border-top: 1px solid var(--border-color);
+}
+
+.footer a {
+	@extend %flex-row;
+
+	// Space out contents some
+	gap: 0.5rem;
+
+	// Reset link styling
+	color: inherit;
+	text-decoration: none;
+}
+
+.logo {
+	// Center the contained logo/image
+	@extend %flex-row;
+}
+
+@media (prefers-color-scheme: dark) {
+	.logo img {
+		filter: invert(1);
+	}
+}

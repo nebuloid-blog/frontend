@@ -1,0 +1,39 @@
+@import '@styles/variables/layouts.scss';
+
+.button {
+	@extend %flex-column;
+}
+
+.large {
+	min-height: 4rem;
+	font-size: 1.25em;
+}
+.medium {
+	min-height: 3rem;
+	font-size: 1em;
+}
+.small {
+	min-height: 2rem;
+	font-size: 0.75em
+}
+
+.primary {
+	color: rgb(var(--background-shade));
+	background-color: var(--foreground-color);
+	padding: 0.5em 1em;
+}
+.secondary {
+	color: rgb(var(--foreground-color));
+	background-color: transparent;
+	padding: 0.25em 0.75em;
+
+	border-style: solid;
+	border-width: 0.25rem;
+	border-color: rgb(var(--foregroun-shade));
+
+}
+.tertiary {
+	color: rgb(var(--foreground-color));
+	background-color: transparent;
+	padding: 0.5em 1em;
+}

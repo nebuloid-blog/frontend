@@ -1,0 +1,31 @@
+%hero-typeface {
+	font-family: 'Stargaze', fantasy;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: normal;
+	text-transform: uppercase;
+}
+
+%heading-typeface {
+	font-family: 'Saira', sans-serif;
+	font-weight: 800;
+	font-stretch: semi-condensed;
+	letter-spacing: calc(1em/16);
+	text-transform: uppercase;
+}
+
+%body-typeface {
+	font-family: 'Saira', sans-serif;
+	font-weight: normal;
+	font-stretch: semi-expanded;
+	letter-spacing: normal;
+	text-transform: none;
+}
+
+%monospace-typeface {
+	font-family: 'CP Mono', monospace;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: normal;
+	text-transform: none;
+}

@@ -65,35 +65,45 @@ Headings & Paragraphs
 ---------------------
 This defines the most palpable styling of the website.
 Typography is everything!
+
+You will notice the global heading and hero classes here.
+The heading class gives any text a heading-style typeface.
+The hero class uses a bolder looking display-style font.
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+	@extend %heading-typeface;
+	&.hero {
+		@extend %hero-typeface;
+	}
+}
 
 h1 {
 	font-size: 4rem;
-	font-weight: 700;
 }
 
 h2 {
 	font-size: 3rem;
-	font-weight: 700;
 }
 
 h3 {
 	font-size: 2rem;
-	font-weight: 700;
 }
 
 h4 {
 	font-size: 1.5rem;
-	font-weight: 700;
 }
 
 h5 {
 	font-size: 1.25rem;
-	font-weight: 700;
 }
 
 h6 {
 	font-size: 1rem;
-	font-weight: 700;
 }

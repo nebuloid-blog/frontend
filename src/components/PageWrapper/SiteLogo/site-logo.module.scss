@@ -1,4 +1,4 @@
-@import '@styles/placeholders.scss';
+@import '@styles/variables/layouts.scss';
 
 /* BASE CONTAINER */
 // This component represents the home logo with text,
@@ -35,17 +35,11 @@
 	text-align: center;
 
 	> * {
-		margin: 0;
-		line-height: normal;
+		line-height: 0;
 	}
 
 	> .title {
-		font-weight: 900;
-		font-size: 1.5rem;
-	}
-
-	> .description {
-		font-size: 0.75rem;
+		font-size: 2rem;
 	}
 }
 

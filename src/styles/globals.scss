@@ -1,88 +1,47 @@
-@use 'sass:color';
+// Apply stylesheet resetter
 @import './reset.scss';
+
+// Get fonts
+@import './fonts/cp-mono.scss';
+@import './fonts/saira.scss';
+@import './fonts/stargaze.scss';
+
+// Import styling variables
+@import './variables/colors.scss';
+@import './variables/layouts.scss';
+@import './variables/typefaces.scss';
+
+// Apply custom rules for global elements
 @import './elements/block-elements.scss';
 @import './elements/inline-elements.scss';
 
-/* SASS Functions */
-// The decompose function helps manipulate colors more easily.
-// It extrapolates a color's "shade", which is a tuple of colors.
-// This "shade" can't be used without an rgb() or rgba() function.
-//
-// Once Dynamic Color Manipulation with CSS Relative Colors
-//  is in spec for CSS in most browsers, we can remove this.
-@function decompose($color) {
-	$r: color.red($color);
-	$g: color.green($color);
-	$b: color.blue($color);
-	$shade: ($r,$g,$b);
-	@return $shade;
-}
 
-/* Base Styling */
 :root {
-	// Primary CSS Variables & other root settings
-	color-scheme: light;
-
-	--foreground-shade: var(--foreground-shade-light);
-	--background-shade: var(--background-shade-light);
-	--border-shade: var(--border-shade-light);
-
-	--foreground-color: rgba(var(--foreground-shade), var(--foreground-alpha));
-	--background-color: rgba(var(--background-shade), var(--background-alpha));
-	--border-color: rgba(var(--border-shade), var(--border-alpha));
-
-	// For the navbar banner's height. Useful for positioning.
+	// This is dangling variable the navbar banner's height.
+	// It's useful for positioning items between stylesheets.
 	--banner-height: 4rem;
-
-	// Derivative CSS Variables
-	--foreground-shade-light: #{decompose(black)};
-	--foreground-shade-dark: #{decompose(white)};
-	--foreground-alpha: 100%;
-
-	--background-shade-light: #{decompose(white)};
-	--background-shade-dark: #{decompose(black)};
-	--background-alpha: 50%;
-
-	--border-shade-light: #{decompose(#eaeaea)};
-	--border-shade-dark: #{decompose(#222)};
-	--border-alpha: 75%;
 }
 
 * {
+	// Base box-model settings
 	box-sizing: border-box;
 }
 
+html,
 body {
-	font-family:
-		-apple-system,
-		BlinkMacSystemFont,
-		Segoe UI, Roboto,
-		Oxygen,
-		Ubuntu,
-		Cantarell,
-		Fira Sans,
-		Droid Sans,
-		Helvetica Neue,
-		sans-serif;
-
+	// Base site font settings
+	@extend %body-typeface;
 	font-size: 16px;
 	line-height: 1.5;
 
+	// Base site color settings
 	color: var(--foreground-color);
 	background: var(--background-color);
-
-	// This always shows a scrollbar.
-	// It makes for a nicer transitions between pages...
-	// Otherwise, we'd have background image jitter!
-	overflow-y: scroll;
 }
 
-/* Enable Dark Mode */
-@media (prefers-color-scheme: dark) {
-	:root {
-		color-scheme: dark;
-		--foreground-shade: var(--foreground-shade-dark);
-		--background-shade: var(--background-shade-dark);
-		--border-shade: var(--border-shade-dark);
-	}
+body {
+	// This always shows a scrollbar in the main browser area.
+	// It makes for a nicer transitions between pages...
+	// Otherwise, we'd have some background image jitter!
+	overflow-y: scroll;
 }

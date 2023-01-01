@@ -1,0 +1,35 @@
+/* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+Liquitype CP Mono
+-----------------
+Blocky monospace font inspired by british carplates.
+It doesn't have italics, but has a range of bold fonts.
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
+@font-face {
+	font-family: 'CP Mono';
+	font-weight: 199;
+	src: url('/fonts/cp-mono/cp-mono-extra-light.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'CP Mono';
+	font-weight: 200 399;
+	src: url('/fonts/cp-mono/cp-mono-light.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'CP Mono';
+	font-weight: 400 699;
+	src: url('/fonts/cp-mono/cp-mono-plain.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'CP Mono';
+	font-weight: 700 899;
+	src: url('/fonts/cp-mono/cp-mono-bold.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'CP Mono';
+	font-weight: 900;
+	src: url('/fonts/cp-mono/cp-mono-black.otf') format('opentype');
+}

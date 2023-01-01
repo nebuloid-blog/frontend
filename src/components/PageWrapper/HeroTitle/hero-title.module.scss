@@ -1,0 +1,38 @@
+.hero-title {
+	width: 100%;
+	padding: 0 2.5vw;
+
+	color: rgb(var(--foreground-shade));
+	fill: rgb(var(--foreground-shade));
+
+	h1 {
+		line-height: 0;
+	}
+
+	p {
+		font-size: 2rem;
+		display: flex;
+
+		&::before,
+		&::after {
+			content: '';
+
+			flex: 1;
+			align-self: center;
+
+			border-style: solid;
+			border-width: 0.125em 0;
+
+			height: 0.125em;
+			margin: 0 0.6vw;
+		}
+
+		&::before {
+			margin-right: 2rem;
+		}
+
+		&::after {
+			margin-left: 2rem;
+		}
+	}
+}

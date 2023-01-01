@@ -101,23 +101,46 @@ dfn[title] {
 	text-decoration-line: underline;
 	text-decoration-style: dotted;
 	text-decoration-thickness: 1px;
+
+	&:hover {
+		cursor: help;
+	}
 }
 
 // Variable Indicators
 var {
-	font-family: serif;
+	@extend %monospace-typeface;
 }
 
 // Computer-Related Text Samples
 kbd,
 code,
 samp {
-	padding: 0.125em 0.5em;
+	display: inline-flex;
+	align-items: center;
+
+	height: calc(1em + 7em/8);
+	vertical-align: 0.125em;
+
+	padding: 0 0.25em;
 	margin: 0 0.125em;
 
 	border-width: 2px;
 	border-style: solid;
 	border-radius: 0.25em;
+
+	&:not(& &) {
+		font-size: 0.75em;
+	}
+
+	kbd:not(& kbd) {
+		font-weight: 500;
+	}
+
+	code:not(& code),
+	samp:not(& samp) {
+		@extend %monospace-typeface;
+	}
 }
 
 kbd {
@@ -128,7 +151,6 @@ kbd {
 
 code,
 samp {
-	font-family: monospace;
 	color: rgb(var(--foreground-shade));
 	border-color:rgb(var(--background-shade));
 	background-color: rgba(var(--background-shade), 50%);

@@ -2,7 +2,9 @@ import React from 'react'
 import {NavLinks} from '../NavLinks'
 import styles from './header.module.scss'
 
-const Header: React.FC = ( ) => (
+type Props = Record<never, never>
+
+const Header: React.FC<Props> = ( ) => (
 	<header className={styles.header}>
 		{/* Navigation Items */}
 		<nav>

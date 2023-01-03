@@ -4,6 +4,7 @@
 	font-stretch: normal;
 	letter-spacing: normal;
 	text-transform: uppercase;
+	line-height: 1.5;
 }
 
 %heading-typeface {
@@ -12,6 +13,7 @@
 	font-stretch: semi-condensed;
 	letter-spacing: calc(1em/16);
 	text-transform: uppercase;
+	line-height: 1.5;
 }
 
 %body-typeface {
@@ -20,6 +22,7 @@
 	font-stretch: normal;
 	letter-spacing: normal;
 	text-transform: none;
+	line-height: 1.5;
 }
 
 %monospace-typeface {
@@ -28,4 +31,5 @@
 	font-stretch: normal;
 	letter-spacing: normal;
 	text-transform: none;
+	line-height: 1.5;
 }

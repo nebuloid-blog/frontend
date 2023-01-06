@@ -31,8 +31,7 @@ html,
 body {
 	// Base site font settings
 	@extend %body-typeface;
-	font-size: 16px;
-	line-height: 1.5;
+	font-size: 20px;
 
 	// Base site color settings
 	color: var(--foreground-color);

@@ -34,18 +34,23 @@ header.header {
 		align-items: stretch;
 	}
 
-	// Anchor elements dictate the clickable area.
-	menu > li a {
-		@extend %flex-row;
-
-		// Add spacing and vertical lines between items.
+	// List item elements have custom borders.
+	menu > li {
+		// Add vertical lines between items.
 		// See how the last item must have a border-right as well?
-		padding: 0 2rem;
-		min-width: 8rem;
 		border-left: 1px solid var(--border-color);
+
+		&:last-child {
+			border-right: 1px solid var(--border-color);
+		}
 	}
 
-	menu > li:last-child a {
-		border-right: 1px solid var(--border-color);
+	// Anchor elements dictate the clickable area.
+	menu > li a {
+		// Add spacing between items.
+		// This also enlarges the clickable area.
+		@extend %flex-row;
+		padding: 0 2rem;
+		min-width: 8rem;
 	}
 }

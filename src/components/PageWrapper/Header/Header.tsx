@@ -38,6 +38,20 @@ const Header: React.FC<Props> = ( ) => (
 			</menu>
 		</nav>
 
+		{/* Site Settings */}
+		<div>
+			<menu>
+				<li>
+					<button
+						className='inline reset'
+						disabled={true}
+					>
+						Dark Mode
+					</button>
+				</li>
+			</menu>
+		</div>
+
 		{/* Authentication Options */}
 		{/*
 			Sign In / Register

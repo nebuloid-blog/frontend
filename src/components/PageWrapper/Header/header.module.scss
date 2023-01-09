@@ -17,7 +17,7 @@ header.header {
 	text-transform: uppercase;
 	letter-spacing: 0.125em;
 
-	nav {
+	> * {
 		@extend %flex-row;
 		gap: 1rem;
 
@@ -46,11 +46,12 @@ header.header {
 	}
 
 	// Anchor elements dictate the clickable area.
-	menu > li a {
+	menu > li {
+	a, button {
 		// Add spacing between items.
 		// This also enlarges the clickable area.
 		@extend %flex-row;
 		padding: 0 2rem;
 		min-width: 8rem;
-	}
+	}}
 }

@@ -52,6 +52,10 @@
 
 	color: var(--foreground-color);
 	background: var(--background-color);
+
+	.invert-in-light-mode {
+		filter: invert(1)
+	}
 }
 
 @mixin dark-mode {
@@ -67,6 +71,10 @@
 
 	color: var(--foreground-color);
 	background: var(--background-color);
+
+	.invert-in-dark-mode {
+		filter: invert(1)
+	}
 }
 
 [data-color-scheme='light'] {

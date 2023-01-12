@@ -42,10 +42,3 @@
 		font-size: 1.5rem;
 	}
 }
-
-/* DARK MODE */
-@media (prefers-color-scheme: dark) {
-	.logo .image-container {
-		filter: invert(1);
-	}
-}

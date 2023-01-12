@@ -26,9 +26,3 @@
 	// Center the contained logo/image
 	@extend %flex-row;
 }
-
-@media (prefers-color-scheme: dark) {
-	.logo img {
-		filter: invert(1);
-	}
-}

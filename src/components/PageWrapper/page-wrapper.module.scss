@@ -17,7 +17,6 @@
 
 	// Here are the background-image options, including
 	//  stretching, repeating, vignette, etc.
-	background-image: url('https://i.imgur.com/wpRIAgS.png');
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -92,4 +91,36 @@
 
 	text-align: center;
 	color: rgba(var(--foreground-shade), 50%);
+}
+
+/* Color Schemes */
+// The color scheme dictates the background systems here.
+@mixin light-mode {
+	background-image: url('https://i.imgur.com/sICHp6S.jpg');
+	background-position: center 30%;
+}
+
+@mixin dark-mode {
+	background-image: url('https://i.imgur.com/wpRIAgS.png');
+	background-position: left center;
+}
+
+.wrapper {
+	&:global([data-color-scheme='light']) {
+		@include light-mode;
+	}
+
+	&:global([data-color-scheme='dark']) {
+		@include dark-mode;
+	}
+
+	&:global([data-color-scheme='system']) {
+		@media (prefers-color-scheme: light) {
+			@include light-mode;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			@include dark-mode;
+		}
+	}
 }

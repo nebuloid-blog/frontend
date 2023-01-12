@@ -21,10 +21,17 @@ The inline tags are sorted in this way:
 // Also note that these styles can be undone by using
 //  the specified ".reset" class name, for special cases.
 // Useful for things like navbar links.
-a:not(.reset) {
-	text-decoration-line: underline;
+a {
+	&.reset {
+		user-select: none;
+	}
 
-	&[href] {
+	&:not(.reset) {
+		text-decoration-line: underline;
+		text-decoration-style: solid;
+	}
+
+	&[href]:not(.reset) {
 		color: blue;
 
 		&:visited {
@@ -42,13 +49,25 @@ a:not(.reset) {
 	}
 }
 
-button.inline:not(.reset) {
-	text-decoration-line: underline;
-	text-decoration-style: double;
+button.inline {
+	text-transform: inherit;
+	letter-spacing: inherit;
+
+	&.reset {
+		user-select: none;
+	}
+
+	&:not(.reset) {
+		text-decoration-line: underline;
+		text-decoration-style: double;
+	}
 
 	&:not([disabled]) {
-		color: blue;
 		cursor: pointer;
+	}
+
+	&:not([disabled]):not(.reset) {
+		color: blue;
 
 		&:hover {
 			color: cornflowerblue;

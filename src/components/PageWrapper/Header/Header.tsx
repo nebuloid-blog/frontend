@@ -1,64 +1,88 @@
 import Link from 'next/link'
-import React from 'react'
+import React, {useCallback, useMemo} from 'react'
 import styles from './header.module.scss'
+import {ColorSchemeContext} from '@contexts/ColorScheme'
+import type {ColorScheme} from '@hooks/use-color-scheme'
+import {useSafeContext} from '@hooks/use-safe-context'
 
 type Props = Record<never, never>
 
-const Header: React.FC<Props> = ( ) => (
-	<header className={styles.header}>
-		{/* Navigation Items */}
-		<nav>
-			<menu>
-				<li>
-					<Link
-						href='/'
-						className='reset'
-					>
-						Home
-					</Link>
-				</li>
+const Header: React.FC<Props> = ( ) => {
+	// Here, we can toggle the color scheme's global state.
+	// Without its usage outside of this component, it has
+	//  zero implications for CSS stylings.
+	const [colorScheme, setColorScheme] = useSafeContext(ColorSchemeContext)
 
-				<li>
-					<Link
-						href='/blog'
-						className='reset'
-					>
-						Blog
-					</Link>
-				</li>
+	const nextColorScheme = useMemo(( ): ColorScheme => {
+		if (colorScheme === 'dark') return 'light'
+		else if (colorScheme === 'light') return 'system'
+		else return 'dark'
+	}, [colorScheme])
 
-				{/* Links to other pages */}
-				{/*
+	const getReadableColor = useCallback((color: ColorScheme) => {
+		if (color === 'dark') return 'dark mode'
+		else if (color === 'light') return 'light mode'
+		else return 'system theme'
+	}, [ ])
+
+	return (
+		<header className={styles.header}>
+			{/* Navigation Items */}
+			<nav>
+				<menu>
 					<li>
-						<Link className='reset' href='./about'>
-							about
+						<Link
+							href='/'
+							className='reset'
+						>
+							Home
 						</Link>
 					</li>
-				*/}
-			</menu>
-		</nav>
 
-		{/* Site Settings */}
-		<div>
-			<menu>
-				<li>
-					<button
-						className='inline reset'
-						disabled={true}
-					>
-						Dark Mode
-					</button>
-				</li>
-			</menu>
-		</div>
+					<li>
+						<Link
+							href='/blog'
+							className='reset'
+						>
+							Blog
+						</Link>
+					</li>
 
-		{/* Authentication Options */}
-		{/*
-			Sign In / Register
-			Sign Out / View Profile
-			...
-		*/}
-	</header>
-)
+					{/* Links to other pages */}
+					{/*
+						<li>
+							<Link className='reset' href='./about'>
+								about
+							</Link>
+						</li>
+					*/}
+				</menu>
+			</nav>
+
+			{/* Site Settings */}
+			<div>
+				<menu>
+					<li>
+						<button
+							className='inline reset'
+							onClick={( ) => {
+								setColorScheme(nextColorScheme)
+							}}
+						>
+							Use {getReadableColor(nextColorScheme)}
+						</button>
+					</li>
+				</menu>
+			</div>
+
+			{/* Authentication Options */}
+			{/*
+				Sign In / Register
+				Sign Out / View Profile
+				...
+			*/}
+		</header>
+	)
+}
 
 export {Header}

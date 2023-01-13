@@ -43,6 +43,21 @@
 					"**/*!(.module).sass"
 				]
 			}
+		],
+		// Right now, this is reporting false positives.
+		// Has to do with version 2.26~2.27... oh well!
+		"import/order": [
+			"error",
+			{
+				"groups": [
+					"builtin",
+					"external",
+					"parent",
+					"sibling",
+					"index"
+				]
+			}
+
 		]
 	},
 	"overrides": [{

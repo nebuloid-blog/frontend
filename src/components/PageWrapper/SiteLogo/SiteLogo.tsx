@@ -9,7 +9,12 @@ type Props = Record<never, never>
 const SiteLogo: React.FC<Props> = ( ) => (
 	<Link className='reset' href='/'>
 		<figure className={styles.logo}>
-			<div className={styles['image-container']}>
+			<div className={
+				combineClassNames([
+					styles['image-container'],
+					'invert-in-dark-mode',
+				])
+			}>
 				<Image
 					src='/vercel.ico'
 					alt='vercel&apos;s logo'

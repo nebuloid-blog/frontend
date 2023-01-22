@@ -32,19 +32,19 @@ a {
 	}
 
 	&[href]:not(.reset) {
-		color: blue;
+		color: var(--link-color);
 
 		&:visited {
-			color: purple;
+			color: var(--link-visited-color);
 		}
 		&:hover {
-			color: cornflowerblue;
+			color: var(--link-hover-color);
 		}
 		&:active {
-			color: orange;
+			color: var(--link-active-color);
 		}
 		&:focus {
-			color: red;
+			color: var(--link-focus-color);
 		}
 	}
 }
@@ -67,16 +67,16 @@ button.inline {
 	}
 
 	&:not([disabled]):not(.reset) {
-		color: blue;
+		color: var(--link-color);
 
 		&:hover {
-			color: cornflowerblue;
+			color: var(--link-hover-color);
 		}
 		&:focus {
-			color: red;
+			color: var(--link-focus-color);
 		}
 		&:active {
-			color: orange;
+			color: var(--link-active-color);
 		}
 	}
 }

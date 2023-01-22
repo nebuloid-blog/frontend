@@ -6,14 +6,14 @@ const inlineDefinitionList = [
 	{ // Inline Actions
 		terms: [
 			<>inline anchor, (<code>{'<a>'}</code>)</>,
-			<>inline button, (<code>{'<button class="inline">'}</code>)</>,
+			<>inline button, (<code>{'<button>'}</code>)</>,
 		],
 		definitions: [
 			<a href='#'>sample</a>,
 			<a href=''>sample</a>,
 			<a>disabled</a>,
-			<button className='inline'>sample</button>,
-			<button className='inline' disabled>disabled</button>,
+			<button>sample</button>,
+			<button disabled>disabled</button>,
 		],
 	},
 	{ // Emboldened Text

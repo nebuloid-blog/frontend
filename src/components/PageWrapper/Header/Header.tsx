@@ -64,7 +64,7 @@ const Header: React.FC<Props> = ( ) => {
 				<menu>
 					<li>
 						<button
-							className='inline reset'
+							className='reset'
 							onClick={( ) => {
 								setColorScheme(nextColorScheme)
 							}}

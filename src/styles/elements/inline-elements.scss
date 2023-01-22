@@ -18,6 +18,7 @@ The inline tags are sorted in this way:
 
 // Inline Actions
 // --------------
+// Notice that I've made "button" an inline text element.
 // Also note that these styles can be undone by using
 //  the specified ".reset" class name, for special cases.
 // Useful for things like navbar links.
@@ -49,7 +50,7 @@ a {
 	}
 }
 
-button.inline {
+button {
 	text-transform: inherit;
 	letter-spacing: inherit;
 

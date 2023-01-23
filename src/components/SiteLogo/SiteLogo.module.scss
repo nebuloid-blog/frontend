@@ -20,4 +20,28 @@
 	// Element spacing
 	padding: 0.25em 0.5em;
 	gap: 0.5em;
+
+	// Element colors
+	--color: var(--foreground-color);
+	color: var(--color);
+	border-color: var(--color);
+
+	// Interactivity & color animation
+	&[href] {
+		transition-duration: 0.125s;
+		transition-property: color, border-color;
+		transition-timing-function: linear;
+
+		&:hover {
+			--color: var(--link-hover-color);
+		}
+		&:active {
+			transition-duration: 0s;
+			--color: var(--link-active-color);
+		}
+		&:focus {
+			transition-duration: 0s;
+			--color: var(--link-focus-color);
+		}
+	}
 }

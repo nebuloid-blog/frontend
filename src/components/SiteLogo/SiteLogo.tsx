@@ -8,16 +8,15 @@ type Props = Record<never, never>
 const SiteLogo: React.FC<Props> = ( ) => (
 	<Link
 		href='/'
-		className='reset'
-	>
-		<p className={
+		className={
 			combineClassNames([
+				'reset',
 				'heading',
 				styles.logo,
 			])
-		}>
-			Nebuloid
-		</p>
+		}
+	>
+		<p>Nebuloid</p>
 	</Link>
 )
 

@@ -5,40 +5,19 @@
 //  which ultimately links back to the homepage.
 .logo {
 	@extend %flex-row;
-	gap: 0.5rem;
+	width: fit-content;
 
-	// Add some flair via the border.
-	border-width: 0.5rem;
-	border-color: var(--foreground-color);
-	border-style: solid;
-	padding:
-		// top
-		0.5rem
-		// right
-		1rem
-		// bottom
-		0.5rem
-		// left
-		0.75rem;
-}
-
-/* LOGO IMAGE */
-// Center the logo image in its container.
-.logo .image-container {
-	@extend %flex-row;
-}
-
-/* LOGO TEXT / BRANDING */
-// Create a stacked-view and adjust
-//  the behavior of each text-node child.
-.logo .brand-container {
+	// Font styling
+	font-size: 1.5em;
+	line-height: 1;
 	text-align: center;
 
-	> * {
-		line-height: 1;
-	}
+	// Add some flair via the border.
+	border-width: calc(1em * 1/3);
+	border-color: var(--foreground-color);
+	border-style: solid;
 
-	> .title {
-		font-size: 1.5rem;
-	}
+	// Element spacing
+	padding: 0.25em 0.5em;
+	gap: 0.5em;
 }

@@ -1,9 +1,10 @@
 import React, {useCallback, useMemo} from 'react'
+import {useRouter} from 'next/router'
 import styles from './Header.module.scss'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
-import type {ColorScheme} from '@hooks/use-color-scheme'
 import {useSafeContext} from '@hooks/use-safe-context'
 import {MenuBar, MenuButton} from '@components/MenuBar'
+import type {ColorScheme} from '@hooks/use-color-scheme'
 
 type Props = Record<never, never>
 
@@ -25,21 +26,29 @@ const Header: React.FC<Props> = ( ) => {
 		else return 'system theme'
 	}, [ ])
 
+	// For checking current route path.
+	const router = useRouter( )
+	const basePath = useMemo(( ) => {
+		const pathName = router.asPath.split('/').at(1) ?? ''
+		return `/${pathName}`
+	}, [router])
+
 	return (
 		<header className={styles.root}>
-			{/* Navigation Items */}
+			{/* NavBar / Navigation Items */}
 			<MenuBar navigation>
 				<MenuButton
 					href='/'
-					highlight
+					highlight={basePath === '/'}
 				>
 					Home
 				</MenuButton>
 
 				<MenuButton
-					href='/'
+					href='/blog'
+					highlight={basePath === '/blog'}
 				>
-					Blog
+						Blog
 				</MenuButton>
 			</MenuBar>
 

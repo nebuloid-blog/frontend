@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './button.module.scss'
+import styles from './Button.module.scss'
 import {combineClassNames} from '@utilities/combine-class-names'
 
 type ButtonSize =

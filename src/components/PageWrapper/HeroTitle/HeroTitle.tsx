@@ -1,4 +1,4 @@
-import styles from './hero-title.module.scss'
+import styles from './HeroTitle.module.scss'
 
 type Props = Record<never, never>
 

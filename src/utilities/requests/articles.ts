@@ -1,11 +1,21 @@
 import {graphql} from '@nebuloid-types/generated'
 
 const getArticle = graphql(/* GraphQL */ `
-	query GetArticle($branch: String, $file: String!) {
-		getArticle(branch: $branch, file: $file) {
-			title
-			slug
+	query GetArticle(
+		$file: String!,
+		$directory: String,
+		$branch: String,
+	) {
+		getArticle(
+			file: $file,
+			directory: $directory,
+			branch: $branch,
+		) {
 			html
+			data {
+				slug
+				title
+			}
 		}
 	}
 `)
@@ -13,9 +23,11 @@ const getArticle = graphql(/* GraphQL */ `
 const indexArticles = graphql(/* GraphQL */ `
 	query IndexArticles($branch: String) {
 		indexArticles(branch: $branch) {
-			title
-			slug
 			html
+			data {
+				slug
+				title
+			}
 		}
 	}
 `)

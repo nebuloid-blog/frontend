@@ -68,7 +68,8 @@
 		"rehype": "^12.0.1",
 		"rehype-parse": "^8.0.4",
 		"rehype-react": "^7.1.2",
-		"rehype-sanitize": "^5.0.1"
+		"rehype-sanitize": "^5.0.1",
+		"rehype-shift-heading": "^1.0.2"
 	},
 	"devDependencies": {
 		"@graphql-codegen/cli": "^2.13.12",

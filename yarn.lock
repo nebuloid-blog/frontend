@@ -2574,6 +2574,7 @@ __metadata:
     rehype-parse: ^8.0.4
     rehype-react: ^7.1.2
     rehype-sanitize: ^5.0.1
+    rehype-shift-heading: ^1.0.2
     replace-in-files-cli: ^2.0.0
     sass: ^1.57.1
     storybook: ^7.0.0-beta.25
@@ -9289,6 +9290,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hast-util-heading-rank@npm:^2.0.0":
+  version: 2.1.1
+  resolution: "hast-util-heading-rank@npm:2.1.1"
+  dependencies:
+    "@types/hast": ^2.0.0
+  checksum: a49233e9ac78f66e948dd29d6c75f41c72899854f276290423c5f59eb827dee3c42cf181ce9103f3a8295359b613ca0b9c51475dd38ecdd6c26ed291344061f1
+  languageName: node
+  linkType: hard
+
 "hast-util-parse-selector@npm:^3.0.0":
   version: 3.1.1
   resolution: "hast-util-parse-selector@npm:3.1.1"
@@ -9323,6 +9333,17 @@ __metadata:
   dependencies:
     "@types/hast": ^2.0.0
   checksum: 4f1786d6556bae6485a657a3e77e7e71b573fd20e4e2d70678e0f445eb8fe3dc6c4441cda6d18b89a79b53e2c03b6232eb6c470ecd478737050724ea09398603
+  languageName: node
+  linkType: hard
+
+"hast-util-shift-heading@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "hast-util-shift-heading@npm:3.0.1"
+  dependencies:
+    "@types/hast": ^2.0.0
+    hast-util-heading-rank: ^2.0.0
+    unist-util-visit: ^4.0.0
+  checksum: f380d4816625c146c847650990b2ebccaa9640631f84a408956958e09d416a02126c8c1c7fb38491b7b10832d0f0a7ff2c40f60c695d8766cf4acc8ad6cc9381
   languageName: node
   linkType: hard
 
@@ -13042,6 +13063,17 @@ __metadata:
     hast-util-sanitize: ^4.0.0
     unified: ^10.0.0
   checksum: aa5f3627a767124d21c155b79bab8d5c2bc02e7b14164a5d22fe35b114f331d3bdb81afc150d1378d5cdb39107bd868b28814b1501a1954fdd1183b16dcdd5be
+  languageName: node
+  linkType: hard
+
+"rehype-shift-heading@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "rehype-shift-heading@npm:1.0.2"
+  dependencies:
+    "@types/hast": ^2.0.0
+    hast-util-shift-heading: ^3.0.0
+    unified: ^10.0.0
+  checksum: 2ba648429ecfc55250c2875a43fc1cef51787ef98a2900bcf595bafa4477dfbdb233af8b29460fc8968e954314e767d4dd0d5b15692f549d1e3d3557bfefb4e3
   languageName: node
   linkType: hard
 

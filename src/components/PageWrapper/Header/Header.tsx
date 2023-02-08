@@ -1,9 +1,9 @@
-import Link from 'next/link'
 import React, {useCallback, useMemo} from 'react'
 import styles from './Header.module.scss'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
 import type {ColorScheme} from '@hooks/use-color-scheme'
 import {useSafeContext} from '@hooks/use-safe-context'
+import {MenuBar, MenuButton} from '@components/MenuBar'
 
 type Props = Record<never, never>
 
@@ -26,54 +26,37 @@ const Header: React.FC<Props> = ( ) => {
 	}, [ ])
 
 	return (
-		<header className={styles.header}>
+		<header className={styles.root}>
 			{/* Navigation Items */}
-			<nav>
-				<menu>
-					<li>
-						<Link
-							href='/'
-							className='reset'
-						>
-							Home
-						</Link>
-					</li>
+			<MenuBar navigation>
+				<MenuButton
+					href='/'
+					highlight
+				>
+					Home
+				</MenuButton>
 
-					<li>
-						<Link
-							href='/blog'
-							className='reset'
-						>
-							Blog
-						</Link>
-					</li>
+				<MenuButton
+					href='/'
+				>
+					Blog
+				</MenuButton>
+			</MenuBar>
 
-					{/* Links to other pages */}
-					{/*
-						<li>
-							<Link className='reset' href='./about'>
-								about
-							</Link>
-						</li>
-					*/}
-				</menu>
-			</nav>
+			{/* Spacer Bar */}
+			<hr />
 
 			{/* Site Settings */}
-			<div>
-				<menu>
-					<li>
-						<button
-							className='reset'
-							onClick={( ) => {
-								setColorScheme(nextColorScheme)
-							}}
-						>
-							Use {getReadableColor(nextColorScheme)}
-						</button>
-					</li>
-				</menu>
-			</div>
+			<MenuBar>
+				<MenuButton
+					type='button'
+					onClick={( ) => {
+						setColorScheme(nextColorScheme)
+					}}
+				>
+					Use {getReadableColor(nextColorScheme)}
+				</MenuButton>
+			</MenuBar>
 
 			{/* Authentication Options */}
 			{/*

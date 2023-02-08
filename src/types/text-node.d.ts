@@ -14,6 +14,6 @@ import type React from 'react'
 // For example, consider that a <div> tag child is allowed.
 // TODO!
 // Refine this type accordingly.
-type TextNode = string | React.ReactElement
+type TextNode = string | React.ReactNode
 
 export type {TextNode}

@@ -19,11 +19,11 @@
 
 .primary {
 	color: rgb(var(--background-shade));
-	background-color: var(--foreground-color);
+	background-color: var(--foreground-clear);
 	padding: 0.5em 1em;
 }
 .secondary {
-	color: rgb(var(--foreground-color));
+	color: rgb(var(--foreground-clear));
 	background-color: transparent;
 	padding: 0.25em 0.75em;
 
@@ -33,7 +33,7 @@
 
 }
 .tertiary {
-	color: rgb(var(--foreground-color));
+	color: rgb(var(--foreground-clear));
 	background-color: transparent;
 	padding: 0.5em 1em;
 }

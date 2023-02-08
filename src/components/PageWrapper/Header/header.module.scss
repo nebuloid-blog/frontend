@@ -9,7 +9,7 @@ header.header {
 	// Banner Sizing
 	height: var(--banner-height);
 	padding: 0;
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-clear);
 
 	// Banner Font Properties
 	font-size: 0.875rem;
@@ -38,10 +38,10 @@ header.header {
 	menu > li {
 		// Add vertical lines between items.
 		// See how the last item must have a border-right as well?
-		border-left: 1px solid var(--border-color);
+		border-left: 1px solid var(--border-clear);
 
 		&:last-child {
-			border-right: 1px solid var(--border-color);
+			border-right: 1px solid var(--border-clear);
 		}
 	}
 

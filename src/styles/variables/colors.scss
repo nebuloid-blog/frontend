@@ -18,9 +18,7 @@
 
 /* Color Settings & Variable Declarations */
 :root {
-	// Derivative CSS Variables
-	// These shouldn't be directly referenced,
-	//  except within the primary CSS variables seen next.
+	// Base CSS Variables
 	--foreground-alpha: 100%;
 	--background-alpha: 50%;
 	--border-alpha: 75%;
@@ -28,15 +26,19 @@
 
 // Color Schemes
 @mixin light-mode {
-	// Primary CSS Variables
-	// These should be referenced often in other stylesheets.
+	// Base CSS Variables
 	--foreground-shade: #{decompose(black)};
 	--background-shade: #{decompose(white)};
 	--border-shade: #{decompose(#eaeaea)};
 
-	--foreground-color: rgba(var(--foreground-shade), var(--foreground-alpha));
-	--background-color: rgba(var(--background-shade), var(--background-alpha));
-	--border-color: rgba(var(--border-shade), var(--border-alpha));
+	// Derivitive CSS Variables
+	--foreground-color: rgb(var(--foreground-shade));
+	--background-color: rgb(var(--background-shade));
+	--border-color: rgb(var(--border-shade));
+
+	--foreground-clear: rgba(var(--foreground-shade), var(--foreground-alpha));
+	--background-clear: rgba(var(--background-shade), var(--background-alpha));
+	--border-clear: rgba(var(--border-shade), var(--border-alpha));
 
 	color: var(--foreground-color);
 	&#page-wrapper {
@@ -49,15 +51,19 @@
 }
 
 @mixin dark-mode {
-	// Primary CSS Variables
-	// These should be referenced often in other stylesheets.
+	// Base CSS Variables
 	--foreground-shade: #{decompose(white)};
 	--background-shade: #{decompose(black)};
 	--border-shade: #{decompose(#222)};
 
-	--foreground-color: rgba(var(--foreground-shade), var(--foreground-alpha));
-	--background-color: rgba(var(--background-shade), var(--background-alpha));
-	--border-color: rgba(var(--border-shade), var(--border-alpha));
+	// Derivitive CSS Variables
+	--foreground-color: rgb(var(--foreground-shade));
+	--background-color: rgb(var(--background-shade));
+	--border-color: rgb(var(--border-shade));
+
+	--foreground-clear: rgba(var(--foreground-shade), var(--foreground-alpha));
+	--background-clear: rgba(var(--background-shade), var(--background-alpha));
+	--border-clear: rgba(var(--border-shade), var(--border-alpha));
 
 	color: var(--foreground-color);
 	&#page-wrapper {

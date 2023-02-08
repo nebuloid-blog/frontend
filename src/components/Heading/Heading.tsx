@@ -1,12 +1,19 @@
 import React from 'react'
 import type {TextNode} from '@nebuloid-types/text-node'
 
-type HeadingElementType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p'
-type HTMLHeadingGroupProps = JSX.IntrinsicElements['hgroup']
+type HeadingElementType =
+| 'h1'
+| 'h2'
+| 'h3'
+| 'h4'
+| 'h5'
+| 'h6'
+| 'p'
 
-interface Props extends HTMLHeadingGroupProps {
+type HTMLHeadingProps = JSX.IntrinsicElements['h1']
+
+interface Props extends HTMLHeadingProps {
 	children: TextNode,
-	subheading?: TextNode,
 	level?: number,
 }
 
@@ -29,9 +36,8 @@ However, its not entirely clear how helpful this would be.
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
 const Heading: React.FC<Props> = ({
 	children: heading,
-	subheading,
 	level = 1,
-	...rest
+	...props
 }) => {
 	// Step 1: Generate a heading from the level.
 	let DynamicHeading: HeadingElementType
@@ -71,16 +77,9 @@ const Heading: React.FC<Props> = ({
 
 	// Step 2: Compile JSX and return.
 	return (
-		<hgroup {...rest}>
-			<DynamicHeading>
-				{heading}
-			</DynamicHeading>
-			{subheading != null && (
-				<p>
-					{subheading}
-				</p>
-			)}
-		</hgroup>
+		<DynamicHeading {...props}>
+			{heading}
+		</DynamicHeading>
 	)
 }
 

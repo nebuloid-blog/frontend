@@ -1,14 +1,15 @@
 import {createElement, Fragment} from 'react'
 import {rehype} from 'rehype'
 import rehypeParse from 'rehype-parse'
-import type {Options} from 'rehype-react'
+import type {Options as RehypeReactOptions} from 'rehype-react'
 import rehypeReact from 'rehype-react'
 import rehypeSanitize, {defaultSchema} from 'rehype-sanitize'
+import rehypeShiftHeading from 'rehype-shift-heading'
 import {SmartLink} from '@components/SmartLink'
 import {SmartImage} from '@components/SmartImage'
 
 // React processor settings.
-const options: Options = {
+const rehypeReactOptions: RehypeReactOptions = {
 	createElement: createElement,
 	Fragment: Fragment,
 	components: {
@@ -23,7 +24,7 @@ const options: Options = {
 // QUESTION:
 // Is this a bad idea, are there bad class names?
 // If so, is there a way to sanitize only them away?
-const schema = {
+const sanitizerSchema = {
 	...defaultSchema,
 	attributes: {
 		...defaultSchema.attributes,
@@ -34,14 +35,28 @@ const schema = {
 	},
 }
 
+interface Options {
+	shift?: number,
+}
+
 // This function takes in valid HTML,
 //  and transforms it to use certain NextJS tags.
-const processHTML = async (html: string) => {
+const processHTML = async (
+	html: string,
+	options?: Options,
+) => {
+	// Bypass zeroes not being accepted in this method.
+	// If the options have a zero, just off the plugin!
+	let shiftHeadingOptions
+	if (options?.shift == null || options.shift === 0) shiftHeadingOptions = false
+	else shiftHeadingOptions = {shift: options.shift}
+
 	// Parse the HTML according using these plugins.
 	const vFile = await rehype( )
 	.use(rehypeParse, {fragment: true})
-	.use(rehypeSanitize, schema)
-	.use(rehypeReact, options)
+	.use(rehypeShiftHeading, shiftHeadingOptions)
+	.use(rehypeSanitize, sanitizerSchema)
+	.use(rehypeReact, rehypeReactOptions)
 	.process(html)
 
 	// Finally, return the processed results.

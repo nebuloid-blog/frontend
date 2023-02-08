@@ -11,7 +11,12 @@ const Home: NextPage<Props> = ({article}) => (<>
 
 	<PageWrapper hero>
 		<main>
-			{article && <RehypeHTML html={article.html}/>}
+			{article && (
+				<RehypeHTML
+					html={article.html}
+					shiftHeadingLevel={1}
+				/>
+			)}
 		</main>
 	</PageWrapper>
 </>)

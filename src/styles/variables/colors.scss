@@ -19,8 +19,8 @@
 /* Color Settings & Variable Declarations */
 :root {
 	// Base CSS Variables
-	--foreground-alpha: 100%;
-	--background-alpha: 50%;
+	--foreground-alpha: 75%;
+	--background-alpha: calc(100% * 1/3);
 	--border-alpha: 75%;
 }
 

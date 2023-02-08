@@ -24,18 +24,6 @@
 	--foreground-alpha: 100%;
 	--background-alpha: 50%;
 	--border-alpha: 75%;
-
-	// Default Color Values
-	// If something goes wrong, these are the fallback values.
-	@media (prefers-color-scheme: light) {
-		color: black;
-		background:white;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		color: white;
-		background:black;
-	}
 }
 
 // Color Schemes
@@ -51,7 +39,9 @@
 	--border-color: rgba(var(--border-shade), var(--border-alpha));
 
 	color: var(--foreground-color);
-	background: var(--background-color);
+	&#page-wrapper {
+		background-color: var(--background-color);
+	}
 
 	.invert-in-light-mode {
 		filter: invert(1)
@@ -70,7 +60,9 @@
 	--border-color: rgba(var(--border-shade), var(--border-alpha));
 
 	color: var(--foreground-color);
-	background: var(--background-color);
+	&#page-wrapper {
+		background-color: var(--background-color);
+	}
 
 	.invert-in-dark-mode {
 		filter: invert(1)

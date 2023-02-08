@@ -26,6 +26,7 @@ const PageWrapper: React.FC<Props> = ({
 		//  will span the whole height of the browser's view.
 		// It also adds a negative margin to the page element.
 		<div
+			id='page-wrapper'
 			className={
 				combineClassNames([
 					styles.wrapper,

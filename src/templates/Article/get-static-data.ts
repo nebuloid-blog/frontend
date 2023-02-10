@@ -12,7 +12,7 @@ const getStaticPaths: GetStaticPaths = async ( ) => {
 
 	const paths = response.indexArticles?.map((article) => ({
 		params: {
-			slug: article.slug,
+			slug: article.data.slug,
 		},
 	})) ?? [ ]
 
@@ -34,7 +34,7 @@ const getStaticProps: GetStaticProps<GetArticleResponse> = async (context) => {
 		}
 	}
 
-	const file = `${slug}.md`
+	const file = `${slug}.html`
 
 	const response = await request(
 		'https://api.nebuloid.dev',

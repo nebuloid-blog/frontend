@@ -57,8 +57,16 @@
 					"index"
 				]
 			}
+		],
+		// These don't work with JSX.
+		"prefer-regex-literals": "off",
 
-		]
+		// Stupid thing doesn't work with properties.
+		"@typescript-eslint/naming-convention": "off",
+
+		// Stupid option was automatically on. Some of these
+		//  are unavoidable with certain libraries y'know.
+		"id-length": ["error", { "properties": "never" }]
 	},
 	"overrides": [{
 		"files": ["*.ts", "*.mts", "*.cts", "*.tsx"],

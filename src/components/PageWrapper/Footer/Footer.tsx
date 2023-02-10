@@ -6,7 +6,7 @@ import {combineClassNames} from '@utilities/combine-class-names'
 type Props = Record<never, never>
 
 const Footer: React.FC<Props> = ( ) => (
-	<footer className={styles.footer}>
+	<footer className={styles.root}>
 		<a
 			className='reset'
 			href='https://vercel.com/home'
@@ -14,10 +14,12 @@ const Footer: React.FC<Props> = ( ) => (
 			rel='noopener noreferrer'
 		>
 			Powered by
-			<span className={combineClassNames([
-				styles.logo,
-				'invert-in-dark-mode',
-			])}>
+			<span className={
+				combineClassNames([
+					styles.logo,
+					'invert-in-dark-mode',
+				])
+			}>
 				<Image
 					src='/vercel.svg'
 					alt='Vercel Logo'

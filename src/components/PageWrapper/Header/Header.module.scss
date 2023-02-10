@@ -1,57 +1,18 @@
 @import '@styles/variables/layouts.scss';
 
 // The header shall be left-aligned and vertically-centered.
-header.header {
+.root {
 	@extend %flex-row;
-	justify-content: space-between;
 	align-items: stretch;
 
 	// Banner Sizing
 	height: var(--banner-height);
-	padding: 0;
-	border-bottom: 1px solid var(--border-clear);
 
-	// Banner Font Properties
-	font-size: 0.875rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.125em;
-
-	> * {
-		@extend %flex-row;
-		gap: 1rem;
-
-		// Vertically stretch nav items.
-		// This ensures that anchors and links have a clickable
-		//  area that takes up the whole height of the bar.
-		align-items: stretch;
+	// Spacer Bar
+	> hr {
+		flex-grow: 1;
+		margin: 0;
+		border: 0;
+		background-color: var(--background-clear);
 	}
-
-	// Navbar items
-	menu,
-	menu > li {
-		@extend %flex-row;
-		align-items: stretch;
-	}
-
-	// List item elements have custom borders.
-	menu > li {
-		// Add vertical lines between items.
-		// See how the last item must have a border-right as well?
-		border-left: 1px solid var(--border-clear);
-
-		&:last-child {
-			border-right: 1px solid var(--border-clear);
-		}
-	}
-
-	// Anchor elements dictate the clickable area.
-	menu > li {
-	a, button {
-		// Add spacing between items.
-		// This also enlarges the clickable area.
-		@extend %flex-row;
-		padding: 0 2rem;
-		min-width: 8rem;
-	}}
 }

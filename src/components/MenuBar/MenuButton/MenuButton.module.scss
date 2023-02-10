@@ -1,0 +1,40 @@
+@import '@styles/variables/layouts.scss';
+
+.root {
+	@extend %flex-row;
+	align-items: stretch;
+}
+
+.root { a, button {
+	@extend %flex-row;
+	height: var(--banner-height);
+
+	// Add spacing in the button.
+	// This also enlarges the clickable area.
+	padding: 0 2rem;
+	min-width: 8rem;
+
+	// Banner Font Properties
+	font-size: calc(1em * 4/5);
+	font-weight: 700;
+	font-stretch: calc(100% * 9/8);
+	text-transform: uppercase;
+	letter-spacing: calc(1em * 1/16);
+
+	// Banner Color Animation
+	transition-duration: calc(1s * 1/8);
+	transition-property: color, background-color, border-color;
+	transition-timing-function: linear;
+
+	// Banner Color Styles
+	color: var(--foreground-color);
+
+	&:not(.highlight) {
+		background-color: var(--background-clear);
+	}
+
+	&:hover {
+		background-color: transparent;
+		color: var(--link-hover-color);
+	}
+}}

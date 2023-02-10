@@ -1,0 +1,9 @@
+@import '@styles/variables/layouts.scss';
+
+.root {
+	height: var(--banner-height);
+	&, & menu {
+		@extend %flex-row;
+		align-items: stretch;
+	}
+}

@@ -1,9 +1,10 @@
-import Link from 'next/link'
 import React, {useCallback, useMemo} from 'react'
+import {useRouter} from 'next/router'
 import styles from './Header.module.scss'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
-import type {ColorScheme} from '@hooks/use-color-scheme'
 import {useSafeContext} from '@hooks/use-safe-context'
+import {MenuBar, MenuButton} from '@components/MenuBar'
+import type {ColorScheme} from '@hooks/use-color-scheme'
 
 type Props = Record<never, never>
 
@@ -25,55 +26,46 @@ const Header: React.FC<Props> = ( ) => {
 		else return 'system theme'
 	}, [ ])
 
+	// For checking current route path.
+	const router = useRouter( )
+	const basePath = useMemo(( ) => {
+		const pathName = router.asPath.split('/').at(1) ?? ''
+		return `/${pathName}`
+	}, [router])
+
 	return (
-		<header className={styles.header}>
-			{/* Navigation Items */}
-			<nav>
-				<menu>
-					<li>
-						<Link
-							href='/'
-							className='reset'
-						>
-							Home
-						</Link>
-					</li>
+		<header className={styles.root}>
+			{/* NavBar / Navigation Items */}
+			<MenuBar navigation>
+				<MenuButton
+					href='/'
+					highlight={basePath === '/'}
+				>
+					Home
+				</MenuButton>
 
-					<li>
-						<Link
-							href='/blog'
-							className='reset'
-						>
-							Blog
-						</Link>
-					</li>
+				<MenuButton
+					href='/blog'
+					highlight={basePath === '/blog'}
+				>
+						Blog
+				</MenuButton>
+			</MenuBar>
 
-					{/* Links to other pages */}
-					{/*
-						<li>
-							<Link className='reset' href='./about'>
-								about
-							</Link>
-						</li>
-					*/}
-				</menu>
-			</nav>
+			{/* Spacer Bar */}
+			<hr />
 
 			{/* Site Settings */}
-			<div>
-				<menu>
-					<li>
-						<button
-							className='reset'
-							onClick={( ) => {
-								setColorScheme(nextColorScheme)
-							}}
-						>
-							Use {getReadableColor(nextColorScheme)}
-						</button>
-					</li>
-				</menu>
-			</div>
+			<MenuBar>
+				<MenuButton
+					type='button'
+					onClick={( ) => {
+						setColorScheme(nextColorScheme)
+					}}
+				>
+					Use {getReadableColor(nextColorScheme)}
+				</MenuButton>
+			</MenuBar>
 
 			{/* Authentication Options */}
 			{/*

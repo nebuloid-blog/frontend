@@ -1,20 +1,24 @@
-import type {NextPage} from 'next'
+import type {InferGetStaticPropsType, NextPage} from 'next'
+import type {getStaticProps} from './get-static-data'
 import {DefaultHead} from '@components/DefaultHead'
 import {PageWrapper} from '@components/PageWrapper'
+import {RehypeHTML} from '@components/RehypeHTML'
 
-const Home: NextPage = ( ) => (
-	<>
-		<DefaultHead />
+type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-		<PageWrapper hero>
-			<main>
-				<div>
-					<h2>Welcome to Nebuloid!</h2>
-					<p>Get started by checking out the site's blog.</p>
-				</div>
-			</main>
-		</PageWrapper>
-	</>
-)
+const Home: NextPage<Props> = ({article}) => (<>
+	<DefaultHead />
+
+	<PageWrapper hero>
+		<main>
+			{article && (
+				<RehypeHTML
+					html={article.html}
+					shiftHeadingLevel={1}
+				/>
+			)}
+		</main>
+	</PageWrapper>
+</>)
 
 export {Home}

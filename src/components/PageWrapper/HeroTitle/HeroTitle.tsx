@@ -1,4 +1,4 @@
-import styles from './hero-title.module.scss'
+import styles from './HeroTitle.module.scss'
 
 type Props = Record<never, never>
 
@@ -6,7 +6,7 @@ const HeroTitle: React.FC<Props> = ( ) => (
 	<hgroup className={styles['hero-title']}>
 		<h1 className='hero'>
 			<svg
-				viewBox='0 0 84.5 12'
+				viewBox='0 0 105.625 15'
 				xmlns='http://www.w3.org/2000/svg'
 				style={{fontSize: '1rem'}}
 			>

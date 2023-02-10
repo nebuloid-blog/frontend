@@ -18,46 +18,66 @@ The inline tags are sorted in this way:
 
 // Inline Actions
 // --------------
+// Notice that I've made "button" an inline text element.
 // Also note that these styles can be undone by using
 //  the specified ".reset" class name, for special cases.
-// Useful for things like navbar links.
-a:not(.reset) {
-	text-decoration-line: underline;
+// Useful for things like MenuBar links.
+a {
+	&.reset {
+		user-select: none;
+	}
 
-	&[href] {
-		color: blue;
+	&:not(.reset) {
+		text-decoration-line: underline;
+		text-decoration-style: solid;
+	}
+
+	&[href]:not(.reset) {
+		color: var(--link-color);
 
 		&:visited {
-			color: purple;
+			color: var(--link-visited-color);
 		}
 		&:hover {
-			color: cornflowerblue;
+			color: var(--link-hover-color);
 		}
 		&:active {
-			color: orange;
+			color: var(--link-active-color);
 		}
 		&:focus {
-			color: red;
+			color: var(--link-focus-color);
 		}
 	}
 }
 
-button.inline:not(.reset) {
-	text-decoration-line: underline;
-	text-decoration-style: double;
+button {
+	text-transform: inherit;
+	letter-spacing: inherit;
+
+	&.reset {
+		user-select: none;
+	}
+
+	&:not(.reset) {
+		text-decoration-line: underline;
+		text-decoration-style: double;
+	}
 
 	&:not([disabled]) {
-		color: blue;
 		cursor: pointer;
+	}
+
+	&:not([disabled]):not(.reset) {
+		color: var(--link-color);
 
 		&:hover {
-			color: cornflowerblue;
+			color: var(--link-hover-color);
 		}
 		&:focus {
-			color: red;
+			color: var(--link-focus-color);
 		}
 		&:active {
-			color: orange;
+			color: var(--link-active-color);
 		}
 	}
 }
@@ -120,7 +140,6 @@ samp {
 	align-items: center;
 
 	height: calc(1em + 7em/8);
-	vertical-align: 0.125em;
 
 	padding: 0 0.25em;
 	margin: 0 0.125em;
@@ -130,7 +149,7 @@ samp {
 	border-radius: 0.25em;
 
 	&:not(& &) {
-		font-size: 0.75em;
+		font-size: calc(4em/5);
 	}
 
 	kbd:not(& kbd) {
@@ -163,23 +182,23 @@ sub {
 
 	// Don't resize nested sup/sub combos; it gets too small!
 	&:not(& &) {
-		font-size: calc(7em/8);
+		font-size: calc(4em/5);
 	}
 }
 
 sup {
 	// Could also use vertical-align: super
-	top: calc(-3em/8);
+	top: calc(-2em/5);
 };
 
 sub {
 	// Could also use vertical-align: sub
-	top: calc(3em/8);
+	top: calc(2em/5);
 };
 
 // Tiny Legal Details
 small {
-	font-size: calc(7em/8);
+	font-size: calc(4em/5);
 }
 
 

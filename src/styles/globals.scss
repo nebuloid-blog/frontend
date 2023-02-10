@@ -17,7 +17,7 @@
 
 
 :root {
-	// This is dangling variable the navbar banner's height.
+	// This is dangling variable the MenuBar banner's height.
 	// It's useful for positioning items between stylesheets.
 	--banner-height: 4rem;
 }
@@ -27,16 +27,11 @@
 	box-sizing: border-box;
 }
 
-html,
+:root,
 body {
 	// Base site font settings
 	@extend %body-typeface;
-	font-size: 16px;
-	line-height: 1.5;
-
-	// Base site color settings
-	color: var(--foreground-color);
-	background: var(--background-color);
+	font-size: 20px;
 }
 
 body {

@@ -22,8 +22,11 @@ const Blog: NextPage<Props> = ({articles}) => (
 						<ul>
 							{/* Article Previews */}
 							{articles.map((article) => (
-								<li key={article.slug}>
-									<ArticleCard {...article} />
+								<li key={article.data.slug}>
+									<ArticleCard
+										slug={article.data.slug}
+										title={article.data.title}
+									/>
 								</li>
 							))}
 						</ul>

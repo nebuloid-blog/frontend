@@ -1,0 +1,47 @@
+@import '@styles/variables/layouts.scss';
+
+/* BASE CONTAINER */
+// This component represents the home logo with text,
+//  which ultimately links back to the homepage.
+.logo {
+	@extend %flex-row;
+	width: fit-content;
+
+	// Font styling
+	font-size: 1.5em;
+	line-height: 1;
+	text-align: center;
+
+	// Add some flair via the border.
+	border-width: calc(1em * 1/3);
+	border-color: var(--foreground-color);
+	border-style: solid;
+
+	// Element spacing
+	padding: 0.25em 0.5em;
+	gap: 0.5em;
+
+	// Element colors
+	--color: var(--foreground-color);
+	color: var(--color);
+	border-color: var(--color);
+
+	// Interactivity & color animation
+	&[href] {
+		transition-duration: calc(1s * 1/8);
+		transition-property: color, border-color;
+		transition-timing-function: linear;
+
+		&:hover {
+			--color: var(--link-hover-color);
+		}
+		&:active {
+			transition-duration: 0s;
+			--color: var(--link-active-color);
+		}
+		&:focus {
+			transition-duration: 0s;
+			--color: var(--link-focus-color);
+		}
+	}
+}

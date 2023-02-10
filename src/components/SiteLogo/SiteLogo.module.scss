@@ -28,7 +28,7 @@
 
 	// Interactivity & color animation
 	&[href] {
-		transition-duration: 0.125s;
+		transition-duration: calc(1s * 1/8);
 		transition-property: color, border-color;
 		transition-timing-function: linear;
 

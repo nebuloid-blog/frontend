@@ -20,6 +20,9 @@ const metadata: Meta<typeof SiteLogoStory> = {
 			defaultValue: 'system',
 		},
 	},
+	parameters: {
+		layout: 'centered',
+	},
 }
 
 const Normal: StoryObj<typeof SiteLogoStory> = {args: { }}

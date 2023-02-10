@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import styles from './footer.module.scss'
+import styles from './Footer.module.scss'
 import {combineClassNames} from '@utilities/combine-class-names'
 
 type Props = Record<never, never>

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React, {useCallback, useMemo} from 'react'
-import styles from './header.module.scss'
+import styles from './Header.module.scss'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
 import type {ColorScheme} from '@hooks/use-color-scheme'
 import {useSafeContext} from '@hooks/use-safe-context'
@@ -64,7 +64,7 @@ const Header: React.FC<Props> = ( ) => {
 				<menu>
 					<li>
 						<button
-							className='inline reset'
+							className='reset'
 							onClick={( ) => {
 								setColorScheme(nextColorScheme)
 							}}

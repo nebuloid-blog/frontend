@@ -55,7 +55,7 @@ hgroup :not(:last-child) {
 // We've opted to include a top and bottom margin for this.
 // Note: 1.5rem is the maximum margin from the above calc.
 hr {
-	color: var(--border-color);
+	color: var(--border-clear);
 	margin: 1.5rem;
 }
 

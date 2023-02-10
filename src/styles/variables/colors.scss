@@ -18,40 +18,44 @@
 
 /* Color Settings & Variable Declarations */
 :root {
-	// Derivative CSS Variables
-	// These shouldn't be directly referenced,
-	//  except within the primary CSS variables seen next.
-	--foreground-alpha: 100%;
-	--background-alpha: 50%;
+	// Base CSS Variables
+	--foreground-alpha: 75%;
+	--background-alpha: calc(100% * 1/3);
 	--border-alpha: 75%;
-
-	// Default Color Values
-	// If something goes wrong, these are the fallback values.
-	@media (prefers-color-scheme: light) {
-		color: black;
-		background:white;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		color: white;
-		background:black;
-	}
 }
 
 // Color Schemes
 @mixin light-mode {
-	// Primary CSS Variables
-	// These should be referenced often in other stylesheets.
+	// Base CSS Variables
 	--foreground-shade: #{decompose(black)};
 	--background-shade: #{decompose(white)};
 	--border-shade: #{decompose(#eaeaea)};
 
-	--foreground-color: rgba(var(--foreground-shade), var(--foreground-alpha));
-	--background-color: rgba(var(--background-shade), var(--background-alpha));
-	--border-color: rgba(var(--border-shade), var(--border-alpha));
+	--link-shade: #{decompose(blue)};
+	--link-visited-shade: #{decompose(purple)};
+	--link-hover-shade: #{decompose(cornflowerblue)};
+	--link-active-shade: #{decompose(orange)};
+	--link-focus-shade: #{decompose(red)};
+
+	// Derivitive CSS Variables
+	--foreground-color: rgb(var(--foreground-shade));
+	--background-color: rgb(var(--background-shade));
+	--border-color: rgb(var(--border-shade));
+
+	--foreground-clear: rgba(var(--foreground-shade), var(--foreground-alpha));
+	--background-clear: rgba(var(--background-shade), var(--background-alpha));
+	--border-clear: rgba(var(--border-shade), var(--border-alpha));
+
+	--link-color: rgb(var(--link-shade));
+	--link-visited-color: rgb(var(--link-visited-shade));
+	--link-hover-color: rgb(var(--link-hover-shade));
+	--link-active-color: rgb(var(--link-active-shade));
+	--link-focus-color: rgb(var(--link-focus-shade));
 
 	color: var(--foreground-color);
-	background: var(--background-color);
+	&#page-wrapper {
+		background-color: var(--background-color);
+	}
 
 	.invert-in-light-mode {
 		filter: invert(1)
@@ -59,18 +63,36 @@
 }
 
 @mixin dark-mode {
-	// Primary CSS Variables
-	// These should be referenced often in other stylesheets.
+	// Base CSS Variables
 	--foreground-shade: #{decompose(white)};
 	--background-shade: #{decompose(black)};
 	--border-shade: #{decompose(#222)};
 
-	--foreground-color: rgba(var(--foreground-shade), var(--foreground-alpha));
-	--background-color: rgba(var(--background-shade), var(--background-alpha));
-	--border-color: rgba(var(--border-shade), var(--border-alpha));
+	--link-shade: #{decompose(blue)};
+	--link-visited-shade: #{decompose(purple)};
+	--link-hover-shade: #{decompose(cornflowerblue)};
+	--link-active-shade: #{decompose(orange)};
+	--link-focus-shade: #{decompose(red)};
+
+	// Derivitive CSS Variables
+	--foreground-color: rgb(var(--foreground-shade));
+	--background-color: rgb(var(--background-shade));
+	--border-color: rgb(var(--border-shade));
+
+	--foreground-clear: rgba(var(--foreground-shade), var(--foreground-alpha));
+	--background-clear: rgba(var(--background-shade), var(--background-alpha));
+	--border-clear: rgba(var(--border-shade), var(--border-alpha));
+
+	--link-color: rgb(var(--link-shade));
+	--link-visited-color: rgb(var(--link-visited-shade));
+	--link-hover-color: rgb(var(--link-hover-shade));
+	--link-active-color: rgb(var(--link-active-shade));
+	--link-focus-color: rgb(var(--link-focus-shade));
 
 	color: var(--foreground-color);
-	background: var(--background-color);
+	&#page-wrapper {
+		background-color: var(--background-color);
+	}
 
 	.invert-in-dark-mode {
 		filter: invert(1)

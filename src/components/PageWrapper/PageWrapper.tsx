@@ -2,8 +2,8 @@ import React from 'react'
 import {Footer} from './Footer'
 import {Header} from './Header'
 import {HeroTitle} from './HeroTitle'
-import {SiteLogo} from './SiteLogo'
-import styles from './page-wrapper.module.scss'
+import styles from './PageWrapper.module.scss'
+import {SiteLogo} from '@components/SiteLogo'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
 import {useSafeContext} from '@hooks/use-safe-context'
 import {combineClassNames} from '@utilities/combine-class-names'
@@ -26,6 +26,7 @@ const PageWrapper: React.FC<Props> = ({
 		//  will span the whole height of the browser's view.
 		// It also adds a negative margin to the page element.
 		<div
+			id='page-wrapper'
 			className={
 				combineClassNames([
 					styles.wrapper,

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import styles from './site-logo.module.scss'
+import styles from './SiteLogo.module.scss'
 import {combineClassNames} from '@utilities/combine-class-names'
 
 type Props = Record<never, never>

@@ -59,12 +59,14 @@
 
 	},
 	"dependencies": {
+		"@formspree/react": "^2.4.1",
 		"@tanstack/react-query": "^4.20.4",
 		"graphql": "^16.6.0",
 		"graphql-request": "^5.1.0",
 		"next": "^13.1.2",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-hook-form": "^7.43.1",
 		"rehype": "^12.0.1",
 		"rehype-parse": "^8.0.4",
 		"rehype-react": "^7.1.2",

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Footer} from './Footer'
 import {Header} from './Header'
 import {HeroTitle} from './HeroTitle'
@@ -20,6 +20,26 @@ const PageWrapper: React.FC<Props> = ({
 	// The color scheme context/global state is used here,
 	//  although its value is determined elsewhere.
 	const [colorScheme] = useSafeContext(ColorSchemeContext)
+	const [showTitle, setShowTitle] = useState(true)
+	const [showLogo, setShowLogo] = useState(false)
+
+	useEffect(( ) => {
+		const handleScroll = ( ) => {
+			const {scrollY, innerHeight} = window
+			const thresholdFlag = scrollY / innerHeight > 0.33
+			setShowTitle(thresholdFlag)
+			setShowLogo(thresholdFlag)
+		}
+
+		// Trigger this once immediately,
+		//  to overwrite initial state.
+		handleScroll( )
+
+		window.addEventListener('scroll', handleScroll)
+		return ( ) => {
+			window.removeEventListener('scroll', handleScroll)
+		}
+	}, [ ])
 
 	return (
 		// If the wrapper has a hero-style, then the page intro
@@ -31,6 +51,8 @@ const PageWrapper: React.FC<Props> = ({
 				combineClassNames([
 					styles.wrapper,
 					hero && styles.hero,
+					showTitle && styles['show-title'],
+					showLogo && styles['show-logo'],
 				])
 			}
 			data-color-scheme={colorScheme}
@@ -42,7 +64,9 @@ const PageWrapper: React.FC<Props> = ({
 			*/}
 			<header className={styles.intro}>
 				{hero && (
-					<HeroTitle />
+					<div className={styles['hero-title']}>
+						<HeroTitle />
+					</div>
 				)}
 
 				<div className={styles['floating-logo']}>

@@ -1,18 +1,17 @@
 import {Fragment, useEffect, useState} from 'react'
-import {processHTML} from '@utilities/process-html'
+import {generateJSX} from '@utilities/generate-jsx'
 
 interface Props {
 	html: string,
-	shiftHeadingLevel?: number,
 }
 
-const RehypeHTML: React.FC<Props> = ({html, shiftHeadingLevel}) => {
+const RehypeHTML: React.FC<Props> = ({html}) => {
 	const [Content, setContent] = useState(<Fragment />)
 	useEffect(( ) => {
 		// The only way we can use async operators in useEffect
 		//  is to use an IIFE, which are void by definition.
 		void (async ( ) => {
-			const vFile = await processHTML(html, {shift: shiftHeadingLevel})
+			const vFile = await generateJSX(html)
 			setContent(vFile.result)
 		})( )
 	}, [html])

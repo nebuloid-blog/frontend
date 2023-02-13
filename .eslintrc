@@ -66,7 +66,13 @@
 
 		// Stupid option was automatically on. Some of these
 		//  are unavoidable with certain libraries y'know.
-		"id-length": ["error", { "properties": "never" }]
+		"id-length": ["error", { "properties": "never" }],
+
+		// Darned thing was eating away at my JSX.
+		"@typescript-eslint/no-misused-promises": [
+			"error",
+			{"checksVoidReturn": {"attributes": false}}
+		]
 	},
 	"overrides": [{
 		"files": ["*.ts", "*.mts", "*.cts", "*.tsx"],

@@ -35,7 +35,7 @@ Using aria-roles, it actually is possible for this component
 However, its not entirely clear how helpful this would be.
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
 const Heading: React.FC<Props> = ({
-	children: heading,
+	children,
 	level = 1,
 	...props
 }) => {
@@ -61,12 +61,12 @@ const Heading: React.FC<Props> = ({
 	}
 	else if (level < 1) {
 		throw new Error(
-			'The Heading component can\'t generate headings less than <h1>!',
+			'The Heading component can\'t generate headings bigger than <h1>!',
 		)
 	}
 	else if (level > 6) {
 		throw new Error(
-			'The Heading component can\'t generate headings greater than <h6>!',
+			'The Heading component can\'t generate headings smaller than <h6>!',
 		)
 	}
 	else {
@@ -78,7 +78,7 @@ const Heading: React.FC<Props> = ({
 	// Step 2: Compile JSX and return.
 	return (
 		<DynamicHeading {...props}>
-			{heading}
+			{children}
 		</DynamicHeading>
 	)
 }

@@ -38,6 +38,11 @@ a, button {
 	text-decoration-line: none;
 }
 
+// Let's reset some form element styling.
+input, textarea {
+	@extend %reset;
+}
+
 // HTML5 display-role reset for older browsers
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {

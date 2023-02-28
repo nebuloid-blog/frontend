@@ -7,6 +7,9 @@
 	@extend %flex-row;
 	width: fit-content;
 
+	// Drop Shadow
+		filter: drop-shadow(0.125em 0.125em var(--background-color));
+
 	// Font styling
 	font-size: 1.5em;
 	line-height: 1;
@@ -33,7 +36,7 @@
 		transition-timing-function: linear;
 
 		&:hover {
-			--color: var(--link-hover-color);
+			--color: var(--link-color);
 		}
 		&:active {
 			transition-duration: 0s;

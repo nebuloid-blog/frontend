@@ -1,18 +1,48 @@
 .hero-title {
+	// Sizing
 	width: 100%;
-	padding: 0 2.5vw;
+	padding: 0 3vw;
 
+	// Coloring
+	// --------
+	// The color property is used in HTML,
+	//  but the fill property is used in SVG.
 	color: rgb(var(--foreground-shade));
 	fill: rgb(var(--foreground-shade));
 
 	h1 {
+		// Sizing
+		// ------
+		// This makes the hero title as boxed-in as possible.
+		// Excessive line height would make it look too tall.
 		line-height: 0;
+
+		// Shadow
+		// ------
+		// This margin ensures the drop-shadow never clips
+		//  with other content beyond the heading's area.
+		margin: 1vw 0;
+		filter: drop-shadow(
+			1vw 1vw
+			var(--background-color)
+		);
 	}
 
 	p {
+		// Sizing
 		font-size: 1.5rem;
-		display: flex;
 
+		// Shadow
+		filter: drop-shadow(
+			0.125em 0.125em
+			var(--background-color)
+		);
+
+		// Horizontal Lines
+		// ----------------
+		// With display set to flex, these lines can fill
+		//  the remainder of the element's max width.
+		display: flex;
 		&::before,
 		&::after {
 			content: '';

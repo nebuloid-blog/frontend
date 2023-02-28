@@ -49,23 +49,47 @@ const Home: NextPage<Props> = ({article}) => {
 					<TextInput
 						type='text'
 						label='Name'
+						required
 						{...register('name')}
 					/>
 
 					<TextInput
 						type='email'
 						label='Email'
+						required
 						{...register('email')}
 					/>
 
 					<TextArea
 						label='Message'
+						required
 						{...register('message')}
 					/>
 
-					<Button type='submit'>
-						Send Message
-					</Button>
+					<div
+						// This div is used to style a super-basic
+						//  form submission headsup display.
+						//
+						// TODO!
+						// Refactor out this div and the contained <p>.
+						// Definately not a production-ready layout.
+						style={{
+							display: 'flex',
+							alignItems: 'center',
+							gap: '1rem',
+						}}
+					>
+						<Button type='submit'>
+							Send Message
+						</Button>
+
+						{formspree.succeeded && (
+							<p style={{margin: 0}}><i>
+								Your message has been sent!
+							</i></p>
+						)}
+					</div>
+
 				</form>
 			</section>
 		</PageWrapper>

@@ -1,5 +1,6 @@
 import {useCallback} from 'react'
 import {useForm} from 'react-hook-form'
+import {useForm as useFormspree} from '@formspree/react'
 import type {InferGetStaticPropsType, NextPage} from 'next'
 import styles from './Home.module.scss'
 import type {getStaticProps} from './get-static-data'
@@ -19,17 +20,13 @@ interface FieldTypes {
 
 const Home: NextPage<Props> = ({article}) => {
 	const {register, handleSubmit} = useForm<FieldTypes>( )
+	const [formspree, sendToFormspree] = useFormspree('xeqwkarl')
+
 	const onSubmit = useCallback(
-		(data: FieldTypes) => {
-			console.warn(
-				'Hey!',
-				'You pressed the form submit button.',
-				'This function hasn\'t been set up yet.',
-				'You can still see the form data, however:',
-			)
-			console.table({...data})
+		async (data: FieldTypes) => {
+			await sendToFormspree(data)
 		},
-		[ ],
+		[sendToFormspree],
 	)
 
 	return (<>

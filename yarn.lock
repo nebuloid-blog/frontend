@@ -1698,6 +1698,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@formspree/react@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "@formspree/react@npm:2.4.1"
+  dependencies:
+    "@stripe/react-stripe-js": ^1.7.1
+    "@stripe/stripe-js": ^1.35.0
+  checksum: e62a23e408f7ee7a3d9405a6600caabaa57b098fbda6ee20c58a794ae7b9aab6af084823eba30aafca4078890f41be31b766817232f50d3638aa55b620268235
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -2547,6 +2557,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@nebuloid/frontend@workspace:."
   dependencies:
+    "@formspree/react": ^2.4.1
     "@graphql-codegen/cli": ^2.13.12
     "@graphql-codegen/client-preset": ^1.1.3
     "@storybook/addon-essentials": ^7.0.0-beta.25
@@ -2570,6 +2581,7 @@ __metadata:
     next: ^13.1.2
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-hook-form: ^7.43.1
     rehype: ^12.0.1
     rehype-parse: ^8.0.4
     rehype-react: ^7.1.2
@@ -4219,6 +4231,26 @@ __metadata:
     express: ^4.17.3
     file-system-cache: ^2.0.0
   checksum: ea2d9bb7d07de7ce2350e8627d243b5d3afa25a2cb0a6a1eb84e12f7c0d97742dd169429e96d06dd88ffdfdff2cf6b9b1f4fca232de9aa87ea42e1e64263a8be
+  languageName: node
+  linkType: hard
+
+"@stripe/react-stripe-js@npm:^1.7.1":
+  version: 1.16.5
+  resolution: "@stripe/react-stripe-js@npm:1.16.5"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    "@stripe/stripe-js": ^1.44.1
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: fc43248af6fd1f9825463eeb23183b586635048e544c7fa076ee59e85439e7864afaca4adee2a62a9d1cf9a72ce7eaf405dbeffec9ff34e6e0464be0cc92c6a8
+  languageName: node
+  linkType: hard
+
+"@stripe/stripe-js@npm:^1.35.0":
+  version: 1.47.0
+  resolution: "@stripe/stripe-js@npm:1.47.0"
+  checksum: 6a23f9937a4da81724159b7fc43dcaaf118c89bea461e2e25e59bd5a5b0031c4d0c8285ab6a5197962d917a57aa5ebf88fa58b40bea4b1a4520339ec12174427
   languageName: node
   linkType: hard
 
@@ -12756,6 +12788,15 @@ __metadata:
     react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
     react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
   checksum: c3907cc4c1d3e9ecc8ca7727058ebcba6ec89848d9e07bfd2c77ee8f28f1ad99bf55e38359dec8a1125de83d41ac09a2874f53c41415edc86ffa9840fa1b7856
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.43.1":
+  version: 7.43.1
+  resolution: "react-hook-form@npm:7.43.1"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: a15b672885cf9bb43c6691bf544b3ead59860bb8c6298c7607b8b82952707ec8dd9fd9d1346310abb8696e99319b1f78f6023941d129154815811ee64d750461
   languageName: node
   linkType: hard
 

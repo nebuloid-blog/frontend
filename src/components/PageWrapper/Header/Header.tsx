@@ -1,5 +1,6 @@
 import React, {useCallback, useMemo} from 'react'
 import {useRouter} from 'next/router'
+import Link from 'next/link'
 import styles from './Header.module.scss'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
 import {useSafeContext} from '@hooks/use-safe-context'
@@ -38,6 +39,7 @@ const Header: React.FC<Props> = ( ) => {
 			{/* NavBar / Navigation Items */}
 			<MenuBar navigation>
 				<MenuButton
+					base={Link}
 					href='/'
 					highlight={basePath === '/'}
 				>
@@ -45,10 +47,11 @@ const Header: React.FC<Props> = ( ) => {
 				</MenuButton>
 
 				<MenuButton
+					base={Link}
 					href='/blog'
 					highlight={basePath === '/blog'}
 				>
-						Blog
+					Blog
 				</MenuButton>
 			</MenuBar>
 
@@ -58,7 +61,6 @@ const Header: React.FC<Props> = ( ) => {
 			{/* Site Settings */}
 			<MenuBar>
 				<MenuButton
-					type='button'
 					onClick={( ) => {
 						setColorScheme(nextColorScheme)
 					}}

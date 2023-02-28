@@ -37,6 +37,12 @@ dl dt:last-child,
 ul > li:last-child,
 ol > li:last-child,
 
+// Certain form elements
+input[type='text'],
+input[type='email'],
+textarea,
+// label // This element specifically gets no extra bottom-margin.
+
 // Data Node Elements
 data,
 time {
@@ -106,4 +112,44 @@ h5 {
 
 h6 {
 	font-size: 1rem;
+}
+
+/* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+Form Elements
+--------------
+Forms take up an important role, and get their own styles.
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
+
+// Form Labels
+label {
+	@extend %label-typeface;
+	display: block;
+}
+
+// Text Inputs
+input[type='text'],
+input[type='email'],
+textarea {
+	@extend %input-typeface;
+
+	// Border
+	border-radius: 0.1rem;
+	border-width: 0.1rem;
+	border-style: solid;
+
+	// Colors
+	color: var(--foreground-color);
+	background-color: rgba(var(--background-shade), calc(100% * 1/3));
+	border-color: var(--border-color);
+}
+
+input {
+	padding: 0.25rem 0.75rem;
+}
+
+textarea {
+	display: block;
+	min-height: 6em;
+	padding: 0.5rem 0.75rem;
+	resize: vertical;
 }

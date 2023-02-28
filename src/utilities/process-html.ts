@@ -1,21 +1,10 @@
-import {createElement, Fragment} from 'react'
 import {rehype} from 'rehype'
 import rehypeParse from 'rehype-parse'
-import type {Options as RehypeReactOptions} from 'rehype-react'
-import rehypeReact from 'rehype-react'
 import rehypeSanitize, {defaultSchema} from 'rehype-sanitize'
 import rehypeShiftHeading from 'rehype-shift-heading'
-import {SmartLink} from '@components/SmartLink'
-import {SmartImage} from '@components/SmartImage'
 
-// React processor settings.
-const rehypeReactOptions: RehypeReactOptions = {
-	createElement: createElement,
-	Fragment: Fragment,
-	components: {
-		a: SmartLink,
-		img: SmartImage,
-	},
+interface Options {
+	shift?: number,
 }
 
 // This schema declares that class names shall not
@@ -35,12 +24,8 @@ const sanitizerSchema = {
 	},
 }
 
-interface Options {
-	shift?: number,
-}
-
 // This function takes in valid HTML,
-//  and transforms it to use certain NextJS tags.
+//  and transforms / sanitizes it for use as static data.
 const processHTML = async (
 	html: string,
 	options?: Options,
@@ -51,15 +36,15 @@ const processHTML = async (
 	if (options?.shift == null || options.shift === 0) shiftHeadingOptions = false
 	else shiftHeadingOptions = {shift: options.shift}
 
-	// Parse the HTML according using these plugins.
+	// Parse the HTML using these plugins, and create a vFile.
+	// Note that "vFile.toString( )" produces a static string.
 	const vFile = await rehype( )
 	.use(rehypeParse, {fragment: true})
 	.use(rehypeShiftHeading, shiftHeadingOptions)
 	.use(rehypeSanitize, sanitizerSchema)
-	.use(rehypeReact, rehypeReactOptions)
 	.process(html)
 
-	// Finally, return the processed results.
+	// Return the processed results.
 	return vFile
 }
 

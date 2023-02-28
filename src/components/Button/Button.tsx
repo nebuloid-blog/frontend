@@ -1,63 +1,93 @@
-import React from 'react'
+import type {ComponentPropsWithoutRef, ElementType} from 'react'
+import Link from 'next/link'
 import styles from './Button.module.scss'
+import type {level} from '@nebuloid-types/colors'
 import {combineClassNames} from '@utilities/combine-class-names'
 
-type ButtonSize =
-	| 'small'
-	| 'medium'
-	| 'large'
-
-type ButtonPriority =
-	| 'primary'
-	| 'secondary'
-	| 'tertiary'
-
-interface BaseProps {
-	size?: ButtonSize,
-	priority?: ButtonPriority,
+interface BaseProps<El extends BaseElementType> {
+	base?: El,
+	color?: level | 'link',
+	disabled?: boolean,
 }
 
-type HTMLAnchorProps = JSX.IntrinsicElements['a']
-type HTMLButtonProps = JSX.IntrinsicElements['button']
+type BaseElementType
+= (ElementType & ('button' | 'a')) | typeof Link | undefined
 
-type Props = BaseProps & (
-	| (HTMLAnchorProps & {as: 'a'})
-	| (HTMLButtonProps & {as: 'button'})
-)
+type DefaultElement<El extends BaseElementType>
+= El extends undefined ? 'button' : El
 
-const Button: React.FC<Props> = ({
-	as: Component,
-	size = 'medium',
-	priority = 'primary',
-	className,
+type ButtonProps<El extends BaseElementType = BaseElementType>
+= BaseProps<El>
+& ComponentPropsWithoutRef<DefaultElement<El>>
+
+const Button
+= <El extends BaseElementType = 'button'> ({
+	color,
+	disabled,
 	...props
-}) => (
-	<Component
-		className={
-			combineClassNames([
-				styles.button,
-				styles[size],
-				styles[priority],
-			])
-		}
+}: ButtonProps<El>) => {
+	const Base: NonNullable<BaseElementType> = props.base ?? 'button'
 
-		// WARNING!
-		// There is a problem that I am encountering with
-		//  Polymorphic Components and Discrimitory Unions,
-		//  relating to extending Base HTML Attributes.
-		// Point is, we shouldn't need to assert this type!
-		//
-		// TODO!
-		// Resolve and delete the type assertion below.
-		// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-		{...props as Record<string, unknown>}
-	>
-		{props.children}
-	</Component>
-)
+	// Infer draggable and disabled state from component context.
+	if (Base !== 'button' && props.href == null) disabled = true
+	const draggable = disabled !== true
+
+	// Infer styling information from component context.
+	if (color === 'link') color = 'tertiary'
+	color ??= 'primary'
+
+	const className = combineClassNames([
+		color !== 'tertiary' && 'reset',
+		styles.root,
+		styles[color],
+		disabled === true && styles.disabled,
+		props.className,
+	])
+
+	// Return the respective component based on given props.
+	if (Base === 'button') {
+		return (
+			<button
+				disabled={disabled}
+				draggable={draggable}
+				{...props}
+				className={className}
+			/>
+		)
+	}
+
+	else if (disabled === true) {
+		return (
+			<a
+				draggable={draggable}
+				{...props}
+				href={undefined}
+				className={className}
+			/>
+		)
+	}
+
+	else if (Base === 'a') {
+		return (
+			<a
+				draggable={draggable}
+				{...props}
+				className={className}
+			/>
+		)
+	}
+
+	else {
+		return (
+			<Link
+				draggable={draggable}
+				{...props}
+				href={props.href} // TS needs this here. Why?
+				className={className}
+			/>
+		)
+	}
+}
 
 export {Button}
-export type {
-	ButtonSize,
-	ButtonPriority,
-}
+export type {ButtonProps}

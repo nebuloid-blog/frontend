@@ -28,21 +28,42 @@
 	@extend %flex-column;
 	text-align: center;
 
-	> .floating-logo {
-		margin: 5rem 0;
+	.hero & {
+		height: 100vh;
 	}
 }
 
-// If the wrapper has a hero style class,
-//  then the intro has a full-screen size.
-// We'll also need to change the behavior of the logo.
-.hero.wrapper > .intro {
-	height: 100vh;
+/* TITLE AND LOGO */
+.floating-logo, .hero-title {
+	transition-property: opacity, visibility;
+	transition-timing-function: linear;
+	transition-duration: 0.5s;
+}
 
-	> .floating-logo {
+.floating-logo {
+	margin: 5rem 0;
+
+	.hero & {
+		opacity: 0;
+		visibility: hidden;
+
 		position: absolute;
 		bottom: 0rem;
 		margin-bottom: calc(5rem + var(--banner-height));
+	}
+
+	.show-logo & {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.hero-title {
+	width: 100%;
+
+	.show-title & {
+		opacity: 0;
+		visibility: hidden;
 	}
 }
 
@@ -63,7 +84,7 @@
 	backdrop-filter: blur(1rem);
 }
 
-.page > .content {
+.page > .content > * {
 	flex: 1;
 	padding: 2rem;
 }

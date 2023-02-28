@@ -23,13 +23,13 @@ The inline tags are sorted in this way:
 //  the specified ".reset" class name, for special cases.
 // Useful for things like MenuBar links.
 a {
-	&.reset {
-		user-select: none;
-	}
-
 	&:not(.reset) {
 		text-decoration-line: underline;
 		text-decoration-style: solid;
+	}
+
+	&:not([href]):not(.reset) {
+		user-select: text;
 	}
 
 	&[href]:not(.reset) {
@@ -39,7 +39,9 @@ a {
 			color: var(--link-visited-color);
 		}
 		&:hover {
-			color: var(--link-hover-color);
+			text-shadow:
+				0 0 calc(1em * 1/8),
+				0 0 calc(1em * 1/4);
 		}
 		&:active {
 			color: var(--link-active-color);
@@ -71,7 +73,9 @@ button {
 		color: var(--link-color);
 
 		&:hover {
-			color: var(--link-hover-color);
+			text-shadow:
+				0 0 calc(1em * 1/8),
+				0 0 calc(1em * 1/4);
 		}
 		&:focus {
 			color: var(--link-focus-color);

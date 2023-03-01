@@ -115,6 +115,43 @@ h6 {
 }
 
 /* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+Misc Blog Elements
+------------------
+TODO!
+Give this some more love ;(
+	Poor things are pretty hacky feeling atm.
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
+
+figure {
+	overflow: hidden;
+	border-radius: 1rem;
+	background-color: rgba(var(--background-shade), 50%);
+	float: right;
+	margin-left: 1rem;
+	margin-bottom: 1rem;
+
+	img {
+		margin: 0.5rem;
+		margin-bottom: 0;
+		border-radius: 1rem;
+	}
+
+	figcaption {
+		min-width: fit-content;
+		width: min-content;
+		text-align: center;
+
+		font-size: 1.2em;
+		font-weight: 200;
+		font-stretch: semi-condensed;
+		font-style: italic;
+
+		margin: 0 1rem;
+		margin-bottom: 0.5rem;
+	}
+}
+
+/* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 Form Elements
 --------------
 Forms take up an important role, and get their own styles.

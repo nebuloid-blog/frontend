@@ -1,93 +1,37 @@
-import type {ComponentPropsWithoutRef, ElementType} from 'react'
-import Link from 'next/link'
 import styles from './Button.module.scss'
-import type {level} from '@nebuloid-types/colors'
+import {Pressable} from '@components/Pressable'
+import type {PressableProps, BaseElementType} from '@components/Pressable'
 import {combineClassNames} from '@utilities/combine-class-names'
+import type {level} from '@nebuloid-types/colors'
 
-interface BaseProps<El extends BaseElementType> {
-	base?: El,
+interface ButtonBase {
 	color?: level | 'link',
-	disabled?: boolean,
 }
 
-type BaseElementType
-= (ElementType & ('button' | 'a')) | typeof Link | undefined
+type ButtonProps<El extends BaseElementType>
+= ButtonBase & PressableProps<El>
 
-type DefaultElement<El extends BaseElementType>
-= El extends undefined ? 'button' : El
-
-type ButtonProps<El extends BaseElementType = BaseElementType>
-= BaseProps<El>
-& ComponentPropsWithoutRef<DefaultElement<El>>
-
-const Button
-= <El extends BaseElementType = 'button'> ({
-	color,
-	disabled,
+const Button = <El extends BaseElementType> ({
+	color = 'primary',
 	...props
 }: ButtonProps<El>) => {
-	const Base: NonNullable<BaseElementType> = props.base ?? 'button'
-
-	// Infer draggable and disabled state from component context.
-	if (Base !== 'button' && props.href == null) disabled = true
-	const draggable = disabled !== true
-
-	// Infer styling information from component context.
+	// Here, the value "link" is just an alias for "tertiary".
 	if (color === 'link') color = 'tertiary'
-	color ??= 'primary'
 
-	const className = combineClassNames([
-		color !== 'tertiary' && 'reset',
-		styles.root,
-		styles[color],
-		disabled === true && styles.disabled,
-		props.className,
-	])
-
-	// Return the respective component based on given props.
-	if (Base === 'button') {
-		return (
-			<button
-				disabled={disabled}
-				draggable={draggable}
-				{...props}
-				className={className}
-			/>
-		)
-	}
-
-	else if (disabled === true) {
-		return (
-			<a
-				draggable={draggable}
-				{...props}
-				href={undefined}
-				className={className}
-			/>
-		)
-	}
-
-	else if (Base === 'a') {
-		return (
-			<a
-				draggable={draggable}
-				{...props}
-				className={className}
-			/>
-		)
-	}
-
-	else {
-		return (
-			<Link
-				draggable={draggable}
-				{...props}
-				href={props.href} // TS needs this here. Why?
-				className={className}
-			/>
-		)
-	}
+	return (
+		<Pressable
+			{...props}
+			className={
+				combineClassNames([
+					color !== 'tertiary' && 'reset',
+					styles.root,
+					styles[color],
+					props.className,
+				])
+			}
+		/>
+	)
 }
 
 export {Button}
-export type {ButtonProps}
+export type {ButtonProps, BaseElementType}

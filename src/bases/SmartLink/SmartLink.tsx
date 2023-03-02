@@ -1,24 +1,24 @@
-import type {LinkProps as BaseLinkProps} from 'next/link'
-import Link from 'next/link'
+import NextLink from 'next/link'
+import type {LinkProps as NextLinkProps} from 'next/link'
+import type {ComponentPropsWithoutRef, FC} from 'react'
 
 // Checks if the string starts with "#", "/", or "./".
 // Useful for checking whether an href is relative.
 const expression = new RegExp('^(?:.?/|#)', 'u')
+const hrefIsRelative = (href: string) => expression.test(href)
 
-// HTML Anchor element props: <a>
-type BaseAnchorProps = JSX.IntrinsicElements['a']
-type AnchorProps = Omit<BaseAnchorProps, 'ref'>
+// We can only infer a base type of <a> or <NextLink>.
+type BaseElementType
+= FC<JSX.IntrinsicElements['a']> | FC<NextLinkProps>
 
-// NextJS Link element props: <Link>
-interface LinkProps extends BaseLinkProps {
-	href: string,
+// Base custom props for the component.
+interface SmartLinkBase {
+	href?: string, // Can't be a complex NextJS Url type.
 }
 
-// You may notice that we omitted the "ref" attribute,
-//  and removed the "UrlObject" type from "href".
-// It is doubtful that such complex logic will be needed,
-//  and this keeps the types consistent for react-rehype.
-type Props = AnchorProps | LinkProps
+// Combine inferred component props with the base props.
+type SmartLinkProps
+= SmartLinkBase & ComponentPropsWithoutRef<BaseElementType>
 
 /* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 SmartLink
@@ -28,14 +28,25 @@ This takes in HTML Link Attributes, and will decide whether
 The motivation behind this was for its usage with Rehype.
 This can help transform external HTML into localized JSX.
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
-const SmartLink: React.FC<Props> = ({href, ...props}) => {
-	const hrefIsRelative = (
-		href != null
-		&& expression.test(href)
-	)
+const SmartLink: FC<SmartLinkProps> = (props) => {
+	// If the given link is empty, or if it has an external
+	//  link destination, then we must use an anchor element.
+	if (props.href == null || !hrefIsRelative(props.href)) {
+		return (
+			<a {...props} />
+		)
+	}
 
-	if (hrefIsRelative) return (<Link href={href} {...props} />)
-	else return <a href={href} {...props} />
+	// Else, we must certainly have an internal link target.
+	else {
+		return (
+			<NextLink
+				{...props}
+				href={props.href}
+			/>
+		)
+	}
 }
 
 export {SmartLink}
+export type {SmartLinkProps}

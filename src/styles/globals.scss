@@ -10,6 +10,7 @@
 @import './mixins/breakpoints.scss';
 
 // Import styling variables
+@import './variables/breakpoints.scss';
 @import './variables/colors.scss';
 @import './variables/layouts.scss';
 @import './variables/typefaces.scss';
@@ -35,6 +36,9 @@ body {
 	// Base site font settings
 	@extend %body-typeface;
 	font-size: 20px;
+	@include for-tablets-down {
+		font-size: 16px;
+	}
 }
 
 body {

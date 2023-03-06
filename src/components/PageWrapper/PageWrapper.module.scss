@@ -1,4 +1,4 @@
-@import '@styles/variables/layouts.scss';
+@import '@styles/mixins/layouts.scss';
 
 /* BASE CONTAINER / THE WRAPPER */
 // The page wrapper provides a suitable background
@@ -75,7 +75,7 @@
 	align-items: stretch;
 
 	width: 100%;
-	max-width: 60rem;
+	max-width: 1500px;
 
 	margin: 0 auto;
 

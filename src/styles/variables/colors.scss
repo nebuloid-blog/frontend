@@ -1,22 +1,6 @@
-// Use SASS color extensions
-@use 'sass:color';
+@import '../mixins/colors.scss';
 
-/* SASS Functions */
-// The decompose function helps manipulate colors more easily.
-// It extrapolates a color's "shade", which is a tuple of colors.
-// This "shade" can't be used without an rgb() or rgba() function.
-//
-// Once Dynamic Color Manipulation with CSS Relative Colors
-//  is in spec for CSS in most browsers, we can remove this.
-@function decompose($color) {
-	$r: color.red($color);
-	$g: color.green($color);
-	$b: color.blue($color);
-	$shade: ($r,$g,$b);
-	@return $shade;
-}
-
-/* Color Settings & Variable Declarations */
+/* COLOR VARIABLES & SETTINGS */
 :root {
 	// Base CSS Variables
 	--foreground-alpha: 75%;
@@ -91,95 +75,68 @@
 	--link-visited-color: rgb(var(--link-visited-shade));
 	--link-active-color: rgb(var(--link-active-shade));
 	--link-focus-color: rgb(var(--link-focus-shade));
-}
 
-// Color Schemes
-@mixin light-mode {
-	/* DECLARATIVE COLORS */
-	// Contrast Colors
-	--subtle-shade: var(--light-shade);
-	--neutral-shade: var(--gray-shade);
-	--vivid-shade: var(--dark-shade);
+	@include light-mode {
+		/* DECLARATIVE COLORS */
+		// Contrast Colors
+		--subtle-shade: var(--light-shade);
+		--neutral-shade: var(--gray-shade);
+		--vivid-shade: var(--dark-shade);
 
-	--subtle-color: rgb(var(--subtle-shade));
-	--neutral-color: rgb(var(--neutral-shade));
-	--vivid-color: rgb(var(--vivid-shade));
+		--subtle-color: rgb(var(--subtle-shade));
+		--neutral-color: rgb(var(--neutral-shade));
+		--vivid-color: rgb(var(--vivid-shade));
 
-	/* FUNCTIONAL COLORS */
-	// Neutral Areas
-	--foreground-shade: var(--black-shade);
-	--background-shade: var(--white-shade);
-	--border-shade: var(--light-shade);
+		/* FUNCTIONAL COLORS */
+		// Neutral Areas
+		--foreground-shade: var(--black-shade);
+		--background-shade: var(--white-shade);
+		--border-shade: var(--light-shade);
 
-	--foreground-color: rgb(var(--foreground-shade));
-	--background-color: rgb(var(--background-shade));
-	--border-color: rgb(var(--border-shade));
+		--foreground-color: rgb(var(--foreground-shade));
+		--background-color: rgb(var(--background-shade));
+		--border-color: rgb(var(--border-shade));
 
-	--foreground-clear: rgba(var(--foreground-shade), var(--foreground-alpha));
-	--background-clear: rgba(var(--background-shade), var(--background-alpha));
-	--border-clear: rgba(var(--border-shade), var(--border-alpha));
+		--foreground-clear: rgba(var(--foreground-shade), var(--foreground-alpha));
+		--background-clear: rgba(var(--background-shade), var(--background-alpha));
+		--border-clear: rgba(var(--border-shade), var(--border-alpha));
 
-	/* PROPERTY DECLARATIONS */
-	color: var(--foreground-color);
-	&#page-wrapper {
-		background-color: var(--background-color);
+		/* PROPERTY DECLARATIONS */
+		color: var(--foreground-color);
+		&#page-wrapper {
+			background-color: var(--background-color);
+		}
 	}
 
-	.invert-in-light-mode {
-		filter: invert(1)
-	}
-}
+	@include dark-mode {
+		/* DECLARATIVE COLORS */
+		// Contrast Colors
+		--subtle-shade: var(--dark-shade);
+		--neutral-shade: var(--gray-shade);
+		--vivid-shade: var(--light-shade);
 
-@mixin dark-mode {
-	/* DECLARATIVE COLORS */
-	// Contrast Colors
-	--subtle-shade: var(--dark-shade);
-	--neutral-shade: var(--gray-shade);
-	--vivid-shade: var(--light-shade);
+		--subtle-color: rgb(var(--subtle-shade));
+		--neutral-color: rgb(var(--neutral-shade));
+		--vivid-color: rgb(var(--vivid-shade));
 
-	--subtle-color: rgb(var(--subtle-shade));
-	--neutral-color: rgb(var(--neutral-shade));
-	--vivid-color: rgb(var(--vivid-shade));
+		/* FUNCTIONAL COLORS */
+		// Neutral Areas
+		--foreground-shade: var(--white-shade);
+		--background-shade: var(--black-shade);
+		--border-shade: var(--dark-shade);
 
-	/* FUNCTIONAL COLORS */
-	// Neutral Areas
-	--foreground-shade: var(--white-shade);
-	--background-shade: var(--black-shade);
-	--border-shade: var(--dark-shade);
+		--foreground-color: rgb(var(--foreground-shade));
+		--background-color: rgb(var(--background-shade));
+		--border-color: rgb(var(--border-shade));
 
-	--foreground-color: rgb(var(--foreground-shade));
-	--background-color: rgb(var(--background-shade));
-	--border-color: rgb(var(--border-shade));
+		--foreground-clear: rgba(var(--foreground-shade), var(--foreground-alpha));
+		--background-clear: rgba(var(--background-shade), var(--background-alpha));
+		--border-clear: rgba(var(--border-shade), var(--border-alpha));
 
-	--foreground-clear: rgba(var(--foreground-shade), var(--foreground-alpha));
-	--background-clear: rgba(var(--background-shade), var(--background-alpha));
-	--border-clear: rgba(var(--border-shade), var(--border-alpha));
-
-	/* PROPERTY DECLARATIONS */
-	color: var(--foreground-color);
-	&#page-wrapper {
-		background-color: var(--background-color);
-	}
-
-	.invert-in-dark-mode {
-		filter: invert(1)
-	}
-}
-
-[data-color-scheme='light'] {
-	@include light-mode;
-}
-
-[data-color-scheme='dark'] {
-	@include dark-mode;
-}
-
-[data-color-scheme='system'] {
-	@media (prefers-color-scheme: light) {
-		@include light-mode;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		@include dark-mode;
+		/* PROPERTY DECLARATIONS */
+		color: var(--foreground-color);
+		&#page-wrapper {
+			background-color: var(--background-color);
+		}
 	}
 }

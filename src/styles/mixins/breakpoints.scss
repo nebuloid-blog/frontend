@@ -1,0 +1,142 @@
+/*
+You will see the following declarations below.
+- <300: Watches
+- 300-600: Phones
+- 600-900: Tablets
+- 900-1200: Splitscreen Desktops
+- 1200-1800: Fullscreen Desktops
+- 1800-2400: Widescreen Desktops
+- 2400+: Televisions
+*/
+
+
+/* WATCHES */
+// Range: 300px and below
+// ---
+// Ants need this resolution for sure!
+// Jokes aside, I doubt this media query will be needed.
+@mixin for-watches-only {
+	@media only screen and (max-width: 299px) {
+		@content;
+	}
+}
+
+/* PHONES */
+// Range: 300px - 600px
+// 240p has a width of 426px.
+// 360p has a width of 640px.
+// ---
+// Most phones will fall in this category.
+// High-resolution phones have a DPR that pits them here.
+@mixin for-phones-up {
+	@media only screen and (min-width: 300px) {
+		@content;
+	}
+}
+
+@mixin for-phones-only {
+	@media only screen and (min-width: 300px) and (max-width: 599px) {
+		@content;
+	}
+}
+
+@mixin for-phones-down {
+	@media only screen and (max-width: 599px) {
+		@content;
+	}
+}
+
+/* TABLETS */
+// Range: 600px - 900px
+// 480p screens have a width of 852px.
+@mixin for-tablets-up {
+	@media only screen and (min-width: 600px) {
+		@content;
+	}
+}
+
+@mixin for-tablets-only {
+	@media only screen and (min-width: 600px) and (max-width: 899px) {
+		@content;
+	}
+}
+
+@mixin for-tablets-down {
+	@media only screen and (max-width: 899px) {
+		@content;
+	}
+}
+
+/* SPLITSCREEN DESKTOPS */
+// Range: 900px - 1200px
+@mixin for-splitscreen-desktops-up {
+	@media only screen and (min-width: 900px) {
+		@content;
+	}
+}
+
+@mixin for-splitscreen-desktops-only {
+	@media only screen and (min-width: 900px) and (max-width: 1199px) {
+		@content;
+	}
+}
+
+@mixin for-splitscreen-desktops-down {
+	@media only screen and (max-width: 1199px) {
+		@content;
+	}
+}
+
+/* FULLSCREEN DESKTOPS */
+// Range: 1200px - 1800px
+// 720p screens have a width of 1280px.
+@mixin for-fullscreen-desktops-up {
+	@media only screen and (min-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin for-fullscreen-desktops-only {
+	@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+		@content;
+	}
+}
+
+@mixin for-fullscreen-desktops-down {
+	@media only screen and (max-width: 1799px) {
+		@content;
+	}
+}
+
+/* WIDESCREEN DESKTOPS */
+// Range: 1800px - 2400px
+// 1080p screens have a width of 1920px.
+@mixin for-widescreen-desktops-up {
+	@media only screen and (min-width: 1800px) {
+		@content;
+	}
+}
+
+@mixin for-widescreen-desktops-only {
+	@media only screen and (min-width: 1800px) and (max-width: 2399px) {
+		@content;
+	}
+}
+
+@mixin for-widescreen-desktops-down {
+	@media only screen and (max-width: 2399px) {
+		@content;
+	}
+}
+
+
+/* TELEVISIONS */
+// Range: 2400px and above
+// 1440p screens have a width of 2560px.
+// 2160p screens have a width of 3840px.
+// Ultra-wide 1080p screens also fit in this bracket.
+@mixin for-televisions-only {
+	@media only screen and (min-width: 2400px) {
+		@content;
+	}
+}

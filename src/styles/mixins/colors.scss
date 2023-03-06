@@ -1,0 +1,42 @@
+// Use SASS color extensions
+@use 'sass:color';
+
+/* SASS Functions */
+// The decompose function helps manipulate colors more easily.
+// It extrapolates a color's "shade", which is a tuple of colors.
+// This "shade" can't be used without an rgb() or rgba() function.
+//
+// Once Dynamic Color Manipulation with CSS Relative Colors
+//  is in spec for CSS in most browsers, we can remove this.
+@function decompose($color) {
+	$r: color.red($color);
+	$g: color.green($color);
+	$b: color.blue($color);
+	$shade: ($r,$g,$b);
+	@return $shade;
+}
+
+/* COLOR SCHEME MIXINS */
+@mixin light-mode {
+	[data-color-scheme='light'] {
+		@content;
+	}
+
+	[data-color-scheme='system'] {
+		@media (prefers-color-scheme: light) {
+			@content;
+		}
+	}
+}
+
+@mixin dark-mode {
+	[data-color-scheme='dark'] {
+		@content;
+	}
+
+	[data-color-scheme='system'] {
+		@media (prefers-color-scheme: dark) {
+			@content;
+		}
+	}
+}

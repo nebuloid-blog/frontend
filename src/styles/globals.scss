@@ -9,12 +9,11 @@
 // Get mixins and other scss utilities
 @import './mixins/breakpoints.scss';
 @import './mixins/colors.scss';
+@import './mixins/layouts.scss';
+@import './mixins/typefaces.scss';
 
 // Import styling variables
-@import './variables/breakpoints.scss';
 @import './variables/colors.scss';
-@import './variables/layouts.scss';
-@import './variables/typefaces.scss';
 
 // Apply custom rules for global elements
 @import './elements/block-elements.scss';

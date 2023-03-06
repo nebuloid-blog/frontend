@@ -6,6 +6,9 @@
 @import './fonts/saira.scss';
 @import './fonts/stargaze.scss';
 
+// Get mixins and other scss utilities
+@import './mixins/breakpoints.scss';
+
 // Import styling variables
 @import './variables/colors.scss';
 @import './variables/layouts.scss';

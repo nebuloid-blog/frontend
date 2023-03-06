@@ -63,3 +63,14 @@
 	text-transform: none;
 	line-height: 1.5;
 }
+
+// Captions, asides, blockquotes, etc.
+%caption-typeface {
+	font-family: 'Saira', sans-serif;
+	font-size: 1.1em;
+	font-weight: 200;
+	font-stretch: semi-condensed;
+	font-style: italic;
+	text-transform: none;
+	line-height: 1.75;
+}

@@ -1,3 +1,4 @@
+@import '@styles/mixins/colors.scss';
 @import '@styles/mixins/layouts.scss';
 
 // The %flex-row placeholder is heavily used here.
@@ -31,4 +32,10 @@
 .logo {
 	// Center the contained logo/image
 	@extend %flex-row;
+}
+
+@include dark-mode {
+	.logo {
+		filter: invert(1);
+	}
 }

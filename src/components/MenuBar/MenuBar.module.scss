@@ -3,7 +3,7 @@
 .root {
 	height: var(--banner-height);
 	&, & menu {
-		@extend %flex-row;
+		@include flex-row;
 		align-items: stretch;
 	}
 }

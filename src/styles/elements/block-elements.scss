@@ -132,7 +132,7 @@ aside {
 }
 
 figure {
-	@extend %flex-column;
+	@include flex-column;
 
 	float: right;
 	border-radius: 1rem;

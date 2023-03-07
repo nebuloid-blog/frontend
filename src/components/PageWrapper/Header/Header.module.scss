@@ -2,7 +2,7 @@
 
 // The header shall be left-aligned and vertically-centered.
 .root {
-	@extend %flex-row;
+	@include flex-row;
 	align-items: stretch;
 
 	// Banner Sizing

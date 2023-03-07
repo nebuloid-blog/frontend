@@ -4,7 +4,7 @@
 // This component represents the home logo with text,
 //  which ultimately links back to the homepage.
 .logo {
-	@extend %flex-row;
+	@include flex-row;
 	width: fit-content;
 
 	// Drop Shadow

@@ -1,12 +1,12 @@
 @import '@styles/mixins/layouts.scss';
 
 .root {
-	@extend %flex-row;
+	@include flex-row;
 	align-items: stretch;
 }
 
 .root { a, button {
-	@extend %flex-row;
+	@include flex-row;
 	height: var(--banner-height);
 
 	// Add spacing in the button.

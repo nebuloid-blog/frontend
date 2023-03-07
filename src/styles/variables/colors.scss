@@ -8,29 +8,6 @@
 	--border-alpha: 75%;
 
 	/* DECLARATIVE COLORS */
-	// Basic Colors
-	--blue-shade:    #{decompose(#0d6efd)};
-	--indigo-shade:  #{decompose(#6610f2)};
-	--purple-shade:  #{decompose(#6f42c1)};
-	--pink-shade:    #{decompose(#d63384)};
-	--red-shade:     #{decompose(#dc3545)};
-	--orange-shade:  #{decompose(#fd7e14)};
-	--yellow-shade:  #{decompose(#ffc107)};
-	--green-shade:   #{decompose(#198754)};
-	--teal-shade:    #{decompose(#20c997)};
-	--cyan-shade:    #{decompose(#0dcaf0)};
-
-	--blue-color: rgb(var(--blue-shade));
-	--indigo-color: rgb(var(--indigo-shade));
-	--purple-color: rgb(var(--purple-shade));
-	--pink-color: rgb(var(--pink-shade));
-	--red-color: rgb(var(--red-shade));
-	--orange-color: rgb(var(--orange-shade));
-	--yellow-color: rgb(var(--yellow-shade));
-	--green-color: rgb(var(--green-shade));
-	--teal-color: rgb(var(--teal-shade));
-	--cyan-color: rgb(var(--cyan-shade));
-
 	// Neutral Colors
 	--black-shade:   #{decompose(#000)};
 	--dark-shade:    #{decompose(#333)};
@@ -44,40 +21,31 @@
 	--light-color: rgb(var(--light-shade));
 	--white-color: rgb(var(--white-shade));
 
-	/* SEMANTIC COLORS */
-	// Status States
-	--error-shade: var(--red-shade);
-	--warning-shade: var(--yellow-shade);
-	--success-shade: var(--green-shade);
-	--information-shade: var(--blue-shade);
-	--secret-shade: var(--purple-shade);
-
-	--error-color: rgb(var(--error-color));
-	--warning-color: rgb(var(--warning-color));
-	--success-color: rgb(var(--success-color));
-	--information-color: rgb(var(--information-color));
-	--secret-color: rgb(var(--secret-color));
-
-	// Brand Colors & Tiered States
-	--primary-shade: var(--blue-shade);
-	--primary-color: rgb(var(--primary-shade));
-
-	/* FUNCTIONAL COLORS */
-	// Link States
-	--link-shade: var(--blue-shade);
-	--link-hover-shade: var(--indigo-shade);
-	--link-visited-shade: var(--purple-shade);
-	--link-active-shade: var(--yellow-shade);
-	--link-focus-shade: var(--red-shade);
-
-	--link-color: rgb(var(--link-shade));
-	--link-hover-color: rgb(var(--link-hover-shade));
-	--link-visited-color: rgb(var(--link-visited-shade));
-	--link-active-color: rgb(var(--link-active-shade));
-	--link-focus-color: rgb(var(--link-focus-shade));
-
 	@include light-mode {
 		/* DECLARATIVE COLORS */
+		// Basic Colors
+		--blue-shade:    #{decompose(#0d6efd)};
+		--indigo-shade:  #{decompose(#6610f2)};
+		--purple-shade:  #{decompose(#6f42c1)};
+		--pink-shade:    #{decompose(#d63384)};
+		--red-shade:     #{decompose(#dc3545)};
+		--orange-shade:  #{decompose(#fd7e14)};
+		--yellow-shade:  #{decompose(#ffc107)};
+		--green-shade:   #{decompose(#198754)};
+		--teal-shade:    #{decompose(#20c997)};
+		--cyan-shade:    #{decompose(#0dcaf0)};
+
+		--blue-color: rgb(var(--blue-shade));
+		--indigo-color: rgb(var(--indigo-shade));
+		--purple-color: rgb(var(--purple-shade));
+		--pink-color: rgb(var(--pink-shade));
+		--red-color: rgb(var(--red-shade));
+		--orange-color: rgb(var(--orange-shade));
+		--yellow-color: rgb(var(--yellow-shade));
+		--green-color: rgb(var(--green-shade));
+		--teal-color: rgb(var(--teal-shade));
+		--cyan-color: rgb(var(--cyan-shade));
+
 		// Contrast Colors
 		--subtle-shade: var(--light-shade);
 		--neutral-shade: var(--gray-shade);
@@ -87,7 +55,37 @@
 		--neutral-color: rgb(var(--neutral-shade));
 		--vivid-color: rgb(var(--vivid-shade));
 
+		/* SEMANTIC COLORS */
+		// Status States
+		--error-shade: var(--red-shade);
+		--warning-shade: var(--yellow-shade);
+		--success-shade: var(--green-shade);
+		--information-shade: var(--blue-shade);
+		--secret-shade: var(--purple-shade);
+
+		--error-color: rgb(var(--error-color));
+		--warning-color: rgb(var(--warning-color));
+		--success-color: rgb(var(--success-color));
+		--information-color: rgb(var(--information-color));
+		--secret-color: rgb(var(--secret-color));
+
+		// Brand Colors & Tiered States
+		--primary-shade: var(--blue-shade);
+		--primary-color: rgb(var(--primary-shade));
+
 		/* FUNCTIONAL COLORS */
+		// Link States
+		--link-shade: var(--blue-shade);
+		--link-hover-shade: var(--indigo-shade);
+		--link-visited-shade: var(--purple-shade);
+		--link-active-shade: var(--yellow-shade);
+		--link-focus-shade: var(--red-shade);
+
+		--link-color: rgb(var(--link-shade));
+		--link-hover-color: rgb(var(--link-hover-shade));
+		--link-visited-color: rgb(var(--link-visited-shade));
+		--link-active-color: rgb(var(--link-active-shade));
+		--link-focus-color: rgb(var(--link-focus-shade));
 		// Neutral Areas
 		--foreground-shade: var(--black-shade);
 		--background-shade: var(--white-shade);
@@ -110,6 +108,29 @@
 
 	@include dark-mode {
 		/* DECLARATIVE COLORS */
+		// Basic Colors
+		--blue-shade:    #{decompose(#63a8fd)};
+		--indigo-shade:  #{decompose(#8880ff)};
+		--purple-shade:  #{decompose(#bf76ff)};
+		--pink-shade:    #{decompose(#ff5cae)};
+		--red-shade:     #{decompose(#ff4f61)};
+		--orange-shade:  #{decompose(#fd7e14)};
+		--yellow-shade:  #{decompose(#ffc107)};
+		--green-shade:   #{decompose(#49a97c)};
+		--teal-shade:    #{decompose(#55d9b2)};
+		--cyan-shade:    #{decompose(#9defff)};
+
+		--blue-color: rgb(var(--blue-shade));
+		--indigo-color: rgb(var(--indigo-shade));
+		--purple-color: rgb(var(--purple-shade));
+		--pink-color: rgb(var(--pink-shade));
+		--red-color: rgb(var(--red-shade));
+		--orange-color: rgb(var(--orange-shade));
+		--yellow-color: rgb(var(--yellow-shade));
+		--green-color: rgb(var(--green-shade));
+		--teal-color: rgb(var(--teal-shade));
+		--cyan-color: rgb(var(--cyan-shade));
+
 		// Contrast Colors
 		--subtle-shade: var(--dark-shade);
 		--neutral-shade: var(--gray-shade);
@@ -119,7 +140,38 @@
 		--neutral-color: rgb(var(--neutral-shade));
 		--vivid-color: rgb(var(--vivid-shade));
 
+		/* SEMANTIC COLORS */
+		// Status States
+		--error-shade: var(--red-shade);
+		--warning-shade: var(--yellow-shade);
+		--success-shade: var(--green-shade);
+		--information-shade: var(--blue-shade);
+		--secret-shade: var(--purple-shade);
+
+		--error-color: rgb(var(--error-color));
+		--warning-color: rgb(var(--warning-color));
+		--success-color: rgb(var(--success-color));
+		--information-color: rgb(var(--information-color));
+		--secret-color: rgb(var(--secret-color));
+
+		// Brand Colors & Tiered States
+		--primary-shade: var(--blue-shade);
+		--primary-color: rgb(var(--primary-shade));
+
 		/* FUNCTIONAL COLORS */
+		// Link States
+		--link-shade: var(--blue-shade);
+		--link-hover-shade: var(--indigo-shade);
+		--link-visited-shade: var(--purple-shade);
+		--link-active-shade: var(--yellow-shade);
+		--link-focus-shade: var(--red-shade);
+
+		--link-color: rgb(var(--link-shade));
+		--link-hover-color: rgb(var(--link-hover-shade));
+		--link-visited-color: rgb(var(--link-visited-shade));
+		--link-active-color: rgb(var(--link-active-shade));
+		--link-focus-color: rgb(var(--link-focus-shade));
+
 		// Neutral Areas
 		--foreground-shade: var(--white-shade);
 		--background-shade: var(--black-shade);

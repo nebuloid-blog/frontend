@@ -1,3 +1,5 @@
+@import '@styles/mixins/breakpoints.scss';
+
 /* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 Page Content Margins
 --------------------
@@ -84,35 +86,22 @@ h4,
 h5,
 h6,
 .heading {
+	--heading-size: 1;
+	font-size: min(
+		var(--heading-size) * 1rem,
+		calc(1rem + (var(--heading-size) - 1) * 8vw/3)
+	);
+
 	@extend %heading-typeface;
-	&.hero {
-		@extend %hero-typeface;
-	}
+	&.hero { @extend %hero-typeface;}
 }
 
-h1 {
-	font-size: 4rem;
-}
-
-h2 {
-	font-size: 3rem;
-}
-
-h3 {
-	font-size: 2rem;
-}
-
-h4 {
-	font-size: 1.5rem;
-}
-
-h5 {
-	font-size: 1.25rem;
-}
-
-h6 {
-	font-size: 1rem;
-}
+h1 { --heading-size: 4; }
+h2 { --heading-size: 3; }
+h3 { --heading-size: 2; }
+h4 { --heading-size: 1.5; }
+h5 { --heading-size: 1.25; }
+h6 { --heading-size: 1; }
 
 /* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 Misc Blog Elements
@@ -122,32 +111,42 @@ Give this some more love ;(
 	Poor things are pretty hacky feeling atm.
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
 
+aside {
+	@include for-tablets-down {
+		display: flex;
+		justify-content: center;
+	}
+}
+
 figure {
-	overflow: hidden;
+	@include flex-column;
+
+	float: right;
 	border-radius: 1rem;
 	background-color: rgba(var(--background-shade), 50%);
-	float: right;
-	margin-left: 1rem;
-	margin-bottom: 1rem;
+
+	@include for-splitscreen-desktops-up {
+		margin-left: 1rem;
+		margin-bottom: 1rem;
+	}
 
 	img {
-		margin: 0.5rem;
-		margin-bottom: 0;
+		max-width: 100%;
+		height: auto;
+
+		padding: 0.5rem;
+		padding-bottom: 0;
 		border-radius: 1rem;
 	}
 
 	figcaption {
-		min-width: fit-content;
-		width: min-content;
+		@extend %caption-typeface;
 		text-align: center;
 
-		font-size: 1.2em;
-		font-weight: 200;
-		font-stretch: semi-condensed;
-		font-style: italic;
+		width: min-content;
+		min-width: fit-content;
 
-		margin: 0 1rem;
-		margin-bottom: 0.5rem;
+		margin: 0.5rem 1.5rem;
 	}
 }
 

@@ -1,12 +1,17 @@
+@import '@styles/mixins/breakpoints.scss';
 @import '@styles/mixins/layouts.scss';
 
 // The header shall be left-aligned and vertically-centered.
 .root {
-	@extend %flex-row;
-	align-items: stretch;
+	@include flex-column;
+	@include for-tablets-up {
+		@include flex-row;
 
-	// Banner Sizing
-	height: var(--banner-height);
+		// Banner Sizing
+		height: var(--banner-height);
+	}
+
+	align-items: stretch;
 
 	// Spacer Bar
 	> hr {

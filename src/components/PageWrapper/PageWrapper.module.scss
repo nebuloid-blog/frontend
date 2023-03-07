@@ -7,7 +7,7 @@
 	min-height: 100vh;
 
 	// Stack items vertically, justified from top.
-	@extend %flex-column;
+	@include flex-column;
 	justify-content: flex-start;
 	align-items: stretch;
 
@@ -25,7 +25,7 @@
 /* PAGE INTRO / THE WRAPPER'S HEADER */
 // This represents the full-screen title and site logo.
 .intro {
-	@extend %flex-column;
+	@include flex-column;
 	text-align: center;
 
 	.hero & {
@@ -41,7 +41,10 @@
 }
 
 .floating-logo {
-	margin: 5rem 0;
+	// Maybe this padding is a bit weird, but it helps some
+	//  relative hrefs, like "nebuloid.dev/#site-logo".
+	padding-top: 5rem;
+	margin-bottom: 5rem;
 
 	.hero & {
 		opacity: 0;
@@ -71,7 +74,7 @@
 // This inner wrapper contains the page's actual content,
 //  alongisde a template for the page's navigation banner.
 .page {
-	@extend %flex-column;
+	@include flex-column;
 	align-items: stretch;
 
 	width: 100%;
@@ -104,7 +107,7 @@
 .appendix {
 	flex: 1;
 
-	@extend %flex-column;
+	@include flex-column;
 	justify-content: flex-end;
 
 	margin-top: 5rem;

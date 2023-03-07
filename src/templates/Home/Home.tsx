@@ -40,7 +40,7 @@ const Home: NextPage<Props> = ({article}) => {
 			</main>
 
 			<section className={styles.contact}>
-				<h2>Contact Me</h2>
+				<h2>Get in Touch</h2>
 
 				<form
 					id='contact-form'
@@ -80,12 +80,12 @@ const Home: NextPage<Props> = ({article}) => {
 						}}
 					>
 						<Button type='submit'>
-							Send Message
+								Send Message
 						</Button>
 
 						{formspree.succeeded && (
 							<p style={{margin: 0}}><i>
-								Your message has been sent!
+									Your message has been sent!
 							</i></p>
 						)}
 					</div>

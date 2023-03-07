@@ -34,8 +34,10 @@
 		background-color: var(--background-clear);
 	}
 
-	&:hover {
-		background-color: transparent;
+	&:hover,
+	&:active {
 		color: var(--link-color);
+		background-color: transparent;
+		transition-duration: 0s;
 	}
 }}

@@ -8,6 +8,7 @@
 .root { a, button {
 	@include flex-row;
 	height: var(--banner-height);
+	width: 100%;
 
 	// Add spacing in the button.
 	// This also enlarges the clickable area.

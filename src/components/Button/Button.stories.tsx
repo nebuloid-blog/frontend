@@ -1,24 +1,25 @@
 import type {Meta, StoryObj} from '@storybook/react'
-import type {ButtonProps} from '.'
 import {Button} from '.'
 
-type StoryProps = Pick<ButtonProps, 'base' | 'dest' | 'color' | 'disabled'> & {
+interface StoryProps {
 	label: string,
 	colorScheme: 'system' | 'light' | 'dark',
+	color: 'primary' | 'secondary' | 'tertiary' | 'link',
+	disabled: boolean,
+	base: 'button' | 'link',
 }
 
-const ButtonStory: React.FC<StoryProps> = ({
+const ButtonStory = ({
 	colorScheme,
 	label: children,
 	...props
-}) => {
+}: StoryProps) => {
 	props.base ??= 'button'
 	if (props.base === 'button') {
 		return (
 			<div data-color-scheme={colorScheme}>
 				<Button
 					base={props.base}
-					onClick={( ) => undefined}
 					color={props.color}
 					disabled={props.disabled}
 				>
@@ -35,7 +36,7 @@ const ButtonStory: React.FC<StoryProps> = ({
 		return (
 			<div data-color-scheme={colorScheme}>
 				<Button
-					base={props.base}
+					base='a'
 					href={href}
 					color={props.color}
 					disabled={props.disabled}
@@ -66,13 +67,8 @@ const metadata: Meta<typeof ButtonStory> = {
 		},
 		base: {
 			control: 'select',
-			options: ['link', 'button'],
+			options: ['button', 'link'],
 			defaultValue: 'button',
-		},
-		dest: {
-			control: 'select',
-			options: ['internal', 'external'],
-			defaultValue: 'external',
 		},
 		label: {
 			control: 'text',

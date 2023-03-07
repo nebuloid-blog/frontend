@@ -41,7 +41,10 @@
 }
 
 .floating-logo {
-	margin: 5rem 0;
+	// Maybe this padding is a bit weird, but it helps some
+	//  relative hrefs, like "nebuloid.dev/#site-logo".
+	padding-top: 5rem;
+	margin-bottom: 5rem;
 
 	.hero & {
 		opacity: 0;

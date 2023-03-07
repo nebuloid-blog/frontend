@@ -1,9 +1,16 @@
-@import '@styles/variables/layouts.scss';
+@import '@styles/mixins/breakpoints.scss';
+@import '@styles/mixins/layouts.scss';
 
 .root {
-	height: var(--banner-height);
+	@include for-tablets-up {
+		height: var(--banner-height);
+	}
+
 	&, & menu {
-		@extend %flex-row;
+		@include flex-row;
+		@include for-phones-down {
+			@include flex-column;
+		}
 		align-items: stretch;
 	}
 }

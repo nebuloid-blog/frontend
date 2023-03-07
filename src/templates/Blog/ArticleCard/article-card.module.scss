@@ -1,8 +1,8 @@
-@import '@styles/variables/layouts.scss';
+@import '@styles/mixins/layouts.scss';
 
 // Represents a whole article preview card.
 .card {
-	@extend %flex-row;
+	@include flex-row;
 
 	// Add an aesthetic to the card.
 	border-radius: 0.25rem;
@@ -15,7 +15,7 @@
 		flex: 1;
 
 		// Fit content to top of card.
-		@extend %flex-row;
+		@include flex-row;
 		justify-content: space-between;
 		align-items: flex-start;
 
@@ -26,6 +26,6 @@
 
 // This represents the thumbnail on the side.
 .card .thumbnail {
-	@extend %flex-column;
+	@include flex-column;
 	img {border-radius: 0.25rem}
 }

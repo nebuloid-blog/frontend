@@ -1,10 +1,11 @@
-@import '@styles/variables/layouts.scss';
+@import '@styles/mixins/colors.scss';
+@import '@styles/mixins/layouts.scss';
 
 // The %flex-row placeholder is heavily used here.
 // It applies flexbox to align things nicely.
 
 .root {
-	@extend %flex-row;
+	@include flex-row;
 
 	// Style the footer bar
 	height: var(--banner-height);
@@ -12,7 +13,7 @@
 }
 
 .root a {
-	@extend %flex-row;
+	@include flex-row;
 
 	// Space out contents some
 	gap: 0.5rem;
@@ -30,5 +31,11 @@
 
 .logo {
 	// Center the contained logo/image
-	@extend %flex-row;
+	@include flex-row;
+}
+
+@include dark-mode {
+	.logo {
+		filter: invert(1);
+	}
 }

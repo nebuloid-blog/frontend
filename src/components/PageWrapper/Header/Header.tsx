@@ -30,7 +30,8 @@ const Header: React.FC<Props> = ( ) => {
 	// For checking current route path.
 	const router = useRouter( )
 	const basePath = useMemo(( ) => {
-		const pathName = router.asPath.split('/').at(1) ?? ''
+		let pathName = router.asPath.split('/').at(1) ?? ''
+		if (pathName.startsWith('#')) pathName = ''
 		return `/${pathName}`
 	}, [router])
 
@@ -40,7 +41,7 @@ const Header: React.FC<Props> = ( ) => {
 			<MenuBar navigation>
 				<MenuButton
 					base={Link}
-					href='/'
+					href={basePath === '/' ? '/#site-logo' : '/'}
 					highlight={basePath === '/'}
 				>
 					Home

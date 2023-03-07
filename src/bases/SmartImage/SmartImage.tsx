@@ -1,16 +1,8 @@
-import type {ImageProps as BaseNextImageProps} from 'next/image'
-import Image from 'next/image'
+import NextImage from 'next/image'
+import type {ComponentPropsWithoutRef, FC} from 'react'
 
-// HTML Image element props: <img>
-type BaseHTMLImageProps = JSX.IntrinsicElements['img']
-type HTMLImageProps = Omit<BaseHTMLImageProps, 'ref'>
-
-// NextJS Image element props: <Image>
-interface NextImageProps extends Omit<BaseNextImageProps, 'ref'> {
-	src: string,
-}
-
-type Props = HTMLImageProps | NextImageProps
+type BaseElementType = FC<JSX.IntrinsicElements['img']>
+type SmartImageProps = ComponentPropsWithoutRef<BaseElementType>
 
 /* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 SmartImage
@@ -20,7 +12,7 @@ This takes in HTML Image Attributes, and (if necessary) will
 The motivation behind this was for its usage with Rehype.
 This can help transform external HTML into localized JSX.
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
-const SmartImage: React.FC<Props> = ({
+const SmartImage: FC<SmartImageProps> = ({
 	src,
 	alt,
 	height,
@@ -29,8 +21,10 @@ const SmartImage: React.FC<Props> = ({
 	...props
 }) => {
 	// The src and alt attributes must be set in Next Images.
-	if (src == null) src = ''
-	if (alt == null) alt = ''
+	// Its with good reason, but our source may not have them.
+	// For example an img without an alt is still valid HTML.
+	src ??= ''
+	alt ??= ''
 
 	// The height and width cannot be non-numeric strings.
 	// Converting them to a number ensures they are numeric.
@@ -38,21 +32,17 @@ const SmartImage: React.FC<Props> = ({
 	if (width != null) width = Number(width)
 
 	// Verify that the placeholder attribute is properly set.
-	if (
-		placeholder != null
-		&& placeholder !== 'blur'
-		&& placeholder !== 'empty'
-	) placeholder = undefined
+	if (placeholder !== 'blur' && placeholder !== 'empty') placeholder = undefined
 
 	// Return the NextJS Image.
 	return (
-		<Image
+		<NextImage
+			{...props}
 			src={src}
 			alt={alt}
 			height={height}
 			width={width}
 			placeholder={placeholder}
-			{...props}
 		/>
 	)
 }

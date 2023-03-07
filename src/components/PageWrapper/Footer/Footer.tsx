@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
 import styles from './Footer.module.scss'
-import {combineClassNames} from '@utilities/combine-class-names'
 
 type Props = Record<never, never>
 
@@ -14,12 +13,7 @@ const Footer: React.FC<Props> = ( ) => (
 			rel='noopener noreferrer'
 		>
 			Powered by
-			<span className={
-				combineClassNames([
-					styles.logo,
-					'invert-in-dark-mode',
-				])
-			}>
+			<span className={styles.logo}>
 				<Image
 					src='/vercel.svg'
 					alt='Vercel Logo'

@@ -8,7 +8,7 @@ const HeroTitle: React.FC<Props> = ( ) => (
 			<svg
 				viewBox='0 0 105.625 15'
 				xmlns='http://www.w3.org/2000/svg'
-				style={{fontSize: '1rem'}}
+				style={{fontSize: '20px'}}
 			>
 				<text
 					x='50%'

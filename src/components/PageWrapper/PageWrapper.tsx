@@ -69,7 +69,10 @@ const PageWrapper: React.FC<Props> = ({
 					</div>
 				)}
 
-				<div className={styles['floating-logo']}>
+				<div
+					id='site-logo'
+					className={styles['floating-logo']}
+				>
 					<SiteLogo />
 				</div>
 			</header>

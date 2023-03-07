@@ -6,10 +6,14 @@
 @import './fonts/saira.scss';
 @import './fonts/stargaze.scss';
 
+// Get mixins and other scss utilities
+@import './mixins/breakpoints.scss';
+@import './mixins/colors.scss';
+@import './mixins/layouts.scss';
+@import './mixins/typefaces.scss';
+
 // Import styling variables
 @import './variables/colors.scss';
-@import './variables/layouts.scss';
-@import './variables/typefaces.scss';
 
 // Apply custom rules for global elements
 @import './elements/block-elements.scss';
@@ -32,6 +36,9 @@ body {
 	// Base site font settings
 	@extend %body-typeface;
 	font-size: 20px;
+	@include for-tablets-down {
+		font-size: 16px;
+	}
 }
 
 body {

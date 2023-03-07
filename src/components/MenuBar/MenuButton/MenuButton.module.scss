@@ -1,13 +1,14 @@
-@import '@styles/variables/layouts.scss';
+@import '@styles/mixins/layouts.scss';
 
 .root {
-	@extend %flex-row;
+	@include flex-row;
 	align-items: stretch;
 }
 
 .root { a, button {
-	@extend %flex-row;
+	@include flex-row;
 	height: var(--banner-height);
+	width: 100%;
 
 	// Add spacing in the button.
 	// This also enlarges the clickable area.
@@ -33,8 +34,10 @@
 		background-color: var(--background-clear);
 	}
 
-	&:hover {
-		background-color: transparent;
+	&:hover,
+	&:active {
 		color: var(--link-color);
+		background-color: transparent;
+		transition-duration: 0s;
 	}
 }}

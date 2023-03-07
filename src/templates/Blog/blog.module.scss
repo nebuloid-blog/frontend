@@ -1,19 +1,19 @@
-@import '@styles/variables/layouts.scss';
+@import '@styles/mixins/layouts.scss';
 
 .blog {
 	// Center items
-	@extend %flex-column;
+	@include flex-column;
 	padding: 2rem;
 }
 
 .blog .index {
 	// Stack content vertically & align top/left
-	@extend %flex-column;
+	@include flex-column;
 	justify-content: flex-start;
 	align-items: flex-start;
 }
 
 .blog .index > ul {
-	@extend %flex-column;
+	@include flex-column;
 	gap: 0.5rem;
 }

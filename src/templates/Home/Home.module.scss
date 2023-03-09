@@ -1,3 +1,81 @@
-.contact {
-	background-color: var(--background-clear);
+@import '@styles/mixins/breakpoints';
+@import '@styles/mixins/typefaces';
+
+// I know this was pixel-pushing a bit,
+//  and needs some better styling overall.
+// But, for now, this is good enough!!
+
+.contact .content {
+	display: flex;
+	gap: 0.5rem;
+	flex-direction: row;
+	justify-content: center;
+
+	@include for-tablets-down {
+		flex-direction: column-reverse;
+	}
+
+	> * {
+		flex: 1;
+	}
+
+	> form {
+		flex: 3;
+	}
+
+	fieldset {
+		legend {
+			@extend %label-typeface;
+			font-size: 1em;
+			padding: 0 0.5em;
+		}
+		padding: 1rem;
+		background-color: var(--background-clear);
+		border-radius: 0.5rem;
+	}
+
+	> address {
+		flex: 2;
+	}
+
+	dl {
+		@include for-splitscreen-desktops-up {
+			height: calc(100% - 0.9rem);
+			margin-top: 0.9rem;
+		}
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	dl .definition-group {
+		border-radius: 0.5rem;
+		background-color: var(--background-clear);
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		padding: 1rem 2rem;
+	}
+
+	.fill-group {
+		border-radius: 0.5rem;
+		flex: 1;
+		background-color: var(--background-clear);
+
+		.definition-group {
+			background-color: transparent;
+		}
+	}
+
+	dd, dd * {
+		margin: 0;
+	}
+
+	dt {
+		text-align: center;
+		margin-right: 2rem;
+		min-width: 4rem;
+		@extend %label-typeface;
+		font-size:1
+	}
 }

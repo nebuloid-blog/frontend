@@ -22,6 +22,23 @@ const Footer: React.FC<Props> = ( ) => (
 				/>
 			</span>
 		</a>
+
+		<a
+			className='reset'
+			href='https://github.com/nebuloid-blog'
+			target='_blank'
+			rel='noopener noreferrer'
+		>
+			View source on
+			<span className={styles.logo}>
+				<Image
+					src='/github.svg'
+					alt='GitHub Logo'
+					width={72}
+					height={18}
+				/>
+			</span>
+		</a>
 	</footer>
 )
 

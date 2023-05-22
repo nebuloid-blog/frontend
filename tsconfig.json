@@ -4,10 +4,17 @@
 		"next-env.d.ts",
 		"eslint.config.mjs",
 	],
-	"include": ["src/**/*", ".storybook/**/*"],
+	"include": [
+		"src/**/*",
+		".storybook/**/*",
+		".next/types/**/*.ts"
+	],
 	"exclude": ["node_modules/**/*"],
 	"compilerOptions": {
 		/* Visit https://aka.ms/tsconfig to read more about this file */
+		"plugins": [
+			{"name": "next"}
+		],
 
 		/* Projects */
 		"incremental": true,                                    /* Save .tsbuildinfo files to allow for incremental compilation of projects. */

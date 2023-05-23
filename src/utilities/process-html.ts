@@ -2,6 +2,11 @@ import {rehype} from 'rehype'
 import rehypeParse from 'rehype-parse'
 import rehypeSanitize, {defaultSchema} from 'rehype-sanitize'
 import rehypeShiftHeading from 'rehype-shift-heading'
+import {createElement, Fragment} from 'react'
+import type {Options as RehypeReactOptions} from 'rehype-react'
+import rehypeReact from 'rehype-react'
+import {SmartLink} from '@components/SmartLink'
+import {SmartImage} from '@components/SmartImage'
 
 interface Options {
 	shift?: number,
@@ -46,6 +51,16 @@ const sanitizerSchema = {
 	],
 }
 
+// React processor settings.
+const rehypeReactOptions: RehypeReactOptions = {
+	createElement: createElement,
+	Fragment: Fragment,
+	components: {
+		a: SmartLink,
+		img: SmartImage,
+	},
+}
+
 // This function takes in valid HTML,
 //  and transforms / sanitizes it for use as static data.
 const processHTML = async (
@@ -60,10 +75,12 @@ const processHTML = async (
 
 	// Parse the HTML using these plugins, and create a vFile.
 	// Note that "vFile.toString( )" produces a static string.
+	// Else, access the generated JSX via the "result" key.
 	const vFile = await rehype( )
 	.use(rehypeParse, {fragment: true})
 	.use(rehypeShiftHeading, shiftHeadingOptions)
 	.use(rehypeSanitize, sanitizerSchema)
+	.use(rehypeReact, rehypeReactOptions)
 	.process(html)
 
 	// Return the processed results.

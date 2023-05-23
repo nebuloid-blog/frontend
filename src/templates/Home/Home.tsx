@@ -1,24 +1,15 @@
-import type {InferGetStaticPropsType, NextPage} from 'next'
-import styles from './Home.module.scss'
-import type {getStaticProps} from './get-static-data'
-import {ContactForm} from './ContactForm'
 import {Addresses} from './Addresses'
-import {DefaultHead} from '@components/DefaultHead'
-import {PageWrapper} from '@components/PageWrapper'
-import {RehypeHTML} from '@components/RehypeHTML'
+import {ContactForm} from './ContactForm'
+import styles from './Home.module.scss'
+import {getIntroArticle} from './get-intro-article'
 
-// Home Template
-type Props = InferGetStaticPropsType<typeof getStaticProps>
+const Home = async ( ) => {
+	const article = await getIntroArticle( )
 
-const Home: NextPage<Props> = ({article}) => (
-	<>
-		<DefaultHead />
-
-		<PageWrapper hero>
+	return (
+		<>
 			<main>
-				{article && (
-					<RehypeHTML html={article.html} />
-				)}
+				{article.vFile?.result}
 			</main>
 
 			<section className={styles.contact}>
@@ -28,8 +19,8 @@ const Home: NextPage<Props> = ({article}) => (
 					<Addresses />
 				</div>
 			</section>
-		</PageWrapper>
-	</>
-)
+		</>
+	)
+}
 
 export {Home}

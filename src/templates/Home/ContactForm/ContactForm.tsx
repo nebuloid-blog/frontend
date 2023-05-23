@@ -1,3 +1,5 @@
+'use client'
+
 import type {FC} from 'react'
 import {useCallback} from 'react'
 import {useForm} from 'react-hook-form'

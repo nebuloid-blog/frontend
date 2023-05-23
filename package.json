@@ -85,9 +85,9 @@
 		"eslint-plugin-import": "^2.27.4",
 		"replace-in-files-cli": "^2.0.0",
 		"sass": "^1.57.1",
-		"storybook": "^7.0.0-beta.25",
-		"storybook-addon-next": "^1.7.1",
-		"storybook-addon-swc": "^1.1.9",
+		"storybook": "^7.0.13",
+		"storybook-addon-next": "^1.8.0",
+		"storybook-addon-swc": "^1.2.0",
 		"typescript": "^4.9.4"
 	}
 }

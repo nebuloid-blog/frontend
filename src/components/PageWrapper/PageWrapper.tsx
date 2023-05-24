@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import {Footer} from './Footer'
 import {Header} from './Header'
 import {HeroTitle} from './HeroTitle'
 import styles from './PageWrapper.module.scss'
+import {useTitleVisibility} from './use-title-visibility'
 import {SiteLogo} from '@components/SiteLogo'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
 import {useSafeContext} from '@hooks/use-safe-context'
@@ -20,26 +21,7 @@ const PageWrapper: React.FC<Props> = ({
 	// The color scheme context/global state is used here,
 	//  although its value is determined elsewhere.
 	const [colorScheme] = useSafeContext(ColorSchemeContext)
-	const [showTitle, setShowTitle] = useState(true)
-	const [showLogo, setShowLogo] = useState(false)
-
-	useEffect(( ) => {
-		const handleScroll = ( ) => {
-			const {scrollY, innerHeight} = window
-			const thresholdFlag = scrollY / innerHeight > 0.33
-			setShowTitle(thresholdFlag)
-			setShowLogo(thresholdFlag)
-		}
-
-		// Trigger this once immediately,
-		//  to overwrite initial state.
-		handleScroll( )
-
-		window.addEventListener('scroll', handleScroll)
-		return ( ) => {
-			window.removeEventListener('scroll', handleScroll)
-		}
-	}, [ ])
+	const {showTitle, showLogo} = useTitleVisibility( )
 
 	return (
 		// If the wrapper has a hero-style, then the page intro

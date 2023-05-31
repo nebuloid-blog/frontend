@@ -1,1 +1,0 @@
-export {SiteLogo} from './SiteLogo'

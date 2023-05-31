@@ -2,6 +2,7 @@
 # NextJS documentation specifies that this file should be ignored:
 # https://nextjs.org/docs/basic-features/typescript#existing-projects
 next-env.d.ts
+old-*/
 
 ### GitIgnore.IO Configuration #############################
 # Created by https://www.toptal.com/developers/gitignore/api/git,yarn,node,visualstudiocode,nextjs,react

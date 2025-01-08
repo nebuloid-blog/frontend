@@ -15,11 +15,11 @@ import {Button} from '@components/Button'
 // Contact Form
 const ContactForm: FC<Record<never, never>> = ( ) => {
 	const {register, handleSubmit} = useForm<FieldTypes>( )
-	const [formspree, sendToFormspree] = useFormspree('xeqwkarl')
+	/* @ts-expect-error: Formspree expects too generic a record. */
+	const [formspree, sendToFormspree] = useFormspree<FieldTypes>('xeqwkarl')
 
 	const onSubmit = useCallback(
 		async (data: FieldTypes) => {
-			/* @ts-expect-error: Formspree expects too generic a record. */
 			await sendToFormspree(data)
 		},
 		[sendToFormspree],

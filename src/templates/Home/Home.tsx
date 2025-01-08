@@ -19,6 +19,7 @@ const ContactForm: FC<Record<never, never>> = ( ) => {
 
 	const onSubmit = useCallback(
 		async (data: FieldTypes) => {
+			/* @ts-expect-error: Formspree expects too generic a record. */
 			await sendToFormspree(data)
 		},
 		[sendToFormspree],

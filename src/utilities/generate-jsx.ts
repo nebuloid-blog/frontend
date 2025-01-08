@@ -1,6 +1,6 @@
 import {SmartImage} from '@components/SmartImage'
 import {SmartLink} from '@components/SmartLink'
-import {createElement, Fragment} from 'react'
+import {Fragment} from 'react'
 import {rehype} from 'rehype'
 import rehypeParse from 'rehype-parse'
 import rehypeReact from 'rehype-react'
@@ -10,8 +10,8 @@ type Options = Record<never, never>
 
 // React processor settings.
 const rehypeReactOptions: RehypeReactOptions = {
-	createElement: createElement,
 	Fragment: Fragment,
+	development: false,
 	components: {
 		a: SmartLink,
 		img: SmartImage,

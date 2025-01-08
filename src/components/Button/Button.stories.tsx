@@ -14,7 +14,6 @@ const ButtonStory = ({
 	label: children,
 	...props
 }: StoryProps) => {
-	props.base ??= 'button'
 	if (props.base === 'button') {
 		return (
 			<div data-color-scheme={colorScheme}>

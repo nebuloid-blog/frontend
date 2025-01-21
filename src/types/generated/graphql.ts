@@ -5,112 +5,114 @@ export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-	ID: string;
-	String: string;
-	Boolean: boolean;
-	Int: number;
-	Float: number;
+	ID: { input: string; output: string; }
+	String: { input: string; output: string; }
+	Boolean: { input: boolean; output: boolean; }
+	Int: { input: number; output: number; }
+	Float: { input: number; output: number; }
 };
 
 export type AdditionalEntityFields = {
-	path?: InputMaybe<Scalars['String']>;
-	type?: InputMaybe<Scalars['String']>;
+	path?: InputMaybe<Scalars['String']['input']>;
+	type?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Article = {
 	__typename?: 'Article';
 	data: ArticleData;
-	html: Scalars['String'];
+	html: Scalars['String']['output'];
 };
 
 export type ArticleData = {
 	__typename?: 'ArticleData';
-	slug: Scalars['String'];
-	title: Scalars['String'];
+	slug: Scalars['String']['output'];
+	title: Scalars['String']['output'];
 };
 
 export type Course = {
 	__typename?: 'Course';
-	description?: Maybe<Scalars['String']>;
-	id: Scalars['ID'];
-	name: Scalars['String'];
+	description?: Maybe<Scalars['String']['output']>;
+	id: Scalars['ID']['output'];
+	name: Scalars['String']['output'];
 	projects?: Maybe<Array<Project>>;
 };
 
 export type Mutation = {
 	__typename?: 'Mutation';
-	createCourse: Scalars['ID'];
-	createProject: Scalars['ID'];
-	createUser?: Maybe<Scalars['String']>;
-	deleteCourse: Scalars['Boolean'];
-	deleteProject: Scalars['Boolean'];
-	deleteUser: Scalars['Boolean'];
-	signInUser?: Maybe<Scalars['String']>;
-	updateCourse: Scalars['Boolean'];
-	updateProject: Scalars['Boolean'];
+	createCourse: Scalars['ID']['output'];
+	createProject: Scalars['ID']['output'];
+	createUser?: Maybe<Scalars['String']['output']>;
+	deleteCourse: Scalars['Boolean']['output'];
+	deleteProject: Scalars['Boolean']['output'];
+	deleteUser: Scalars['Boolean']['output'];
+	signInUser?: Maybe<Scalars['String']['output']>;
+	updateCourse: Scalars['Boolean']['output'];
+	updateProject: Scalars['Boolean']['output'];
 };
 
 
 export type MutationCreateCourseArgs = {
-	description?: InputMaybe<Scalars['String']>;
-	name: Scalars['String'];
-	projects?: InputMaybe<Array<Scalars['ID']>>;
+	description?: InputMaybe<Scalars['String']['input']>;
+	name: Scalars['String']['input'];
+	projects?: InputMaybe<Array<Scalars['ID']['input']>>;
 };
 
 
 export type MutationCreateProjectArgs = {
-	courses?: InputMaybe<Array<Scalars['ID']>>;
-	description?: InputMaybe<Scalars['String']>;
-	name: Scalars['String'];
+	courses?: InputMaybe<Array<Scalars['ID']['input']>>;
+	description?: InputMaybe<Scalars['String']['input']>;
+	name: Scalars['String']['input'];
 };
 
 
 export type MutationCreateUserArgs = {
-	email: Scalars['String'];
-	password: Scalars['String'];
+	email: Scalars['String']['input'];
+	password: Scalars['String']['input'];
 	role?: InputMaybe<Role>;
-	username: Scalars['String'];
+	username: Scalars['String']['input'];
 };
 
 
 export type MutationDeleteCourseArgs = {
-	id: Scalars['ID'];
+	id: Scalars['ID']['input'];
 };
 
 
 export type MutationDeleteProjectArgs = {
-	id: Scalars['ID'];
+	id: Scalars['ID']['input'];
 };
 
 
 export type MutationDeleteUserArgs = {
-	id: Scalars['ID'];
+	id: Scalars['ID']['input'];
 };
 
 
 export type MutationSignInUserArgs = {
-	password: Scalars['String'];
-	username: Scalars['String'];
+	password: Scalars['String']['input'];
+	username: Scalars['String']['input'];
 };
 
 
 export type MutationUpdateCourseArgs = {
-	id: Scalars['ID'];
+	id: Scalars['ID']['input'];
 };
 
 
 export type MutationUpdateProjectArgs = {
-	id: Scalars['ID'];
+	id: Scalars['ID']['input'];
 };
 
 export type Project = {
 	__typename?: 'Project';
 	courses?: Maybe<Array<Course>>;
-	description?: Maybe<Scalars['String']>;
-	id: Scalars['ID'];
-	name: Scalars['String'];
+	description?: Maybe<Scalars['String']['output']>;
+	id: Scalars['ID']['output'];
+	name: Scalars['String']['output'];
 };
 
 export type Query = {
@@ -126,25 +128,25 @@ export type Query = {
 
 
 export type QueryGetArticleArgs = {
-	branch?: InputMaybe<Scalars['String']>;
-	directory?: InputMaybe<Scalars['String']>;
-	file: Scalars['String'];
+	branch?: InputMaybe<Scalars['String']['input']>;
+	directory?: InputMaybe<Scalars['String']['input']>;
+	file: Scalars['String']['input'];
 };
 
 
 export type QueryGetCourseArgs = {
-	id: Scalars['ID'];
+	id: Scalars['ID']['input'];
 };
 
 
 export type QueryGetProjectArgs = {
-	id: Scalars['ID'];
+	id: Scalars['ID']['input'];
 };
 
 
 export type QueryIndexArticlesArgs = {
-	branch?: InputMaybe<Scalars['String']>;
-	directory?: InputMaybe<Scalars['String']>;
+	branch?: InputMaybe<Scalars['String']['input']>;
+	directory?: InputMaybe<Scalars['String']['input']>;
 };
 
 export enum Role {
@@ -155,23 +157,23 @@ export enum Role {
 
 export type User = {
 	__typename?: 'User';
-	email: Scalars['String'];
-	id: Scalars['ID'];
+	email: Scalars['String']['output'];
+	id: Scalars['ID']['output'];
 	role: Role;
-	username: Scalars['String'];
+	username: Scalars['String']['output'];
 };
 
 export type GetArticleQueryVariables = Exact<{
-	file: Scalars['String'];
-	directory?: InputMaybe<Scalars['String']>;
-	branch?: InputMaybe<Scalars['String']>;
+	file: Scalars['String']['input'];
+	directory?: InputMaybe<Scalars['String']['input']>;
+	branch?: InputMaybe<Scalars['String']['input']>;
 }>;
 
 
 export type GetArticleQuery = { __typename?: 'Query', getArticle?: { __typename?: 'Article', html: string, data: { __typename?: 'ArticleData', slug: string, title: string } } | null };
 
 export type IndexArticlesQueryVariables = Exact<{
-	branch?: InputMaybe<Scalars['String']>;
+	branch?: InputMaybe<Scalars['String']['input']>;
 }>;
 
 

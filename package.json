@@ -1,5 +1,6 @@
 {
 	"name": "@nebuloid/frontend",
+	"private": false,
 	"license": "MIT",
 	"version": "0.0.0",
 	"description": "The frontend for my portfolio.",
@@ -34,9 +35,13 @@
 			"url": "https://francescoronel.com/"
 		}
 	],
+	"engines": {
+		"node": ">=22.12"
+	},
 	"packageManager": "yarn@3.2.1",
-	"main": "",
 	"type": "module",
+	"main": "",
+	"files": [ ],
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -44,11 +49,17 @@
 		"lint": "next lint",
 		"storybook": "storybook dev -s public -p 6006",
 		"build-storybook": "storybook build",
+
 		"indent": "replace-in-files --string='  ' --replacement='\t'",
-		"generate": "yarn generate:code && yarn generate:lint --fix; yarn generate:indent",
-		"generate:indent": "yarn indent ./src/**/generated/**/*.ts",
-		"generate:code": "echo generating... && graphql-codegen --config .codegenrc.json",
-		"generate:lint": "echo linting... && eslint ./src/**/generated/**/*.ts --no-ignore --rule '@typescript-eslint/consistent-type-definitions: 0'"
+
+		"generate":
+			"yarn generate:code && yarn generate:lint --fix; yarn generate:indent",
+		"generate:indent":
+			"yarn indent ./src/**/generated/**/*.ts",
+		"generate:code":
+			"echo \nGenerating... && graphql-codegen --config .codegenrc.json",
+		"generate:lint":
+			"echo \nLinting... && eslint ./src/**/generated/**/*.ts --no-ignore"
 	},
 	"dependencies": {
 		"@formspree/react": "^2.5.1",

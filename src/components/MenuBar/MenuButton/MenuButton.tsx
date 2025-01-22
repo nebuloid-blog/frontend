@@ -1,16 +1,13 @@
 import {Button} from '@components/Button'
 import {combineClassNames} from '@utilities/combine-class-names'
 import styles from './MenuButton.module.scss'
-import type {BaseElementType, ButtonProps} from '@components/Button'
+import type {BaseElement, ButtonProps} from '@components/Button'
 
-type Props<El extends BaseElementType>
+type Props<El extends BaseElement>
 = ButtonProps<El> & {highlight?: boolean}
 
-const MenuButton = <El extends BaseElementType> ({
-	highlight = false,
-	...props
-}: Props<El>) => (
-
+// TODO: Investigate types similarly to the button element.
+const MenuButton = <El extends BaseElement> (props: Props<El>) => (
 	<li className = {styles.root}>
 		<Button
 			color = 'link'
@@ -18,7 +15,7 @@ const MenuButton = <El extends BaseElementType> ({
 			className = {
 				combineClassNames([
 					'reset',
-					highlight && styles.highlight,
+					props.highlight && styles.highlight,
 					props.className,
 				])
 			}

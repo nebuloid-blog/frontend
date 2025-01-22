@@ -1,29 +1,78 @@
 import {Pressable} from '@components/Pressable'
-import {combineClassNames} from '@utilities/combine-class-names'
+
+import {
+	combineClassNames,
+} from '@utilities/combine-class-names'
 import styles from './Button.module.scss'
-import type {PressableProps, BaseElementType} from '@components/Pressable'
+
+import type {
+	BaseElement,
+	PressableProps,
+} from '@components/Pressable'
+
 import type {level} from '@nebuloid-types/colors'
 
+
+// Base custom props for the component.
 interface ButtonBase {
 	color?: level | 'link',
 }
 
-type ButtonProps<El extends BaseElementType>
+// Combine extended props with the base props above.
+type ButtonProps<El extends BaseElement>
 = ButtonBase & PressableProps<El>
 
-const Button = <El extends BaseElementType> ({
-	color = 'primary',
-	...props
-}: ButtonProps<El>) => {
-	// Here, the value "link" is just an alias for "tertiary".
+/***********************************************************
+Button
+======
+The `<Button />` component builds upon a similar generic
+	component in the workspace, `<Pressable />`.
+Simply put, the difference is all in styling.
+- `<Button />` is formatted like a block element.
+- `<Pressable />` is formatted like an inline element.
+
+There's a benefit to having this, where it is easy to
+	make links look like buttons, and buttons look like links.
+
+Styling Options
+---------------
+You can access all features of the extended component, plus
+	add some coloring options, as seen in the prop types.
+- `{color: 'primary'}` will show as a boldly colored button.
+- `{color: 'secondary'}` will show as an outlined button.
+- `{color: 'tertiary'}` will show as a block-styled link.
+- `{color: 'link'}` is an alias for `'tertiary'`.
+
+TypeScript Quirks
+-----------------
+TypeScript was misbehaving, so I could not use something
+	like `{color, ...props}` to deconstruct component props.
+To work around this, I simply did not deconstruct props.
+The problem stems from extending the type `PressableProps`.
+This type was already fairly complex, so it's not surprising
+	that its a fragile  to extend with in TypeScript.
+I believe this is a limitation of TypeScript, but if there
+	are ways to improve, please open an issue for me!
+***********************************************************/
+const Button = <El extends BaseElement> (
+	props: ButtonProps<El>,
+) => {
+	let color = props.color
+	color ??= 'primary'
+	// Here, the color property of "link" is just an alias
+	//  for the color property of "tertiary".
 	if (color === 'link') color = 'tertiary'
+
+	let resetStyles = null
+	// Determine whether to reset the styles of the button.
+	if (color !== 'tertiary') resetStyles = 'reset'
 
 	return (
 		<Pressable
 			{...props}
 			className = {
 				combineClassNames([
-					color !== 'tertiary' && 'reset',
+					resetStyles,
 					styles.root,
 					styles[color],
 					props.className,
@@ -34,4 +83,4 @@ const Button = <El extends BaseElementType> ({
 }
 
 export {Button}
-export type {ButtonProps, BaseElementType}
+export type {BaseElement, ButtonProps}

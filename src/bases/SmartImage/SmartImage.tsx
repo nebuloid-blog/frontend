@@ -1,5 +1,10 @@
 import NextImage from 'next/image'
-import type {ComponentProps, ComponentPropsWithoutRef, FC} from 'react'
+import type {
+	ComponentProps,
+	ComponentPropsWithoutRef,
+	FC,
+	JSX,
+} from 'react'
 
 type BaseElementType = FC<JSX.IntrinsicElements['img']>
 type SmartImageProps =

@@ -1,3 +1,4 @@
+import React from 'react'
 import {MenuButton} from '.'
 import type {Meta, StoryObj} from '@storybook/react'
 

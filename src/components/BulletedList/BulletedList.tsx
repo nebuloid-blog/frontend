@@ -1,5 +1,6 @@
 import React from 'react'
 import type {TextNode} from '@nebuloid-types/text-node'
+import type {JSX} from 'react'
 
 type ListNode = TextNode | Array<TextNode>
 
@@ -39,7 +40,6 @@ const BulletedList: React.FC<Props> = ({
 		//
 		// TODO!
 		// Resolve and delete the type assertion below.
-		// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 		{...props as Record<string, unknown>}
 	>
 		{items.map((item, index) => (

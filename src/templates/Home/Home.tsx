@@ -13,6 +13,12 @@ import type {InferGetStaticPropsType, NextPage} from 'next'
 import type {FC} from 'react'
 
 // Contact Form
+interface FieldTypes {
+	name: string,
+	email: string,
+	message: string,
+}
+
 const ContactForm: FC<Record<never, never>> = ( ) => {
 	const {register, handleSubmit} = useForm<FieldTypes>( )
 	/* @ts-expect-error: Formspree expects too generic a record. */
@@ -131,11 +137,6 @@ const Addresses: FC<Record<never, never>> = ( ) => (
 
 // Home Template
 type Props = InferGetStaticPropsType<typeof getStaticProps>
-interface FieldTypes {
-	name: string,
-	email: string,
-	message: string,
-}
 
 const Home: NextPage<Props> = ({article}) => (
 	<>

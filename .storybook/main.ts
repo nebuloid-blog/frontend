@@ -1,5 +1,3 @@
-import 'node:path'
-
 const settings = {
 	stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
 	addons: [

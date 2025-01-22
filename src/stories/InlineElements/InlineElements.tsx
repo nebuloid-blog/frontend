@@ -68,10 +68,12 @@ const inlineDefinitionList = [
 
 	{ // Human Input Samples
 		terms: [
-			(<>
-				keyboard/<abbr title = 'Human Input Device'>HID</abbr>
-				{' '}sample, (<code>{'<kbd>'}</code>)
-			</>),
+			(
+				<>
+					keyboard/<abbr title = 'Human Input Device'>HID</abbr>
+					{' '}sample, (<code>{'<kbd>'}</code>)
+				</>
+			),
 		],
 		definitions: [<kbd>sample</kbd>],
 	},

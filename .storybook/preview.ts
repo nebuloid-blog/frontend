@@ -4,7 +4,7 @@ const parameters = {
 	actions: {argTypesRegex: '^on[A-Z].*'},
 	controls: {
 		matchers: {
-			color: /(background|color)$/ui,
+			color: /(?<color_info>background|color)$/ui,
 			date: /Date$/u,
 		},
 	},

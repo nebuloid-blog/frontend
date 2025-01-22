@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {JSX} from 'react'
 import type {TextNode} from '@nebuloid-types/text-node'
 
 type HTMLBlockQuoteProps = JSX.IntrinsicElements['blockquote']

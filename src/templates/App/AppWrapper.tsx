@@ -1,8 +1,8 @@
-import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
-import type {NextPage} from 'next'
-import React from 'react'
 import {ColorSchemeProvider} from '@contexts/ColorScheme'
 import {useColorScheme} from '@hooks/use-color-scheme'
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
+import React from 'react'
+import type {NextPage} from 'next'
 
 interface Props {
 	children: React.ReactNode,
@@ -15,8 +15,8 @@ const AppWrapper: NextPage<Props> = ({children}) => {
 	const colorSchemeHook = useColorScheme( )
 
 	return (
-		<ColorSchemeProvider value={colorSchemeHook}>
-			<QueryClientProvider client={queryClient}>
+		<ColorSchemeProvider value = {colorSchemeHook}>
+			<QueryClientProvider client = {queryClient}>
 				{children}
 			</QueryClientProvider>
 		</ColorSchemeProvider>

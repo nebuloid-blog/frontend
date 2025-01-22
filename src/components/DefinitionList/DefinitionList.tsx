@@ -66,7 +66,7 @@ const DefinitionList: React.FC<Props> = ({
 			//
 			// There isn't a specific definition group element,
 			//  so you will notice that a <div> is used here.
-			<div key={index}>
+			<div key = {index}>
 				{getTermsJSX(terms)}
 				{getDefinitionsJSX(definitions)}
 			</div>

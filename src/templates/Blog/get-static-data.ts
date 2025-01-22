@@ -1,7 +1,7 @@
-import {request} from 'graphql-request'
-import type {GetStaticProps} from 'next'
-import type {IndexArticlesQuery} from '@nebuloid-types/generated/graphql'
 import {indexArticles} from '@utilities/requests/articles'
+import {request} from 'graphql-request'
+import type {IndexArticlesQuery} from '@nebuloid-types/generated/graphql'
+import type {GetStaticProps} from 'next'
 
 interface IndexArticlesResponse {
 	articles?: IndexArticlesQuery['indexArticles'],

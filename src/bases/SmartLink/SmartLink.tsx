@@ -42,7 +42,7 @@ const SmartLink: FC<SmartLinkProps> = (props) => {
 		return (
 			<NextLink
 				{...props}
-				href={props.href}
+				href = {props.href}
 			/>
 		)
 	}

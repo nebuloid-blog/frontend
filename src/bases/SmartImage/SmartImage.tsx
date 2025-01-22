@@ -40,11 +40,11 @@ const SmartImage: FC<SmartImageProps> = ({
 	return (
 		<NextImage
 			{...props}
-			src={src}
-			alt={alt}
-			height={height}
-			width={width}
-			placeholder={placeholder}
+			src = {src}
+			alt = {alt}
+			height = {height}
+			width = {width}
+			placeholder = {placeholder}
 		/>
 	)
 }

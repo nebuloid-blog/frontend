@@ -28,7 +28,7 @@ const BlockQuote: React.FC<Props> = ({
 	...props
 }) => (
 	<figure {...props}>
-		<blockquote cite={cite}>
+		<blockquote cite = {cite}>
 			{quotation}
 		</blockquote>
 

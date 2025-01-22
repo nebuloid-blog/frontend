@@ -1,16 +1,16 @@
-import type {FC} from 'react'
-import {useCallback} from 'react'
-import {useForm} from 'react-hook-form'
-import {useForm as useFormspree} from '@formspree/react'
-import type {InferGetStaticPropsType, NextPage} from 'next'
-import styles from './Home.module.scss'
-import type {getStaticProps} from './get-static-data'
+import {Button} from '@components/Button'
 import {DefaultHead} from '@components/DefaultHead'
 import {PageWrapper} from '@components/PageWrapper'
 import {RehypeHTML} from '@components/RehypeHTML'
-import {TextInput} from '@components/TextInput'
 import {TextArea} from '@components/TextArea'
-import {Button} from '@components/Button'
+import {TextInput} from '@components/TextInput'
+import {useForm as useFormspree} from '@formspree/react'
+import {useCallback} from 'react'
+import {useForm} from 'react-hook-form'
+import styles from './Home.module.scss'
+import type {getStaticProps} from './get-static-data'
+import type {InferGetStaticPropsType, NextPage} from 'next'
+import type {FC} from 'react'
 
 // Contact Form
 const ContactForm: FC<Record<never, never>> = ( ) => {
@@ -27,8 +27,8 @@ const ContactForm: FC<Record<never, never>> = ( ) => {
 
 	return (
 		<form
-			id='contact-form'
-			onSubmit={handleSubmit(onSubmit)}
+			id = 'contact-form'
+			onSubmit = {handleSubmit(onSubmit)}
 		>
 			<fieldset>
 				<legend>
@@ -36,21 +36,21 @@ const ContactForm: FC<Record<never, never>> = ( ) => {
 				</legend>
 
 				<TextInput
-					type='text'
-					label='Name'
+					type = 'text'
+					label = 'Name'
 					required
 					{...register('name')}
 				/>
 
 				<TextInput
-					type='email'
-					label='Email'
+					type = 'email'
+					label = 'Email'
 					required
 					{...register('email')}
 				/>
 
 				<TextArea
-					label='Message'
+					label = 'Message'
 					required
 					{...register('message')}
 				/>
@@ -62,18 +62,18 @@ const ContactForm: FC<Record<never, never>> = ( ) => {
 					// TODO!
 					// Refactor out this div and the contained <p>.
 					// Definately not a production-ready layout.
-					style={{
+					style = {{
 						display: 'flex',
 						alignItems: 'center',
 						gap: '1rem',
 					}}
 				>
-					<Button type='submit'>
+					<Button type = 'submit'>
 						Send Message
 					</Button>
 
 					{formspree.succeeded && (
-						<p style={{margin: 0}}>
+						<p style = {{margin: 0}}>
 							<i>
 								Your message has been sent!
 							</i>
@@ -89,35 +89,35 @@ const ContactForm: FC<Record<never, never>> = ( ) => {
 const Addresses: FC<Record<never, never>> = ( ) => (
 	<address>
 		<dl>
-			<div className={styles['definition-group']}>
+			<div className = {styles['definition-group']}>
 				<dt>Location</dt>
 				<dd>
 					<i>Los Angeles, California</i>
 				</dd>
 			</div>
 
-			<div className={styles['definition-group']}>
+			<div className = {styles['definition-group']}>
 				<dt>Email</dt>
 				<dd>
-					<a href='mailto:hello@nebuloid.dev'>
+					<a href = 'mailto:hello@nebuloid.dev'>
 						hello@nebuloid.dev
 					</a>
 				</dd>
 			</div>
 
-			<div className={styles['fill-group']}>
-				<div className={styles['definition-group']}>
+			<div className = {styles['fill-group']}>
+				<div className = {styles['definition-group']}>
 					<dt>Social</dt>
 					<dd>
 						<ul>
 							<li>
-								<a href='https://www.linkedin.com/in/noltron000/'>
+								<a href = 'https://www.linkedin.com/in/noltron000/'>
 									Linkedin
 								</a>
 							</li>
 
 							<li>
-								<a href='https://github.com/noltron000'>
+								<a href = 'https://github.com/noltron000'>
 									GitHub
 								</a>
 							</li>
@@ -144,13 +144,13 @@ const Home: NextPage<Props> = ({article}) => (
 		<PageWrapper hero>
 			<main>
 				{article && (
-					<RehypeHTML html={article.html} />
+					<RehypeHTML html = {article.html} />
 				)}
 			</main>
 
-			<section className={styles.contact}>
+			<section className = {styles.contact}>
 				<h2>Get in Touch</h2>
-				<div className={styles.content}>
+				<div className = {styles.content}>
 					<ContactForm />
 					<Addresses />
 				</div>

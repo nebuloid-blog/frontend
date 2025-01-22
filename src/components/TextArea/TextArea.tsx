@@ -1,7 +1,7 @@
-import React, {forwardRef, useId} from 'react'
+import {combineClassNames} from '@utilities/combine-class-names'
+import React, {forwardRef, useId, JSX} from 'react'
 import styles from './TextArea.module.scss'
 import type {TextNode} from '@nebuloid-types/text-node'
-import {combineClassNames} from '@utilities/combine-class-names'
 
 type HTMLTextAreaProps = JSX.IntrinsicElements['textarea']
 
@@ -21,19 +21,21 @@ const TextArea = forwardRef<HTMLTextAreaElement, Props>((
 	props.id ??= backupId
 
 	return (
-		<div className={
-			combineClassNames([
-				styles.root,
-				className,
-			])
-		}>
-			<label htmlFor={props.id}>
+		<div
+			className = {
+				combineClassNames([
+					styles.root,
+					className,
+				])
+			}
+		>
+			<label htmlFor = {props.id}>
 				{label}
 			</label>
 
 			<textarea
 				{...props}
-				ref={ref}
+				ref = {ref}
 			/>
 		</div>
 	)

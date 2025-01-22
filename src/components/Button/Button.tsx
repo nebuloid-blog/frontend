@@ -1,7 +1,7 @@
-import styles from './Button.module.scss'
 import {Pressable} from '@components/Pressable'
-import type {PressableProps, BaseElementType} from '@components/Pressable'
 import {combineClassNames} from '@utilities/combine-class-names'
+import styles from './Button.module.scss'
+import type {PressableProps, BaseElementType} from '@components/Pressable'
 import type {level} from '@nebuloid-types/colors'
 
 interface ButtonBase {
@@ -21,7 +21,7 @@ const Button = <El extends BaseElementType> ({
 	return (
 		<Pressable
 			{...props}
-			className={
+			className = {
 				combineClassNames([
 					color !== 'tertiary' && 'reset',
 					styles.root,

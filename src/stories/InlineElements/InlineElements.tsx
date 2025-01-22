@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import {DefinitionList} from '@components/DefinitionList'
 import {PageWrapper} from '@components/PageWrapper'
 
@@ -9,8 +8,8 @@ const inlineDefinitionList = [
 			<>inline button, (<code>{'<button>'}</code>)</>,
 		],
 		definitions: [
-			<a href='#'>sample</a>,
-			<a href=''>sample</a>,
+			<a href = '#'>sample</a>,
+			<a href = ''>sample</a>,
 			<a>disabled</a>,
 			<button>sample</button>,
 			<button disabled>disabled</button>,
@@ -26,7 +25,7 @@ const inlineDefinitionList = [
 			<b>sample</b>,
 			<strong>sample</strong>,
 			<dfn>sample</dfn>,
-			<dfn title='definition with title'>w/title</dfn>,
+			<dfn title = 'definition with title'>w/title</dfn>,
 		],
 	},
 	{ // Italicized Text
@@ -58,7 +57,7 @@ const inlineDefinitionList = [
 		terms: [<>abbreviation, (<code>{'<abbr>'}</code>)</>],
 		definitions: [
 			<abbr>sample</abbr>,
-			<abbr title='with title'>w/title</abbr>,
+			<abbr title = 'with title'>w/title</abbr>,
 		],
 	},
 	{ // Variable Indicators
@@ -70,7 +69,7 @@ const inlineDefinitionList = [
 	{ // Human Input Samples
 		terms: [
 			(<>
-				keyboard/<abbr title='Human Input Device'>HID</abbr>
+				keyboard/<abbr title = 'Human Input Device'>HID</abbr>
 				{' '}sample, (<code>{'<kbd>'}</code>)
 			</>),
 		],
@@ -125,7 +124,7 @@ const InlineElements = ( ) => (
 		<main>
 			<h1>Inline Style Reference Sheet</h1>
 			<DefinitionList
-				items={
+				items = {
 					inlineDefinitionList.map(({
 						terms,
 						definitions,

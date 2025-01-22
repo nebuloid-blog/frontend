@@ -1,8 +1,8 @@
-import {request} from 'graphql-request'
-import type {GetStaticProps} from 'next'
-import type {GetArticleQuery} from '@nebuloid-types/generated/graphql'
-import {getArticle} from '@utilities/requests/articles'
 import {processHTML} from '@utilities/process-html'
+import {getArticle} from '@utilities/requests/articles'
+import {request} from 'graphql-request'
+import type {GetArticleQuery} from '@nebuloid-types/generated/graphql'
+import type {GetStaticProps} from 'next'
 
 // We can't pass this data in from the component,
 //  else it would cease to be a static function.

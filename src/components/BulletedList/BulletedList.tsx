@@ -43,7 +43,7 @@ const BulletedList: React.FC<Props> = ({
 		{...props as Record<string, unknown>}
 	>
 		{items.map((item, index) => (
-			<li key={index}>
+			<li key = {index}>
 				{item}
 			</li>
 		))}

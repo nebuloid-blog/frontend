@@ -9,7 +9,8 @@ const hrefIsRelative = (href: string) => expression.test(href)
 
 // We can only infer a base type of <a> or <NextLink>.
 type BaseElementType
-= FC<JSX.IntrinsicElements['a']> | FC<NextLinkProps>
+= FC<JSX.IntrinsicElements['a']>
+| FC<NextLinkProps>
 
 // Base custom props for the component.
 interface SmartLinkBase {

@@ -1,6 +1,5 @@
 import {Button} from '@components/Button'
 import {combineClassNames} from '@utilities/combine-class-names'
-import React from 'react'
 import styles from './MenuButton.module.scss'
 import type {BaseElementType, ButtonProps} from '@components/Button'
 

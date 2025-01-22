@@ -1,9 +1,9 @@
-import React from 'react'
 import styles from './HeroTitle.module.scss'
+import type {FC} from 'react'
 
 type Props = Record<never, never>
 
-const HeroTitle: React.FC<Props> = ( ) => (
+const HeroTitle: FC<Props> = ( ) => (
 	<hgroup className = {styles['hero-title']}>
 		<h1 className = 'hero'>
 			<svg

@@ -1,12 +1,12 @@
-import React from 'react'
 import {MenuButton, MenuBar} from '.'
 import type {Meta, StoryObj} from '@storybook/react'
+import type {FC} from 'react'
 
 interface StoryProps {
 	colorScheme: 'system' | 'light' | 'dark',
 }
 
-const NavBarStory: React.FC<StoryProps> = ({colorScheme}) => (
+const NavBarStory: FC<StoryProps> = ({colorScheme}) => (
 	<div data-color-scheme = {colorScheme}>
 		<MenuBar>
 			<MenuButton href = '#' highlight>

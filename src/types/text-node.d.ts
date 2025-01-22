@@ -1,4 +1,4 @@
-import type React from 'react'
+import type {ReactNode} from 'react'
 
 // TextNode is the type of this component's children.
 // This can be one of multiple things, including:
@@ -14,6 +14,6 @@ import type React from 'react'
 // For example, consider that a <div> tag child is allowed.
 // TODO!
 // Refine this type accordingly.
-type TextNode = string | React.ReactNode
+type TextNode = string | ReactNode
 
 export type {TextNode}

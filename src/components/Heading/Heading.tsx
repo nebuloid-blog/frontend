@@ -1,5 +1,5 @@
-import React from 'react'
 import type {TextNode} from '@nebuloid-types/text-node'
+import type {FC, JSX} from 'react'
 
 type HeadingElementType =
 | 'h1'
@@ -34,7 +34,7 @@ Using aria-roles, it actually is possible for this component
  to generate h7's and beyond, by manipulating <p> tags.
 However, its not entirely clear how helpful this would be.
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
-const Heading: React.FC<Props> = ({
+const Heading: FC<Props> = ({
 	children,
 	level = 1,
 	...props

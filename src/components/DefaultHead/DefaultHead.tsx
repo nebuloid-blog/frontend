@@ -9,12 +9,12 @@ const DefaultHead: React.FC<Props> = ({children}) => (
 	<Head>
 		<title>Nebuloid</title>
 		<meta
-			name='description'
-			content='Nebuloid: a personal dev blog &amp; portfolio'
+			name = 'description'
+			content = 'Nebuloid: a personal dev blog &amp; portfolio'
 		/>
 		<link
-			rel='icon'
-			href='/vercel.ico'
+			rel = 'icon'
+			href = '/vercel.ico'
 		/>
 		{children}
 	</Head>

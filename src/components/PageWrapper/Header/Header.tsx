@@ -1,10 +1,10 @@
-import React, {useCallback, useMemo} from 'react'
-import {useRouter} from 'next/router'
-import Link from 'next/link'
-import styles from './Header.module.scss'
+import {MenuBar, MenuButton} from '@components/MenuBar'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
 import {useSafeContext} from '@hooks/use-safe-context'
-import {MenuBar, MenuButton} from '@components/MenuBar'
+import Link from 'next/link'
+import {useRouter} from 'next/router'
+import React, {useCallback, useMemo} from 'react'
+import styles from './Header.module.scss'
 import type {ColorScheme} from '@hooks/use-color-scheme'
 
 type Props = Record<never, never>
@@ -36,21 +36,21 @@ const Header: React.FC<Props> = ( ) => {
 	}, [router])
 
 	return (
-		<header className={styles.root}>
+		<header className = {styles.root}>
 			{/* NavBar / Navigation Items */}
 			<MenuBar navigation>
 				<MenuButton
-					base={Link}
-					href={basePath === '/' ? '/#site-logo' : '/'}
-					highlight={basePath === '/'}
+					base = {Link}
+					href = {basePath === '/' ? '/#site-logo' : '/'}
+					highlight = {basePath === '/'}
 				>
 					Home
 				</MenuButton>
 
 				<MenuButton
-					base={Link}
-					href='/blog'
-					highlight={basePath === '/blog'}
+					base = {Link}
+					href = '/blog'
+					highlight = {basePath === '/blog'}
 				>
 					Blog
 				</MenuButton>
@@ -62,7 +62,7 @@ const Header: React.FC<Props> = ( ) => {
 			{/* Site Settings */}
 			<MenuBar>
 				<MenuButton
-					onClick={( ) => {
+					onClick = {( ) => {
 						setColorScheme(nextColorScheme)
 					}}
 				>

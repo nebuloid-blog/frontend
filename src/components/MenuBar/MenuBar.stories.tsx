@@ -1,22 +1,22 @@
-import type {Meta, StoryObj} from '@storybook/react'
 import {MenuButton, MenuBar} from '.'
+import type {Meta, StoryObj} from '@storybook/react'
 
 interface StoryProps {
 	colorScheme: 'system' | 'light' | 'dark',
 }
 
 const NavBarStory: React.FC<StoryProps> = ({colorScheme}) => (
-	<div data-color-scheme={colorScheme}>
+	<div data-color-scheme = {colorScheme}>
 		<MenuBar>
-			<MenuButton href='#' highlight>
+			<MenuButton href = '#' highlight>
 				Home
 			</MenuButton>
 
-			<MenuButton href='#'>
+			<MenuButton href = '#'>
 				Projects
 			</MenuButton>
 
-			<MenuButton href='#'>
+			<MenuButton href = '#'>
 				Blog
 			</MenuButton>
 		</MenuBar>

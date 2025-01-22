@@ -38,9 +38,9 @@ const Pressable = <El extends BaseElementType = 'button'> ({
 	if (base === 'button' || base == null) {
 		return (
 			<button
-				draggable={disabled !== true} // Can be overriden.
+				draggable = {disabled !== true} // Can be overriden.
 				{...props}
-				disabled={disabled}
+				disabled = {disabled}
 			/>
 		)
 	}
@@ -59,7 +59,7 @@ const Pressable = <El extends BaseElementType = 'button'> ({
 		return (
 			<a // Using <a>, not <Link>
 				{...props}
-				href={undefined}
+				href = {undefined}
 			/>
 		)
 	}
@@ -76,7 +76,7 @@ const Pressable = <El extends BaseElementType = 'button'> ({
 		return (
 			<NextLink
 				{...props}
-				href={props.href}
+				href = {props.href}
 			/>
 		)
 	}

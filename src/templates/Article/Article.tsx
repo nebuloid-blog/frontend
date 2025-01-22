@@ -1,8 +1,8 @@
-import type {NextPage, InferGetStaticPropsType} from 'next'
-import type {getStaticProps} from './get-static-data'
 import {DefaultHead} from '@components/DefaultHead'
 import {PageWrapper} from '@components/PageWrapper'
 import {RehypeHTML} from '@components/RehypeHTML'
+import type {getStaticProps} from './get-static-data'
+import type {NextPage, InferGetStaticPropsType} from 'next'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -12,7 +12,7 @@ const Article: NextPage<Props> = ({article}) => (
 
 		<PageWrapper>
 			<main>
-				{article && <RehypeHTML html={article.html} />}
+				{article && <RehypeHTML html = {article.html} />}
 			</main>
 		</PageWrapper>
 	</>

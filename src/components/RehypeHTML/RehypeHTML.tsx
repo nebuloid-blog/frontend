@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react'
 import {generateJSX} from '@utilities/generate-jsx'
+import React, {useEffect, useState} from 'react'
 
 interface Props {
 	html: string,
@@ -9,7 +9,7 @@ const RehypeHTML: React.FC<Props> = ({html}) => {
 	// This static HTML should already be sanitized
 	//  with the "processHTML" utility function.
 	const [Content, setContent] = useState(
-		<div dangerouslySetInnerHTML={{__html: html}} />,
+		<div dangerouslySetInnerHTML = {{__html: html}} />,
 	)
 
 	// This will replace static HTML tags

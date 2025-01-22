@@ -11,7 +11,7 @@ const MenuBar: React.FC<Props> = ({
 }) => {
 	if (navigation) {
 		return (
-			<nav className={styles.root}>
+			<nav className = {styles.root}>
 				<menu>
 					{children}
 				</menu>
@@ -21,7 +21,7 @@ const MenuBar: React.FC<Props> = ({
 
 	else {
 		return (
-			<menu className={styles.root}>
+			<menu className = {styles.root}>
 				{children}
 			</menu>
 		)

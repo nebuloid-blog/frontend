@@ -1,5 +1,5 @@
-import type {Context} from 'react'
 import {createContext, useContext} from 'react'
+import type {Context} from 'react'
 
 // This safe context gets created as normal,
 //  except its initial parameter can be left out.

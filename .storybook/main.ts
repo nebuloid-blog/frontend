@@ -1,9 +1,7 @@
-import 'path'
+import 'node:path'
 
 const settings = {
-	stories: [
-		'../src/**/*.stories.@(js|jsx|ts|tsx)'
-	],
+	stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
 	addons: [
 		'@storybook/addon-links',
 		{
@@ -16,8 +14,8 @@ const settings = {
 	],
 	framework: {
 		name: '@storybook/react-webpack5',
-		options: { }
-	}
+		options: { },
+	},
 }
 
 export default settings

@@ -2,18 +2,19 @@ import {SiteLogo} from '@components/SiteLogo'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
 import {useSafeContext} from '@hooks/use-safe-context'
 import {combineClassNames} from '@utilities/combine-class-names'
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {Footer} from './Footer'
 import {Header} from './Header'
 import {HeroTitle} from './HeroTitle'
 import styles from './PageWrapper.module.scss'
+import type {FC, ReactNode} from 'react'
 
 interface Props {
-	children: React.ReactNode,
+	children: ReactNode,
 	hero?: boolean,
 }
 
-const PageWrapper: React.FC<Props> = ({
+const PageWrapper: FC<Props> = ({
 	hero = false,
 	children,
 }) => {

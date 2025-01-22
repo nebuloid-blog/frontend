@@ -1,5 +1,5 @@
-import React from 'react'
 import type {TextNode} from '@nebuloid-types/text-node'
+import type {FC} from 'react'
 
 type Props =
 & {children: TextNode}
@@ -31,7 +31,7 @@ Maybe colorization would be an easy-ish implementation,
  if we leveraged an external npm library?
 
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
-const CodeBlock: React.FC<Props> = ({
+const CodeBlock: FC<Props> = ({
 	children,
 	filename,
 	filetype,

@@ -1,11 +1,12 @@
 import {generateJSX} from '@utilities/generate-jsx'
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
+import type {FC} from 'react'
 
 interface Props {
 	html: string,
 }
 
-const RehypeHTML: React.FC<Props> = ({html}) => {
+const RehypeHTML: FC<Props> = ({html}) => {
 	// This static HTML should already be sanitized
 	//  with the "processHTML" utility function.
 	const [Content, setContent] = useState(

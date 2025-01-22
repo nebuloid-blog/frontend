@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import React from 'react'
+import type {FC, ReactNode} from 'react'
 
 interface Props {
-	children?: React.ReactNode,
+	children?: ReactNode,
 }
 
-const DefaultHead: React.FC<Props> = ({children}) => (
+const DefaultHead: FC<Props> = ({children}) => (
 	<Head>
 		<title>Nebuloid</title>
 		<meta

@@ -1,8 +1,8 @@
 import {combineClassNames} from '@utilities/combine-class-names'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 import styles from './article-card.module.scss'
+import type {FC} from 'react'
 
 interface Props {
 	slug: string,
@@ -10,7 +10,7 @@ interface Props {
 	description?: string,
 }
 
-const ArticleCard: React.FC<Props> = ({
+const ArticleCard: FC<Props> = ({
 	slug,
 	title,
 	description,

@@ -1,13 +1,13 @@
-import React from 'react'
 import {MenuButton} from '.'
 import type {Meta, StoryObj} from '@storybook/react'
+import type {FC} from 'react'
 
 interface StoryProps {
 	colorScheme: 'system' | 'light' | 'dark',
 	highlight: boolean,
 }
 
-const NavButtonStory: React.FC<StoryProps> = ({
+const NavButtonStory: FC<StoryProps> = ({
 	colorScheme,
 	highlight,
 }) => (

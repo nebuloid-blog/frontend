@@ -1,5 +1,5 @@
-import React, {JSX} from 'react'
 import type {TextNode} from '@nebuloid-types/text-node'
+import type {FC, JSX} from 'react'
 
 type HTMLBlockQuoteProps = JSX.IntrinsicElements['blockquote']
 type HTMLFigureProps = JSX.IntrinsicElements['figure']
@@ -21,7 +21,7 @@ For example, styling and type-checking is more modularized.
 When using this component, consider using
  the <cite> and <mark> elements for further markup.
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
-const BlockQuote: React.FC<Props> = ({
+const BlockQuote: FC<Props> = ({
 	children: quotation,
 	author,
 	cite,

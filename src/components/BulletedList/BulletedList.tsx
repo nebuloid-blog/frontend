@@ -1,6 +1,5 @@
-import React from 'react'
 import type {TextNode} from '@nebuloid-types/text-node'
-import type {JSX} from 'react'
+import type {FC, JSX} from 'react'
 
 type ListNode = TextNode | Array<TextNode>
 
@@ -26,7 +25,7 @@ The component is structured for modularized styling as well.
 Be aware that it is specifically meant for block text,
  and not for sectioning elements like navbars.
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
-const BulletedList: React.FC<Props> = ({
+const BulletedList: FC<Props> = ({
 	as: ListElement,
 	items,
 	...props

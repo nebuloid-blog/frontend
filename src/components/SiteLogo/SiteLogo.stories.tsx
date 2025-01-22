@@ -1,12 +1,12 @@
-import React from 'react'
 import {SiteLogo} from '.'
 import type {Meta, StoryObj} from '@storybook/react'
+import type {FC} from 'react'
 
 interface StoryProps {
 	colorScheme: 'system' | 'light' | 'dark',
 }
 
-const SiteLogoStory: React.FC<StoryProps> = ({colorScheme}) => (
+const SiteLogoStory: FC<StoryProps> = ({colorScheme}) => (
 	<div data-color-scheme = {colorScheme}>
 		<SiteLogo />
 	</div>

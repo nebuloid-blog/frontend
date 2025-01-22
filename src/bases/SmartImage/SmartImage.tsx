@@ -6,9 +6,11 @@ import type {
 	JSX,
 } from 'react'
 
-type BaseElementType = FC<JSX.IntrinsicElements['img']>
-type SmartImageProps =
-& ComponentPropsWithoutRef<BaseElementType>
+type BaseElementType
+= FC<JSX.IntrinsicElements['img']>
+
+type SmartImageProps
+= ComponentPropsWithoutRef<BaseElementType>
 & Pick<ComponentProps<typeof NextImage>, 'placeholder'>
 
 /* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /

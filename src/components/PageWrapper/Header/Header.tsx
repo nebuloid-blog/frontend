@@ -3,13 +3,14 @@ import {ColorSchemeContext} from '@contexts/ColorScheme'
 import {useSafeContext} from '@hooks/use-safe-context'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
-import React, {useCallback, useMemo} from 'react'
+import {useCallback, useMemo} from 'react'
 import styles from './Header.module.scss'
 import type {ColorScheme} from '@hooks/use-color-scheme'
+import type {FC} from 'react'
 
 type Props = Record<never, never>
 
-const Header: React.FC<Props> = ( ) => {
+const Header: FC<Props> = ( ) => {
 	// Here, we can toggle the color scheme's global state.
 	// Without its usage outside of this component, it has
 	//  zero implications for CSS stylings.

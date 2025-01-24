@@ -3,14 +3,6 @@
 
 // The header shall be left-aligned and vertically-centered.
 .root {
-	@include flex-column;
-	@include for-tablets-up {
-		@include flex-row;
-
-		// Banner Sizing
-		height: var(--banner-height);
-	}
-
 	align-items: stretch;
 
 	// Spacer Bar
@@ -19,5 +11,13 @@
 		margin: 0;
 		border: 0;
 		background-color: var(--background-clear);
+	}
+
+	@include flex-column;
+	@include for-tablets-up {
+		@include flex-row;
+
+		// Banner Sizing
+		height: var(--banner-height);
 	}
 }

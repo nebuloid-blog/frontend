@@ -7,10 +7,11 @@
 	}
 
 	&, & menu {
+		align-items: stretch;
+
 		@include flex-row;
 		@include for-phones-down {
 			@include flex-column;
 		}
-		align-items: stretch;
 	}
 }

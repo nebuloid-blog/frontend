@@ -6,18 +6,18 @@
 // It applies flexbox to align things nicely.
 
 .root {
+	justify-content: center;
+
+	// Style the footer bar
+	min-height: var(--banner-height);
+	background-color: var(--background-clear);
+
 	@include flex-row;
 	gap: 1rem;
 
 	@include for-tablets-down {
 		@include flex-column;
 	}
-
-	justify-content: center;
-
-	// Style the footer bar
-	min-height: var(--banner-height);
-	background-color: var(--background-clear);
 }
 
 .root a {

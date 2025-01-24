@@ -9,9 +9,9 @@
 // Once Dynamic Color Manipulation with CSS Relative Colors
 //  is in spec for CSS in most browsers, we can remove this.
 @function decompose($color) {
-	$r: color.red($color);
-	$g: color.green($color);
-	$b: color.blue($color);
+	$r: color.channel($color, "red", $space: rgb);
+	$g: color.channel($color, "green", $space: rgb);
+	$b: color.channel($color, "blue", $space: rgb);
 	$shade: ($r,$g,$b);
 	@return $shade;
 }

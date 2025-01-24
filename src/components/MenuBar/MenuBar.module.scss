@@ -1,5 +1,5 @@
-@import '@styles/mixins/breakpoints.scss';
-@import '@styles/mixins/layouts.scss';
+@use '@styles/mixins/breakpoints.scss' as *;
+@use '@styles/mixins/layouts.scss' as *;
 
 .root {
 	@include for-tablets-up {

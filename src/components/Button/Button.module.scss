@@ -1,4 +1,4 @@
-@import '@styles/mixins/typefaces.scss';
+@use '@styles/mixins/typefaces.scss' as *;
 
 .root {
 	@extend %pressable-typeface;

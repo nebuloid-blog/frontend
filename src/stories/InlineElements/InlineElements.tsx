@@ -1,5 +1,6 @@
 import {DefinitionList} from '@components/DefinitionList'
 import {PageWrapper} from '@components/PageWrapper'
+import {AppWrapper} from '@templates/App/AppWrapper'
 
 const inlineDefinitionList = [
 	{ // Inline Actions
@@ -122,22 +123,24 @@ const inlineDefinitionList = [
 ]
 
 const InlineElements = ( ) => (
-	<PageWrapper>
-		<main>
-			<h1>Inline Style Reference Sheet</h1>
-			<DefinitionList
-				items = {
-					inlineDefinitionList.map(({
-						terms,
-						definitions,
-					}) => ([
-						terms,
-						definitions,
-					]))
-				}
-			/>
-		</main>
-	</PageWrapper>
+	<AppWrapper>
+		<PageWrapper hero>
+			<main>
+				<h1>Inline Style Reference Sheet</h1>
+				<DefinitionList
+					items = {
+						inlineDefinitionList.map(({
+							terms,
+							definitions,
+						}) => ([
+							terms,
+							definitions,
+						]))
+					}
+				/>
+			</main>
+		</PageWrapper>
+	</AppWrapper>
 )
 
 export {InlineElements}

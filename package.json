@@ -47,7 +47,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"storybook": "storybook dev -s public -p 6006",
+		"storybook": "storybook dev public -p 6006",
 		"build-storybook": "storybook build",
 
 		"indent": "replace-in-files --string='  ' --replacement='\t'",
@@ -79,11 +79,11 @@
 	"devDependencies": {
 		"@graphql-codegen/cli": "^5.0.3",
 		"@graphql-codegen/client-preset": "^4.5.1",
-		"@storybook/addon-essentials": "^8.4.7",
-		"@storybook/addon-interactions": "^8.4.7",
-		"@storybook/addon-links": "^8.4.7",
-		"@storybook/react": "^8.4.7",
-		"@storybook/react-webpack5": "^8.4.7",
+		"@storybook/addon-essentials": "^8.5.2",
+		"@storybook/addon-interactions": "^8.5.2",
+		"@storybook/addon-links": "^8.5.2",
+		"@storybook/nextjs": "^8.5.2",
+		"@storybook/react": "^8.5.2",
 		"@stylistic/eslint-plugin": "^2.12.1",
 		"@types/node": "^22.10.5",
 		"@types/react": "^19.0.3",
@@ -96,8 +96,7 @@
 		"globals": "^15.14.0",
 		"replace-in-files-cli": "^3.0.0",
 		"sass": "^1.83.1",
-		"storybook": "^8.4.7",
-		"storybook-addon-next": "^1.8.0",
+		"storybook": "^8.5.2",
 		"storybook-addon-swc": "^1.2.0",
 		"typescript": "^5.7.2"
 	}

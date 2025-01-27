@@ -11,7 +11,6 @@ const config: StorybookConfig = {
 			options: {docs: false},
 		},
 		'@storybook/addon-interactions',
-		'storybook-addon-swc',
 	],
 }
 

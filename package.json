@@ -97,7 +97,6 @@
 		"replace-in-files-cli": "^3.0.0",
 		"sass": "^1.83.1",
 		"storybook": "^8.5.2",
-		"storybook-addon-swc": "^1.2.0",
 		"typescript": "^5.7.2"
 	}
 }

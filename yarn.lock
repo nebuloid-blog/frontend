@@ -1327,7 +1327,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.24.4, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.24.4, @babel/runtime@npm:^7.8.4":
   version: 7.26.7
   resolution: "@babel/runtime@npm:7.26.7"
   dependencies:
@@ -2640,7 +2640,6 @@ __metadata:
     replace-in-files-cli: "npm:^3.0.0"
     sass: "npm:^1.83.1"
     storybook: "npm:^8.5.2"
-    storybook-addon-swc: "npm:^1.2.0"
     typescript: "npm:^5.7.2"
   languageName: unknown
   linkType: soft
@@ -12005,28 +12004,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-addon-swc@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "storybook-addon-swc@npm:1.2.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.17.2"
-    deepmerge: "npm:^4.2.2"
-    swc-loader: "npm:^0.1.15"
-  peerDependencies:
-    "@swc/core": ^1.2.152
-    terser-webpack-plugin: ^4.0.0 || ^5.0.0
-    webpack: ^4.0.0 || ^5.0.0
-  peerDependenciesMeta:
-    "@swc/core":
-      optional: false
-    terser-webpack-plugin:
-      optional: true
-    webpack:
-      optional: true
-  checksum: 10/5ecf7b815e6651e0ec0ab09142e120eee1cca0a500b470e1f2f2d2b6aaa038eb11a277238b43a3251dca1a198220e7469e9ebc1def3a8e05a7af2efb4dc02d81
-  languageName: node
-  linkType: hard
-
 "storybook@npm:^8.5.2":
   version: 8.5.2
   resolution: "storybook@npm:8.5.2"
@@ -12306,16 +12283,6 @@ __metadata:
   dependencies:
     tslib: "npm:^2.0.3"
   checksum: 10/6e21c9e1b3cd5735eb2af679a99ec3efc78a14e3d4d5e3fd594e254b91cfd37185b3d1c6e41b22f53a2cdf5d1b963ce30c0fe8b78337e3fd43d0137084670a5f
-  languageName: node
-  linkType: hard
-
-"swc-loader@npm:^0.1.15":
-  version: 0.1.16
-  resolution: "swc-loader@npm:0.1.16"
-  peerDependencies:
-    "@swc/core": ^1.2.147
-    webpack: ">=2"
-  checksum: 10/168ddd62105a74884f8bc1dbecc913d8c542a55baeb484c22590dfe5f89f081dbdd4012ad8d04fb3b0c230729babee25b82a71208e573874b4156a074ab7d3d2
   languageName: node
   linkType: hard
 

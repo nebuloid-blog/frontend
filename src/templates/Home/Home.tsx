@@ -7,6 +7,7 @@ import {TextInput} from '@components/TextInput'
 import {useForm as useFormspree} from '@formspree/react'
 import {useCallback} from 'react'
 import {useForm} from 'react-hook-form'
+import {Addresses} from './Addresses'
 import styles from './Home.module.scss'
 import type {getStaticProps} from './get-static-data'
 import type {InferGetStaticPropsType, NextPage} from 'next'
@@ -90,50 +91,6 @@ const ContactForm: FC<Record<never, never>> = ( ) => {
 		</form>
 	)
 }
-
-// Addresses Reference
-const Addresses: FC<Record<never, never>> = ( ) => (
-	<address>
-		<dl>
-			<div className = {styles['definition-group']}>
-				<dt>Location</dt>
-				<dd>
-					<i>Los Angeles, California</i>
-				</dd>
-			</div>
-
-			<div className = {styles['definition-group']}>
-				<dt>Email</dt>
-				<dd>
-					<a href = 'mailto:hello@nebuloid.dev'>
-						hello@nebuloid.dev
-					</a>
-				</dd>
-			</div>
-
-			<div className = {styles['fill-group']}>
-				<div className = {styles['definition-group']}>
-					<dt>Social</dt>
-					<dd>
-						<ul>
-							<li>
-								<a href = 'https://www.linkedin.com/in/noltron000/'>
-									Linkedin
-								</a>
-							</li>
-
-							<li>
-								<a href = 'https://github.com/noltron000'>
-									GitHub
-								</a>
-							</li>
-						</ul>
-					</dd>
-				</div>
-			</div>
-		</dl>
-	</address>
-)
 
 // Home Template
 type Props = InferGetStaticPropsType<typeof getStaticProps>

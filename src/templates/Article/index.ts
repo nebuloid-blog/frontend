@@ -1,11 +1,9 @@
 import {Article} from './Article'
-import {
-	getStaticPaths,
-	getStaticProps,
-} from './get-static-data'
+import {getArticleDetails} from './get-article-details'
+import {getArticleSlugs} from './get-article-slugs'
 
 export {
 	Article,
-	getStaticPaths,
-	getStaticProps,
+	getArticleDetails,
+	getArticleSlugs,
 }

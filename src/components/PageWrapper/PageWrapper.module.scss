@@ -115,6 +115,10 @@
 
 	text-align: center;
 	color: rgba(var(--foreground-shade), 50%);
+
+	&.attribution {
+		align-self: flex-end;
+	}
 }
 
 /* Color Schemes */

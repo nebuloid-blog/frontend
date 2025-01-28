@@ -2,6 +2,7 @@ import {SiteLogo} from '@components/SiteLogo'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
 import {useSafeContext} from '@hooks/use-safe-context'
 import {combineClassNames} from '@utilities/combine-class-names'
+import Image from 'next/image'
 import {Footer} from './Footer'
 import {Header} from './Header'
 import {HeroTitle} from './HeroTitle'
@@ -83,11 +84,20 @@ const PageWrapper: FC<Props> = ({
 				This footer contains light copyright info.
 			*/}
 			<footer className = {styles.appendix}>
-				CopyLeft 2022; Nolan Kovacik
+				<a
+					className = {styles.attribution}
+					href = 'https://creativecommons.org/licenses/by-nc-sa/4.0/ '
+				>
+					<Image
+						src = '/creative-commons-by-nc-sa.svg'
+						alt = 'Creative Commons License'
+						width = {171}
+						height = {60}
+					/>
+				</a>
 			</footer>
 		</div>
 	)
 }
-
 
 export {PageWrapper}

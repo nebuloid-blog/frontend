@@ -7,7 +7,7 @@ const Addresses: FC<Record<never, never>> = ( ) => (
 			<div className = {styles['definition-group']}>
 				<dt>Location</dt>
 				<dd>
-					<i>Los Angeles, California</i>
+					<i>Cleveland, Ohio</i>
 				</dd>
 			</div>
 

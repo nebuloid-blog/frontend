@@ -1,18 +1,12 @@
 import {processHTML} from '@utilities/process-html'
 import {getArticle} from '@utilities/requests/articles'
 import {request} from 'graphql-request'
-import type {GetArticleQuery} from '@nebuloid-types/generated/graphql'
-import type {GetStaticProps} from 'next'
 
 // We can't pass this data in from the component,
 //  else it would cease to be a static function.
 const SHIFT_HEADINGS = +1
 
-interface GetArticleResponse {
-	article?: GetArticleQuery['getArticle'],
-}
-
-const getStaticProps: GetStaticProps<GetArticleResponse> = async (context) => {
+const getIntroArticle = async ( ) => {
 	try {
 		// Route info
 		const slug = 'introduction'
@@ -28,16 +22,17 @@ const getStaticProps: GetStaticProps<GetArticleResponse> = async (context) => {
 
 		const article = response.getArticle
 
+		let vFile
 		if (article != null) {
-			// Here, we are sanitizing the HTML string.
+			// Here, we are sanitizing the HTML string, even
+			//  though it already gets sanitized on the backend.
 			// We'll also transform it with "SHIFT_HEADINGS".
-			const vFile = await processHTML(article.html, {shift: SHIFT_HEADINGS})
+			vFile = await processHTML(article.html, {shift: SHIFT_HEADINGS})
 			article.html = vFile.toString( )
 		}
 
-		return {
-			props: {article},
-		}
+		// Return query result & processed text
+		return {article}
 	}
 
 	// An error here means the API was not set up correctly
@@ -49,10 +44,8 @@ const getStaticProps: GetStaticProps<GetArticleResponse> = async (context) => {
 		// Describe the error in console.
 		console.error(error)
 
-		return {
-			props: {article: null},
-		}
+		return {article: null}
 	}
 }
 
-export {getStaticProps}
+export {getIntroArticle}

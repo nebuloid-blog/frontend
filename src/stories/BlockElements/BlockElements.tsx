@@ -1,6 +1,6 @@
 import {Heading} from '@components/Heading'
 import {PageWrapper} from '@components/PageWrapper'
-import {AppWrapper} from '@templates/App/AppWrapper'
+import {AppWrapper} from '@templates/AppWrapper'
 
 const BlockElements = ( ) => (
 	<AppWrapper>

@@ -1,5 +1,5 @@
-@import '@styles/mixins/breakpoints.scss';
-@import '@styles/mixins/layouts.scss';
+@use '@styles/mixins/breakpoints.scss' as *;
+@use '@styles/mixins/layouts.scss' as *;
 
 .root {
 	@include for-tablets-up {
@@ -7,10 +7,11 @@
 	}
 
 	&, & menu {
+		align-items: stretch;
+
 		@include flex-row;
 		@include for-phones-down {
 			@include flex-column;
 		}
-		align-items: stretch;
 	}
 }

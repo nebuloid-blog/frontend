@@ -1,22 +1,29 @@
-import React from 'react'
-import styles from './MenuButton.module.scss'
-import {combineClassNames} from '@utilities/combine-class-names'
-import type {BaseElementType, ButtonProps} from '@components/Button'
 import {Button} from '@components/Button'
 
-type Props<El extends BaseElementType>
+import {
+	combineClassNames,
+} from '@utilities/combine-class-names'
+
+import styles from './MenuButton.module.scss'
+
+import type {
+	BaseElement,
+	ButtonProps,
+} from '@components/Button'
+
+type Props<El extends BaseElement>
 = ButtonProps<El> & {highlight?: boolean}
 
-const MenuButton = <El extends BaseElementType> ({
+const MenuButton = <El extends BaseElement> ({
 	highlight = false,
 	...props
 }: Props<El>) => (
-	/* eslint-disable indent */
-	<li className={styles.root}>
+	<li className = {styles.root}>
+		{/* @ts-expect-error: `highlight` shan't be a prop! */}
 		<Button
-			color='link'
+			color = 'link'
 			{...props}
-			className={
+			className = {
 				combineClassNames([
 					'reset',
 					highlight && styles.highlight,

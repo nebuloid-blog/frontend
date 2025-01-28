@@ -1,5 +1,5 @@
-import React from 'react'
 import type {TextNode} from '@nebuloid-types/text-node'
+import type {FC, JSX} from 'react'
 
 type ListNode = TextNode | Array<TextNode>
 
@@ -25,7 +25,7 @@ The component is structured for modularized styling as well.
 Be aware that it is specifically meant for block text,
  and not for sectioning elements like navbars.
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
-const BulletedList: React.FC<Props> = ({
+const BulletedList: FC<Props> = ({
 	as: ListElement,
 	items,
 	...props
@@ -39,11 +39,10 @@ const BulletedList: React.FC<Props> = ({
 		//
 		// TODO!
 		// Resolve and delete the type assertion below.
-		// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 		{...props as Record<string, unknown>}
 	>
 		{items.map((item, index) => (
-			<li key={index}>
+			<li key = {index}>
 				{item}
 			</li>
 		))}

@@ -1,5 +1,5 @@
-import React from 'react'
 import type {TextNode} from '@nebuloid-types/text-node'
+import type {FC, JSX} from 'react'
 
 type HTMLDefinitionListProps = JSX.IntrinsicElements['dl']
 
@@ -50,7 +50,7 @@ TODO!
 To fix this issue, use react state and hooks to help.
 It may also be pertinent to fix the div keys for this, too.
 / / / / / / / / / / / / / / / / / / / / / / / / / / / / / */
-const DefinitionList: React.FC<Props> = ({
+const DefinitionList: FC<Props> = ({
 	items,
 }) => (
 	<dl>
@@ -66,7 +66,7 @@ const DefinitionList: React.FC<Props> = ({
 			//
 			// There isn't a specific definition group element,
 			//  so you will notice that a <div> is used here.
-			<div key={index}>
+			<div key = {index}>
 				{getTermsJSX(terms)}
 				{getDefinitionsJSX(definitions)}
 			</div>

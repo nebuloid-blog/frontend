@@ -1,5 +1,5 @@
-import type {useColorScheme} from '@hooks/use-color-scheme'
 import {createSafeContext} from '@hooks/use-safe-context'
+import type {useColorScheme} from '@hooks/use-color-scheme'
 
 type ColorSchemeHook = ReturnType<typeof useColorScheme>
 const ColorSchemeContext = createSafeContext<ColorSchemeHook>( )

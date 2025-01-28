@@ -1,17 +1,20 @@
-import {createElement, Fragment} from 'react'
-import {rehype} from 'rehype'
-import type {Options as RehypeReactOptions} from 'rehype-react'
-import rehypeReact from 'rehype-react'
-import rehypeParse from 'rehype-parse'
-import {SmartLink} from '@components/SmartLink'
 import {SmartImage} from '@components/SmartImage'
+import {SmartLink} from '@components/SmartLink'
+import {Fragment} from 'react'
+import {jsx, jsxs} from 'react/jsx-runtime'
+import {rehype} from 'rehype'
+import rehypeParse from 'rehype-parse'
+import rehypeReact from 'rehype-react'
+import type {Options as RehypeReactOptions} from 'rehype-react'
 
 type Options = Record<never, never>
 
 // React processor settings.
 const rehypeReactOptions: RehypeReactOptions = {
-	createElement: createElement,
 	Fragment: Fragment,
+	development: false,
+	jsx: jsx,
+	jsxs: jsxs,
 	components: {
 		a: SmartLink,
 		img: SmartImage,

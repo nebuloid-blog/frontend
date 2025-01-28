@@ -1,4 +1,4 @@
-@import '@styles/mixins/layouts.scss';
+@use '@styles/mixins/layouts.scss' as *;
 
 /* BASE CONTAINER */
 // This component represents the home logo with text,

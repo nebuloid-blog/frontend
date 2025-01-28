@@ -43,6 +43,8 @@ const sanitizerSchema = {
 		'noscript',
 		'col',
 		'colgroup',
+		'figure',
+		'figcaption',
 	],
 }
 

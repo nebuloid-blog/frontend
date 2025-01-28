@@ -1,8 +1,8 @@
+import {combineClassNames} from '@utilities/combine-class-names'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 import styles from './article-card.module.scss'
-import {combineClassNames} from '@utilities/combine-class-names'
+import type {FC} from 'react'
 
 interface Props {
 	slug: string,
@@ -10,14 +10,14 @@ interface Props {
 	description?: string,
 }
 
-const ArticleCard: React.FC<Props> = ({
+const ArticleCard: FC<Props> = ({
 	slug,
 	title,
 	description,
 }) => (
 	<Link
-		href={`/blog/${slug}`}
-		className={combineClassNames(
+		href = {`/blog/${slug}`}
+		className = {combineClassNames(
 			'reset',
 			styles.card,
 		)}
@@ -28,12 +28,12 @@ const ArticleCard: React.FC<Props> = ({
 				<p>{description}</p>
 			</section>
 
-			<aside className={styles.thumbnail}>
+			<aside className = {styles.thumbnail}>
 				<Image
-					src='https://via.placeholder.com/120.png'
-					width={120}
-					height={120}
-					alt='article thumbnail'
+					src = 'https://via.placeholder.com/120.png'
+					width = {120}
+					height = {120}
+					alt = 'article thumbnail'
 				/>
 			</aside>
 		</article>

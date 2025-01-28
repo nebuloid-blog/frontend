@@ -1,5 +1,5 @@
-@import '@styles/mixins/breakpoints';
-@import '@styles/mixins/typefaces';
+@use '@styles/mixins/breakpoints.scss' as *;
+@use '@styles/mixins/typefaces.scss' as *;
 
 // I know this was pixel-pushing a bit,
 //  and needs some better styling overall.
@@ -39,13 +39,14 @@
 	}
 
 	dl {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+
 		@include for-splitscreen-desktops-up {
 			height: calc(100% - 0.9rem);
 			margin-top: 0.9rem;
 		}
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
 	}
 
 	dl .definition-group {

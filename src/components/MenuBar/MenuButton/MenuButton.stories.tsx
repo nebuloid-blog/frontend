@@ -1,24 +1,25 @@
-import type {Meta, StoryObj} from '@storybook/react'
 import {MenuButton} from '.'
+import type {Meta, StoryObj} from '@storybook/react'
+import type {FC} from 'react'
 
 interface StoryProps {
 	colorScheme: 'system' | 'light' | 'dark',
 	highlight: boolean,
 }
 
-const NavButtonStory: React.FC<StoryProps> = ({
+const NavButtonStory: FC<StoryProps> = ({
 	colorScheme,
 	highlight,
 }) => (
 	<menu
-		data-color-scheme={colorScheme}
-		style={{
+		data-color-scheme = {colorScheme}
+		style = {{
 			backgroundColor: 'var(--background-clear)',
 		}}
 	>
 		<MenuButton
-			href='#'
-			highlight={highlight}
+			href = '#'
+			highlight = {highlight}
 		>
 			Click Me!
 		</MenuButton>

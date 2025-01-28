@@ -1,7 +1,7 @@
-import React, {forwardRef, useId} from 'react'
+import {combineClassNames} from '@utilities/combine-class-names'
+import React, {forwardRef, useId, JSX} from 'react'
 import styles from './TextInput.module.scss'
 import type {TextNode} from '@nebuloid-types/text-node'
-import {combineClassNames} from '@utilities/combine-class-names'
 
 type HTMLInputProps = JSX.IntrinsicElements['input']
 
@@ -22,20 +22,22 @@ const TextInput = forwardRef<HTMLInputElement, Props>((
 	props.id ??= backupId
 
 	return (
-		<div className={
-			combineClassNames([
-				styles.root,
-				className,
-			])
-		}>
-			<label htmlFor={props.id}>
+		<div
+			className = {
+				combineClassNames([
+					styles.root,
+					className,
+				])
+			}
+		>
+			<label htmlFor = {props.id}>
 				{label}
 			</label>
 
 			<input
 				{...props}
-				type={props.type}
-				ref={ref}
+				type = {props.type}
+				ref = {ref}
 			/>
 		</div>
 	)

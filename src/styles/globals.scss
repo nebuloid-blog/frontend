@@ -1,23 +1,23 @@
 // Apply stylesheet resetter
-@import './reset.scss';
+@use '@styles/reset.scss' as *;
 
 // Get fonts
-@import './fonts/cp-mono.scss';
-@import './fonts/saira.scss';
-@import './fonts/stargaze.scss';
+@use '@styles/fonts/cp-mono.scss' as *;
+@use '@styles/fonts/saira.scss' as *;
+@use '@styles/fonts/stargaze.scss' as *;
 
 // Get mixins and other scss utilities
-@import './mixins/breakpoints.scss';
-@import './mixins/colors.scss';
-@import './mixins/layouts.scss';
-@import './mixins/typefaces.scss';
+@use '@styles/mixins/breakpoints.scss' as *;
+@use '@styles/mixins/colors.scss' as *;
+@use '@styles/mixins/layouts.scss' as *;
+@use '@styles/mixins/typefaces.scss' as *;
 
 // Import styling variables
-@import './variables/colors.scss';
+@use '@styles/variables/colors.scss' as *;
 
 // Apply custom rules for global elements
-@import './elements/block-elements.scss';
-@import './elements/inline-elements.scss';
+@use '@styles/elements/block-elements.scss' as *;
+@use '@styles/elements/inline-elements.scss' as *;
 
 
 :root {

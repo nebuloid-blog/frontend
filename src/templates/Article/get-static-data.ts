@@ -1,7 +1,7 @@
-import {request} from 'graphql-request'
-import type {GetStaticProps, GetStaticPaths} from 'next'
-import type {GetArticleQuery} from '@nebuloid-types/generated/graphql'
 import {indexArticles, getArticle} from '@utilities/requests/articles'
+import {request} from 'graphql-request'
+import type {GetArticleQuery} from '@nebuloid-types/generated/graphql'
+import type {GetStaticProps, GetStaticPaths} from 'next'
 
 const getStaticPaths: GetStaticPaths = async ( ) => {
 	try {

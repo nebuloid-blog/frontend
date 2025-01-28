@@ -1,4 +1,4 @@
-@import '@styles/mixins/layouts.scss';
+@use '@styles/mixins/layouts.scss' as *;
 
 .root {
 	@include flex-row;

@@ -1,14 +1,14 @@
-import Link from 'next/link'
-import React from 'react'
-import styles from './SiteLogo.module.scss'
 import {combineClassNames} from '@utilities/combine-class-names'
+import Link from 'next/link'
+import styles from './SiteLogo.module.scss'
+import type {FC} from 'react'
 
 type Props = Record<never, never>
 
-const SiteLogo: React.FC<Props> = ( ) => (
+const SiteLogo: FC<Props> = ( ) => (
 	<Link
-		href='/'
-		className={
+		href = '/'
+		className = {
 			combineClassNames([
 				'reset',
 				'heading',

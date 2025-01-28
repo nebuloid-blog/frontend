@@ -1,17 +1,18 @@
 import styles from './MenuBar.module.scss'
+import type {FC, ReactNode} from 'react'
 
 interface Props {
-	children: React.ReactNode,
+	children: ReactNode,
 	navigation?: boolean,
 }
 
-const MenuBar: React.FC<Props> = ({
+const MenuBar: FC<Props> = ({
 	children,
 	navigation = false,
 }) => {
 	if (navigation) {
 		return (
-			<nav className={styles.root}>
+			<nav className = {styles.root}>
 				<menu>
 					{children}
 				</menu>
@@ -21,7 +22,7 @@ const MenuBar: React.FC<Props> = ({
 
 	else {
 		return (
-			<menu className={styles.root}>
+			<menu className = {styles.root}>
 				{children}
 			</menu>
 		)

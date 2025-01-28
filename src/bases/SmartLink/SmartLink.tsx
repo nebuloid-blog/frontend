@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 import type {LinkProps as NextLinkProps} from 'next/link'
-import type {ComponentPropsWithoutRef, FC} from 'react'
+import type {ComponentPropsWithoutRef, FC, JSX} from 'react'
 
 // Checks if the string starts with "#", "/", or "./".
 // Useful for checking whether an href is relative.
@@ -9,7 +9,8 @@ const hrefIsRelative = (href: string) => expression.test(href)
 
 // We can only infer a base type of <a> or <NextLink>.
 type BaseElementType
-= FC<JSX.IntrinsicElements['a']> | FC<NextLinkProps>
+= FC<JSX.IntrinsicElements['a']>
+| FC<NextLinkProps>
 
 // Base custom props for the component.
 interface SmartLinkBase {
@@ -42,7 +43,7 @@ const SmartLink: FC<SmartLinkProps> = (props) => {
 		return (
 			<NextLink
 				{...props}
-				href={props.href}
+				href = {props.href}
 			/>
 		)
 	}

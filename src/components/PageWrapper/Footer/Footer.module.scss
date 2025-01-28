@@ -1,23 +1,23 @@
-@import '@styles/mixins/breakpoints.scss';
-@import '@styles/mixins/colors.scss';
-@import '@styles/mixins/layouts.scss';
+@use '@styles/mixins/breakpoints.scss' as *;
+@use '@styles/mixins/colors.scss' as *;
+@use '@styles/mixins/layouts.scss' as *;
 
 // The %flex-row placeholder is heavily used here.
 // It applies flexbox to align things nicely.
 
 .root {
+	justify-content: center;
+
+	// Style the footer bar
+	min-height: var(--banner-height);
+	background-color: var(--background-clear);
+
 	@include flex-row;
 	gap: 1rem;
 
 	@include for-tablets-down {
 		@include flex-column;
 	}
-
-	justify-content: center;
-
-	// Style the footer bar
-	min-height: var(--banner-height);
-	background-color: var(--background-clear);
 }
 
 .root a {

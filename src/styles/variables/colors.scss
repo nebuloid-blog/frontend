@@ -1,4 +1,4 @@
-@import '../mixins/colors.scss';
+@use '@styles/mixins/colors.scss' as *;
 
 /* COLOR VARIABLES & SETTINGS */
 :root {

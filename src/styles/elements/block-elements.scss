@@ -1,4 +1,6 @@
-@import '@styles/mixins/breakpoints.scss';
+@use '@styles/mixins/breakpoints.scss' as *;
+@use '@styles/mixins/layouts.scss' as *;
+@use '@styles/mixins/typefaces.scss' as *;
 
 /* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 Page Content Margins

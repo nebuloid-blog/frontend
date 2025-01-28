@@ -1,6 +1,6 @@
-/* eslint-disable max-lines-per-function */
 import {DefinitionList} from '@components/DefinitionList'
 import {PageWrapper} from '@components/PageWrapper'
+import {AppWrapper} from '@templates/App/AppWrapper'
 
 const inlineDefinitionList = [
 	{ // Inline Actions
@@ -9,8 +9,8 @@ const inlineDefinitionList = [
 			<>inline button, (<code>{'<button>'}</code>)</>,
 		],
 		definitions: [
-			<a href='#'>sample</a>,
-			<a href=''>sample</a>,
+			<a href = '#'>sample</a>,
+			<a href = ''>sample</a>,
 			<a>disabled</a>,
 			<button>sample</button>,
 			<button disabled>disabled</button>,
@@ -26,7 +26,7 @@ const inlineDefinitionList = [
 			<b>sample</b>,
 			<strong>sample</strong>,
 			<dfn>sample</dfn>,
-			<dfn title='definition with title'>w/title</dfn>,
+			<dfn title = 'definition with title'>w/title</dfn>,
 		],
 	},
 	{ // Italicized Text
@@ -58,7 +58,7 @@ const inlineDefinitionList = [
 		terms: [<>abbreviation, (<code>{'<abbr>'}</code>)</>],
 		definitions: [
 			<abbr>sample</abbr>,
-			<abbr title='with title'>w/title</abbr>,
+			<abbr title = 'with title'>w/title</abbr>,
 		],
 	},
 	{ // Variable Indicators
@@ -69,10 +69,12 @@ const inlineDefinitionList = [
 
 	{ // Human Input Samples
 		terms: [
-			(<>
-				keyboard/<abbr title='Human Input Device'>HID</abbr>
-				{' '}sample, (<code>{'<kbd>'}</code>)
-			</>),
+			(
+				<>
+					keyboard/<abbr title = 'Human Input Device'>HID</abbr>
+					{' '}sample, (<code>{'<kbd>'}</code>)
+				</>
+			),
 		],
 		definitions: [<kbd>sample</kbd>],
 	},
@@ -121,22 +123,24 @@ const inlineDefinitionList = [
 ]
 
 const InlineElements = ( ) => (
-	<PageWrapper>
-		<main>
-			<h1>Inline Style Reference Sheet</h1>
-			<DefinitionList
-				items={
-					inlineDefinitionList.map(({
-						terms,
-						definitions,
-					}) => ([
-						terms,
-						definitions,
-					]))
-				}
-			/>
-		</main>
-	</PageWrapper>
+	<AppWrapper>
+		<PageWrapper hero>
+			<main>
+				<h1>Inline Style Reference Sheet</h1>
+				<DefinitionList
+					items = {
+						inlineDefinitionList.map(({
+							terms,
+							definitions,
+						}) => ([
+							terms,
+							definitions,
+						]))
+					}
+				/>
+			</main>
+		</PageWrapper>
+	</AppWrapper>
 )
 
 export {InlineElements}

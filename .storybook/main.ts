@@ -1,9 +1,17 @@
-import 'path'
+import type {StorybookConfig} from '@storybook/nextjs'
 
-const settings = {
-	stories: [
-		'../src/**/*.stories.@(js|jsx|ts|tsx)'
-	],
+const config: StorybookConfig = {
+	framework: {
+		name: '@storybook/nextjs',
+		options: {
+			builder: {
+				// Enables SWC support
+				useSWC: true,
+			},
+		},
+	},
+	staticDirs: ['../public'],
+	stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
 	addons: [
 		'@storybook/addon-links',
 		{
@@ -11,13 +19,7 @@ const settings = {
 			options: {docs: false},
 		},
 		'@storybook/addon-interactions',
-		'storybook-addon-next',
-		'storybook-addon-swc',
 	],
-	framework: {
-		name: '@storybook/react-webpack5',
-		options: { }
-	}
 }
 
-export default settings
+export default config

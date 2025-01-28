@@ -1,5 +1,5 @@
-import type {Meta, StoryObj} from '@storybook/react'
 import {Button} from '.'
+import type {Meta, StoryObj} from '@storybook/react'
 
 interface StoryProps {
 	label: string,
@@ -16,11 +16,11 @@ const ButtonStory = ({
 }: StoryProps) => {
 	if (props.base === 'button') {
 		return (
-			<div data-color-scheme={colorScheme}>
+			<div data-color-scheme = {colorScheme}>
 				<Button
-					base={props.base}
-					color={props.color}
-					disabled={props.disabled}
+					base = {props.base}
+					color = {props.color}
+					disabled = {props.disabled}
 				>
 					{children}
 				</Button>
@@ -33,12 +33,12 @@ const ButtonStory = ({
 		const href = 'javascript:void(0);'
 
 		return (
-			<div data-color-scheme={colorScheme}>
+			<div data-color-scheme = {colorScheme}>
 				<Button
-					base='a'
-					href={href}
-					color={props.color}
-					disabled={props.disabled}
+					base = 'a'
+					href = {href}
+					color = {props.color}
+					disabled = {props.disabled}
 				>
 					{children}
 				</Button>

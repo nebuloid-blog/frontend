@@ -34,10 +34,21 @@
 }
 
 /* TITLE AND LOGO */
-.floating-logo, .hero-title {
+.hero-title, .floating-logo {
 	transition-property: opacity, visibility;
 	transition-timing-function: linear;
 	transition-duration: 0.5s;
+}
+
+.hero-title {
+	width: 100%;
+	opacity: 0;
+	visibility: hidden;
+
+	.show-title & {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
 .floating-logo {
@@ -61,14 +72,6 @@
 	}
 }
 
-.hero-title {
-	width: 100%;
-
-	.show-title & {
-		opacity: 0;
-		visibility: hidden;
-	}
-}
 
 /* PAGE CONTENT */
 // This inner wrapper contains the page's actual content,

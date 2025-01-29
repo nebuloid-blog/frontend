@@ -119,8 +119,9 @@
 	text-align: center;
 	color: rgba(var(--foreground-shade), 50%);
 
-	&.attribution {
+	.attribution {
 		align-self: flex-end;
+		display: flex;
 	}
 }
 

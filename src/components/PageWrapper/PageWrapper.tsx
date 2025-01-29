@@ -22,7 +22,7 @@ const PageWrapper: FC<Props> = ({
 	// The color scheme context/global state is used here,
 	//  although its value is determined elsewhere.
 	const [colorScheme] = useSafeContext(ColorSchemeContext)
-	const {showTitle, showLogo} = useTitleVisibility( )
+	const {showTitle} = useTitleVisibility( )
 
 	return (
 		// If the wrapper has a hero-style, then the page intro
@@ -35,7 +35,7 @@ const PageWrapper: FC<Props> = ({
 					styles.wrapper,
 					hero && styles.hero,
 					showTitle && styles['show-title'],
-					showLogo && styles['show-logo'],
+					!showTitle && styles['show-logo'],
 				])
 			}
 			data-color-scheme = {colorScheme}

@@ -1,7 +1,12 @@
+import {processHTML} from '@utilities/process-html'
 import {indexArticles, getArticle} from '@utilities/requests/articles'
 import {request} from 'graphql-request'
 import type {GetArticleQuery} from '@nebuloid-types/generated/graphql'
 import type {GetStaticProps, GetStaticPaths} from 'next'
+
+// We can't pass this data in from the component,
+//  else it would cease to be a static function.
+const SHIFT_HEADINGS = +1
 
 const getStaticPaths: GetStaticPaths = async ( ) => {
 	try {
@@ -61,6 +66,16 @@ const getStaticProps: GetStaticProps<GetArticleResponse> = async (context) => {
 		)
 
 		const article = response.getArticle
+
+		let vFile
+		if (article != null) {
+			// Here, we are sanitizing the HTML string, even
+			//  though it already gets sanitized on the backend.
+			// We'll also transform it with "SHIFT_HEADINGS".
+			vFile = await processHTML(article.html, {shift: SHIFT_HEADINGS})
+			article.html = vFile.toString( )
+		}
+
 		return {
 			props: {article},
 		}

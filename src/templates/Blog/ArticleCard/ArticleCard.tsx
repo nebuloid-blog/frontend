@@ -30,7 +30,7 @@ const ArticleCard: FC<Props> = ({
 
 			<aside className = {styles.thumbnail}>
 				<Image
-					src = 'https://via.placeholder.com/120.png'
+					src = 'https://dummyimage.com/120x120/cccccc/333333.png'
 					width = {120}
 					height = {120}
 					alt = 'article thumbnail'

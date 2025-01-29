@@ -1,6 +1,5 @@
 import {DefaultHead} from '@components/DefaultHead'
 import {PageWrapper} from '@components/PageWrapper'
-import {RehypeHTML} from '@components/RehypeHTML'
 import {Addresses} from './Addresses'
 import {ContactForm} from './ContactForm'
 import styles from './Home.module.scss'
@@ -15,11 +14,9 @@ const Home: NextPage<Props> = ({article}) => (
 		<DefaultHead />
 
 		<PageWrapper hero>
-			<main>
-				{article && (
-					<RehypeHTML html = {article.html} />
-				)}
-			</main>
+			{article && (
+				<main dangerouslySetInnerHTML = {{__html: article.html}} />
+			)}
 
 			<section className = {styles.contact}>
 				<h2>Get in Touch</h2>

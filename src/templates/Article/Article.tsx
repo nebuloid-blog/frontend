@@ -1,6 +1,5 @@
 import {DefaultHead} from '@components/DefaultHead'
 import {PageWrapper} from '@components/PageWrapper'
-import {RehypeHTML} from '@components/RehypeHTML'
 import type {getStaticProps} from './get-static-data'
 import type {NextPage, InferGetStaticPropsType} from 'next'
 
@@ -11,9 +10,9 @@ const Article: NextPage<Props> = ({article}) => (
 		<DefaultHead />
 
 		<PageWrapper>
-			<main>
-				{article && <RehypeHTML html = {article.html} />}
-			</main>
+			{article && (
+				<main dangerouslySetInnerHTML = {{__html: article.html}} />
+			)}
 		</PageWrapper>
 	</>
 )

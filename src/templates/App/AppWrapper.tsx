@@ -1,3 +1,4 @@
+import {AwaitMount} from '@components/AwaitMount'
 import {ColorSchemeProvider} from '@contexts/ColorScheme'
 import {useColorScheme} from '@hooks/use-color-scheme'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
@@ -17,7 +18,9 @@ const AppWrapper: NextPage<Props> = ({children}) => {
 	return (
 		<ColorSchemeProvider value = {colorSchemeHook}>
 			<QueryClientProvider client = {queryClient}>
-				{children}
+				<AwaitMount>
+					{children}
+				</AwaitMount>
 			</QueryClientProvider>
 		</ColorSchemeProvider>
 	)

@@ -2,14 +2,12 @@ import {useEffect, useState} from 'react'
 
 const useTitleVisibility = ( ) => {
 	const [showTitle, setShowTitle] = useState(true)
-	const [showLogo, setShowLogo] = useState(false)
 
 	useEffect(( ) => {
 		const handleScroll = ( ) => {
 			const {scrollY, innerHeight} = window
-			const thresholdFlag = scrollY / innerHeight > 0.33
-			setShowTitle(thresholdFlag)
-			setShowLogo(thresholdFlag)
+			const nearPageTop = scrollY / innerHeight <= 0.33
+			setShowTitle(nearPageTop)
 		}
 
 		// Trigger this once immediately,
@@ -22,7 +20,7 @@ const useTitleVisibility = ( ) => {
 		}
 	}, [ ])
 
-	return {showTitle, showLogo}
+	return {showTitle}
 }
 
 export {useTitleVisibility}

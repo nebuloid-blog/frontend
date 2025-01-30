@@ -4,7 +4,7 @@ import {MenuBar, MenuButton} from '@components/MenuBar'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
 import {useSafeContext} from '@hooks/use-safe-context'
 import Link from 'next/link'
-import {useRouter} from 'next/router'
+import {usePathname} from 'next/navigation'
 import {useCallback, useMemo} from 'react'
 import styles from './Header.module.scss'
 import type {ColorScheme} from '@hooks/use-color-scheme'
@@ -31,12 +31,12 @@ const Header: FC<Props> = ( ) => {
 	}, [ ])
 
 	// For checking current route path.
-	const router = useRouter( )
+	const pathname = usePathname( )
 	const basePath = useMemo(( ) => {
-		let pathName = router.asPath.split('/').at(1) ?? ''
-		if (pathName.startsWith('#')) pathName = ''
-		return `/${pathName}`
-	}, [router])
+		let basePath = pathname.split('/').at(1) ?? ''
+		if (basePath.startsWith('#')) basePath = ''
+		return `/${basePath}`
+	}, [pathname])
 
 	return (
 		<header className = {styles.root}>

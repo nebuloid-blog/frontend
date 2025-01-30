@@ -1,3 +1,5 @@
+'use client'
+
 import {MenuBar, MenuButton} from '@components/MenuBar'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
 import {useSafeContext} from '@hooks/use-safe-context'

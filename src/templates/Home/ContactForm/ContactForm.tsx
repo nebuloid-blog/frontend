@@ -1,3 +1,5 @@
+'use client'
+
 import {Button} from '@components/Button'
 import {TextArea} from '@components/TextArea'
 import {TextInput} from '@components/TextInput'

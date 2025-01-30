@@ -1,3 +1,5 @@
+'use client'
+
 import {createSafeContext} from '@hooks/use-safe-context'
 import type {useColorScheme} from '@hooks/use-color-scheme'
 

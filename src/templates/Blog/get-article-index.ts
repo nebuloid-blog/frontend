@@ -1,14 +1,9 @@
 import {indexArticles} from '@utilities/requests/articles'
 import {request} from 'graphql-request'
-import type {IndexArticlesQuery} from '@nebuloid-types/generated/graphql'
-import type {GetStaticProps} from 'next'
 
-interface IndexArticlesResponse {
-	articles?: IndexArticlesQuery['indexArticles'],
-}
-
-const getStaticProps: GetStaticProps<IndexArticlesResponse> = async (context) => {
+const getArticleIndex = async ( ) => {
 	try {
+		// Query function
 		const response = await request(
 			'https://api.nebuloid.dev',
 			indexArticles,
@@ -16,9 +11,7 @@ const getStaticProps: GetStaticProps<IndexArticlesResponse> = async (context) =>
 		)
 
 		const articles = response.indexArticles
-		return {
-			props: {articles},
-		}
+		return {articles}
 	}
 
 	// An error here means the API was not set up correctly
@@ -30,10 +23,8 @@ const getStaticProps: GetStaticProps<IndexArticlesResponse> = async (context) =>
 		// Describe the error in console.
 		console.error(error)
 
-		return {
-			props: {articles: null},
-		}
+		return {articles: null}
 	}
 }
 
-export {getStaticProps}
+export {getArticleIndex}

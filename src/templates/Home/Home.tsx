@@ -3,30 +3,32 @@ import {PageWrapper} from '@components/PageWrapper'
 import {Addresses} from './Addresses'
 import {ContactForm} from './ContactForm'
 import styles from './Home.module.scss'
-import type {getStaticProps} from './get-static-data'
-import type {InferGetStaticPropsType, NextPage} from 'next'
+import {getIntroArticle} from './get-intro-article'
+import type {NextPage} from 'next'
 
 // Home Template
-type Props = InferGetStaticPropsType<typeof getStaticProps>
+const Home: NextPage = async ( ) => {
+	const {article} = await getIntroArticle( )
 
-const Home: NextPage<Props> = ({article}) => (
-	<>
-		<DefaultHead />
+	return (
+		<>
+			<DefaultHead />
 
-		<PageWrapper hero>
-			{article && (
-				<main dangerouslySetInnerHTML = {{__html: article.html}} />
-			)}
+			<PageWrapper hero>
+				{article && (
+					<main dangerouslySetInnerHTML = {{__html: article.html}} />
+				)}
 
-			<section className = {styles.contact}>
-				<h2>Get in Touch</h2>
-				<div className = {styles.content}>
-					<ContactForm />
-					<Addresses />
-				</div>
-			</section>
-		</PageWrapper>
-	</>
-)
+				<section className = {styles.contact}>
+					<h2>Get in Touch</h2>
+					<div className = {styles.content}>
+						<ContactForm />
+						<Addresses />
+					</div>
+				</section>
+			</PageWrapper>
+		</>
+	)
+}
 
 export {Home}

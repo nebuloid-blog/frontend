@@ -1,3 +1,5 @@
+'use client'
+
 import {SiteLogo} from '@components/SiteLogo'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
 import {useSafeContext} from '@hooks/use-safe-context'

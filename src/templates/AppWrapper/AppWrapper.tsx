@@ -1,3 +1,5 @@
+'use client'
+
 import {AwaitMount} from '@components/AwaitMount'
 import {ColorSchemeProvider} from '@contexts/ColorScheme'
 import {useColorScheme} from '@hooks/use-color-scheme'

@@ -1,4 +1,4 @@
-import type {TextNode} from '@nebuloid-types/text-node'
+import type {TextNode} from '@app/types/text-node'
 import type {FC} from 'react'
 
 type Props =

@@ -1,4 +1,4 @@
-import {graphql} from '@nebuloid-types/generated'
+import {graphql} from '@app/types/generated'
 
 const getArticle = graphql(/* GraphQL */ `
 	query GetArticle(

@@ -1,7 +1,7 @@
 import {combineClassNames} from '@helpers/combine-class-names'
 import React, {forwardRef, useId, JSX} from 'react'
 import styles from './TextArea.module.scss'
-import type {TextNode} from '@nebuloid-types/text-node'
+import type {TextNode} from '@app/types/text-node'
 
 type HTMLTextAreaProps = JSX.IntrinsicElements['textarea']
 

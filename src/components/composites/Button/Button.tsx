@@ -5,11 +5,11 @@ import {
 
 import styles from './Button.module.scss'
 
+import type {level} from '@app/types/colors'
 import type {
 	BaseElement,
 	PressableProps,
 } from '@components/Pressable'
-import type {level} from '@nebuloid-types/colors'
 
 
 // Base custom props for the component.

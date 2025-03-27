@@ -23,23 +23,27 @@ const ContactForm: FC<Record<never, never>> = ( ) => {
 	const {register, handleSubmit} = useForm<FieldTypes>( )
 
 	// Formspree expects a type that is more generic than
-	//   the one that I provided... No good!
+	//  the one that I provided... No good!
 	// I used a simple dictionary interface, `FieldTypes`,
-	//   which should match what the dependency expects.
+	//  which should match what the dependency expects.
 	/* @ts-expect-error: Formspree's record is too generic. */
 	const [formspree, sendToFormspree] = useFormspree<FieldTypes>(FORMSPREE_HASH_ID)
 
-	const onSubmit = useCallback(
+	const submitLogic = useCallback(
 		async (data: FieldTypes) => {
 			await sendToFormspree(data)
 		},
 		[sendToFormspree],
 	)
 
+	// This weaves together the form submission logic
+	//  with the form submission handler.
+	const onSubmit = handleSubmit(submitLogic)
+
 	return (
 		<form
 			id = 'contact-form'
-			onSubmit = {handleSubmit(onSubmit)}
+			onSubmit = {onSubmit}
 		>
 			<fieldset>
 				<legend>

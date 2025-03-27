@@ -1,7 +1,7 @@
 import {Pressable} from '@components/Pressable'
 import {
 	combineClassNames,
-} from '@utilities/combine-class-names'
+} from '@helpers/combine-class-names'
 
 import styles from './Button.module.scss'
 

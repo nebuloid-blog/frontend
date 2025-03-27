@@ -2,8 +2,8 @@
 
 import {SiteLogo} from '@components/SiteLogo'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
+import {combineClassNames} from '@helpers/combine-class-names'
 import {useSafeContext} from '@hooks/use-safe-context'
-import {combineClassNames} from '@utilities/combine-class-names'
 import Image from 'next/image'
 import {Footer} from './Footer'
 import {Header} from './Header'

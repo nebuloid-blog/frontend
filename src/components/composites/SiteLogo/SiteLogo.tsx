@@ -1,4 +1,4 @@
-import {combineClassNames} from '@utilities/combine-class-names'
+import {combineClassNames} from '@helpers/combine-class-names'
 import Link from 'next/link'
 import styles from './SiteLogo.module.scss'
 import type {FC} from 'react'

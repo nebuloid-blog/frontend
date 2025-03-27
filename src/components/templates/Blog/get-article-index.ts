@@ -1,4 +1,4 @@
-import {indexArticles} from '@utilities/requests/articles'
+import {indexArticles} from '@helpers/requests/articles'
 import {request} from 'graphql-request'
 
 const getArticleIndex = async ( ) => {

@@ -54,7 +54,7 @@
 			"@hooks/*": ["./hooks/*"],
 			"@styles/*": ["./styles/*"],
 			"@templates/*": ["./templates/*"],
-			"@utilities/*": ["./utilities/*"],
+			"@helpers/*": ["./helpers/*"],
 			"@nebuloid-types/*": ["./types/*"],
 		},
 		// "rootDirs": [],                                      /* Allow multiple folders to be treated as one when resolving modules. */

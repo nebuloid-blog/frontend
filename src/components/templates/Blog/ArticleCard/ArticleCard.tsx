@@ -1,4 +1,4 @@
-import {combineClassNames} from '@utilities/combine-class-names'
+import {combineClassNames} from '@helpers/combine-class-names'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './article-card.module.scss'

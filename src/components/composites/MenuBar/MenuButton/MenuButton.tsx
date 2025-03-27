@@ -2,7 +2,7 @@ import {Button} from '@components/Button'
 
 import {
 	combineClassNames,
-} from '@utilities/combine-class-names'
+} from '@helpers/combine-class-names'
 
 import styles from './MenuButton.module.scss'
 

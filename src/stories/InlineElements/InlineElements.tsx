@@ -1,6 +1,6 @@
+import {AppWrapper} from '@components/AppWrapper'
 import {DefinitionList} from '@components/DefinitionList'
 import {PageWrapper} from '@components/PageWrapper'
-import {AppWrapper} from '@templates/AppWrapper'
 
 const inlineDefinitionList = [
 	{ // Inline Actions

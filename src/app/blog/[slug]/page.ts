@@ -1,7 +1,10 @@
 import {
 	Article,
+} from '@components/Article'
+
+import {
 	getArticleSlugs as generateStaticParams,
-} from '@templates/Article'
+} from '@helpers/requests/get-article-slugs'
 
 export default Article
 export {generateStaticParams}

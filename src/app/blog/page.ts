@@ -1,3 +1,3 @@
-import {Blog} from '@templates/Blog'
+import {Blog} from '@components/Blog'
 
 export default Blog

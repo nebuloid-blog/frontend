@@ -1,8 +1,8 @@
 import {DefaultHead} from '@components/DefaultHead'
 import {PageWrapper} from '@components/PageWrapper'
+import {getArticleIndex} from '@helpers/requests/get-article-index'
 import {ArticleCard} from './ArticleCard'
 import styles from './blog.module.scss'
-import {getArticleIndex} from './get-article-index'
 import type {NextPage} from 'next'
 
 const Blog: NextPage = async ( ) => {

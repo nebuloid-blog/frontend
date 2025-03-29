@@ -1,9 +1,9 @@
 import {DefaultHead} from '@components/DefaultHead'
 import {PageWrapper} from '@components/PageWrapper'
+import {getIntroArticle} from '@helpers/requests/get-intro-article'
 import {Addresses} from './Addresses'
 import {ContactForm} from './ContactForm'
 import styles from './Home.module.scss'
-import {getIntroArticle} from './get-intro-article'
 import type {NextPage} from 'next'
 
 // Home Template

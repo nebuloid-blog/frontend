@@ -1,5 +1,5 @@
+import {getArticle} from '@helpers/graphql/articles'
 import {processHTML} from '@helpers/process-html'
-import {getArticle} from '@helpers/requests/articles'
 import {request} from 'graphql-request'
 
 // We can't pass this data in from the component,

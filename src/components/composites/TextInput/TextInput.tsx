@@ -7,7 +7,7 @@ type HTMLInputProps = JSX.IntrinsicElements['input']
 
 interface Props extends HTMLInputProps {
 	label: TextNode,
-	type?: 'text' | 'email',
+	type?: 'text' | 'email' | 'password',
 }
 
 const TextInput = forwardRef<HTMLInputElement, Props>((

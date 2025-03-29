@@ -167,6 +167,7 @@ label {
 // Text Inputs
 input[type='text'],
 input[type='email'],
+input[type='password'],
 textarea {
 	@extend %input-typeface;
 
@@ -179,6 +180,9 @@ textarea {
 	color: var(--foreground-color);
 	background-color: rgba(var(--background-shade), calc(100% * 1/3));
 	border-color: var(--border-color);
+
+	// Inherent Spacing
+	margin-bottom: 1rem;
 }
 
 input {

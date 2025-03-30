@@ -1,6 +1,6 @@
 import {DefaultHead} from '@components/DefaultHead'
 import {PageWrapper} from '@components/PageWrapper'
-import {getArticleIndex} from '@helpers/requests/get-article-index'
+import {getArticleIndex} from '@helpers/requests/articles'
 import {ArticleCard} from './ArticleCard'
 import styles from './blog.module.scss'
 import type {NextPage} from 'next'

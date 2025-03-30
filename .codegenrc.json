@@ -1,5 +1,5 @@
 {
-	"schema": "https://api.nebuloid.dev",
+	"schema": "http://localhost:8080/",
 	"documents": ["src/**/*.(ts|tsx)"],
 	"generates": {
 		"./src/types/generated/": {"preset": "client"}

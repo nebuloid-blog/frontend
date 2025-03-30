@@ -1,6 +1,6 @@
 import {DefaultHead} from '@components/DefaultHead'
 import {PageWrapper} from '@components/PageWrapper'
-import {getArticleDetails} from '@helpers/requests/get-article-details'
+import {getArticleDetails} from '@helpers/requests/articles'
 import type {NextPage} from 'next'
 
 type Props = {params: Promise<{slug: string}>}

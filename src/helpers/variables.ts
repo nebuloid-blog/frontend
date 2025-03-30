@@ -1,3 +1,4 @@
+/*
 import {env} from './secrets'
 
 const getBackendUrl = ( ) => {
@@ -17,8 +18,9 @@ const getBackendUrl = ( ) => {
 
 	return backendUrl
 }
+*/
 
 // Only consts can be exported, so let's use a function.
-const backendUrl = getBackendUrl( )
+const backendUrl = 'http://localhost:8080/'
 
 export {backendUrl}

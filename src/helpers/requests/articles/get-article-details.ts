@@ -1,7 +1,7 @@
 import {getArticle} from '@helpers/graphql/articles'
 import {processHTML} from '@helpers/process-html'
 import {backendUrl} from '@helpers/variables'
-import {request} from 'graphql-request'
+import {GraphQLClient} from 'graphql-request'
 
 // We can't pass this data in from the component,
 //  else it would cease to be a static function.
@@ -16,8 +16,10 @@ const getArticleDetails = async (slug: string | null) => {
 
 		const file = `${slug}.html`
 
-		const response = await request(
-			backendUrl,
+		// This client houses our API request method!
+		const client = new GraphQLClient(backendUrl)
+
+		const response = await client.request(
 			getArticle,
 			{file},
 		)

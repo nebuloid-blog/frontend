@@ -21,6 +21,7 @@ const getBackendUrl = ( ) => {
 */
 
 // Only consts can be exported, so let's use a function.
-const backendUrl = 'http://localhost:8080/'
+// const backendUrl = 'http://localhost:8080/'
+const backendUrl = 'https://api.nebuloid.dev/'
 
 export {backendUrl}

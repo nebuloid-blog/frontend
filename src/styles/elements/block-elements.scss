@@ -152,6 +152,20 @@ figure {
 	}
 }
 
+img {
+	/* Color */
+	background-color: var(--vivid-color);
+	color: var(--subtle-color);
+
+	/* Alt Container positioning */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	/* Alt Text positioning */
+	text-align: center;
+}
+
 /* / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 Form Elements
 --------------

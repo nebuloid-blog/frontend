@@ -9,7 +9,7 @@ const config: CodegenConfig = {
 	//  'https://api.nebuloid.dev/'.
 	// For local development, use
 	//  'http://localhost:8080/' instead.
-	schema: 'http://localhost:8080/',
+	schema: 'https://api.nebuloid.dev/',
 
 	documents: ['src/**/*.{ts,tsx}'],
 	generates: {

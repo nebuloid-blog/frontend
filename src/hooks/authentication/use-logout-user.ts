@@ -18,10 +18,6 @@ const useLogoutUser = ( ) => {
 		// Access Token
 		accessToken,
 		clearAccessToken,
-
-		// Refresh Token
-		refreshToken,
-		clearRefreshToken,
 	} = useSafeContext(AuthenticationContext)
 
 	const [loading, setLoading] = useState<boolean>(false)
@@ -39,25 +35,18 @@ const useLogoutUser = ( ) => {
 					loggedIn === false
 						|| me == null
 						|| accessToken == null
-						|| refreshToken == null
 				) throw new Error('User not logged in.')
 
 				try {
-					await revokeRefreshToken({
-						accessToken,
-						refreshToken,
-					})
+					await revokeRefreshToken({accessToken})
 				}
 
 				catch {
 					// Attempt to replace the auth tokens.
-					const tokens = await replaceRefreshToken({refreshToken})
+					const {accessToken} = await replaceRefreshToken( )
 
 					// Try once again...
-					await revokeRefreshToken({
-						accessToken: tokens.accessToken,
-						refreshToken: tokens.refreshToken,
-					})
+					await revokeRefreshToken({accessToken})
 				}
 			}
 
@@ -73,14 +62,12 @@ const useLogoutUser = ( ) => {
 				// On a success, tokens are invalidated anyway.
 				setMe(null)
 				clearAccessToken( )
-				clearRefreshToken( )
 			}
 		},
 		[
 			me,
 			loggedIn,
 			accessToken,
-			refreshToken,
 		],
 	)
 

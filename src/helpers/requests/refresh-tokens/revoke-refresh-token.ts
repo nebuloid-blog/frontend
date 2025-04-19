@@ -10,7 +10,6 @@ import {request} from 'graphql-request'
 
 interface RevokeRefreshTokenParams {
 	accessToken: string,
-	refreshToken: string,
 }
 
 /**
@@ -25,7 +24,7 @@ const revokeRefreshToken = async (
 	const response = await request(
 		backendUrl,
 		revokeRefreshTokenQuery,
-		{refreshToken: params.refreshToken},
+		{ },
 		{Authorization: `Bearer ${params.accessToken}`},
 	)
 

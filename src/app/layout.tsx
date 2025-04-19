@@ -1,5 +1,5 @@
+import {AppWrapper} from '@components/AppWrapper'
 import '@styles/globals.scss'
-import {AppWrapper} from '@templates/AppWrapper/AppWrapper'
 import type {FC, ReactNode} from 'react'
 
 const metadata = {

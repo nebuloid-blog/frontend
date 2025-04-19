@@ -3,11 +3,12 @@
 		"next.config.js",
 		"next-env.d.ts",
 		"eslint.config.mjs",
+		".codegen.ts"
 	],
 	"include": [
 		"src/**/*",
 		".storybook/**/*",
-		".next/types/**/*.ts"
+		".next/types/**/*.ts",
 	],
 	"exclude": ["node_modules/**/*"],
 	"compilerOptions": {
@@ -44,14 +45,18 @@
 		"rootDir": "./",                                        /* Specify the root folder within your source files. */
 		"baseUrl": "./src",                                     /* Specify the base directory to resolve non-relative module names. */
 		"paths": {                                              /* Specify a set of entries that re-map imports to additional lookup locations. */
-			"@assets/*": ["assets/*"],
-			"@components/*": ["bases/*", "components/*"],
-			"@contexts/*": ["contexts/*"],
-			"@hooks/*": ["hooks/*"],
-			"@styles/*": ["styles/*"],
-			"@templates/*": ["templates/*"],
-			"@utilities/*": ["utilities/*"],
-			"@nebuloid-types/*": ["types/*"],
+			"@assets/*": ["./assets/*"],
+			"@components/*": [
+				"components/atomics/*",
+				"components/composites/*",
+				"components/templates/*",
+			],
+			"@contexts/*": ["./contexts/*"],
+			"@hooks/*": ["./hooks/*"],
+			"@styles/*": ["./styles/*"],
+			"@templates/*": ["./templates/*"],
+			"@helpers/*": ["./helpers/*"],
+			"@app/*": ["./*"], // Catch-all for other directories.
 		},
 		// "rootDirs": [],                                      /* Allow multiple folders to be treated as one when resolving modules. */
 		// "typeRoots": [],                                     /* Specify multiple folders that act like './node_modules/@types'. */
@@ -120,7 +125,7 @@
 		// "allowUnreachableCode": true,                        /* Disable error reporting for unreachable code. */
 
 		/* Completeness */
-		"skipLibCheck": true                                    /* Skip type checking all .d.ts files. */
+		"skipLibCheck": true,                                   /* Skip type checking all .d.ts files. */
 		// "skipDefaultLibCheck": true,                         /* Skip type checking .d.ts files that are included with TypeScript. */
 	}
 }

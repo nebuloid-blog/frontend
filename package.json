@@ -57,19 +57,19 @@
 		"generate:indent":
 			"yarn indent ./src/**/generated/**/*.ts",
 		"generate:code":
-			"echo \nGenerating... && graphql-codegen --config .codegenrc.json",
+			"echo \nGenerating... && graphql-codegen --config .codegen.ts",
 		"generate:lint":
 			"echo \nLinting... && eslint ./src/**/generated/**/*.ts --no-ignore"
 	},
 	"dependencies": {
-		"@formspree/react": "^2.5.1",
-		"@tanstack/react-query": "^5.65.1",
+		"@formspree/react": "^3.0.0",
+		"@tanstack/react-query": "^5.74.4",
 		"graphql": "^16.10.0",
 		"graphql-request": "^7.1.2",
-		"next": "^15.1.6",
-		"react": "^19.0.0",
-		"react-dom": "^19.0.0",
-		"react-hook-form": "^7.54.2",
+		"next": "^15.3.1",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-hook-form": "^7.55.0",
 		"rehype": "^13.0.2",
 		"rehype-parse": "^9.0.1",
 		"rehype-react": "^8.0.0",
@@ -77,26 +77,26 @@
 		"rehype-shift-heading": "^2.0.0"
 	},
 	"devDependencies": {
-		"@graphql-codegen/cli": "^5.0.4",
-		"@graphql-codegen/client-preset": "^4.6.0",
-		"@storybook/addon-essentials": "^8.5.2",
-		"@storybook/addon-interactions": "^8.5.2",
-		"@storybook/addon-links": "^8.5.2",
-		"@storybook/nextjs": "^8.5.2",
-		"@storybook/react": "^8.5.2",
+		"@graphql-codegen/cli": "^5.0.5",
+		"@graphql-codegen/client-preset": "^4.8.0",
+		"@storybook/addon-essentials": "^8.6.12",
+		"@storybook/addon-interactions": "^8.6.12",
+		"@storybook/addon-links": "^8.6.12",
+		"@storybook/nextjs": "^8.6.12",
+		"@storybook/react": "^8.6.12",
 		"@stylistic/eslint-plugin": "^2.13.0",
-		"@types/node": "^22.12.0",
-		"@types/react": "^19.0.8",
-		"@types/react-dom": "^19.0.3",
+		"@types/node": "^22.14.1",
+		"@types/react": "^19.1.2",
+		"@types/react-dom": "^19.1.2",
 		"@typescript-eslint/eslint-plugin": "^8.22.0",
 		"@typescript-eslint/parser": "^8.22.0",
 		"eslint": "^9.19.0",
 		"eslint-config-next": "^15.1.6",
 		"eslint-config-tabbify": "^0.3.2",
-		"globals": "^15.14.0",
+		"globals": "^15.15.0",
 		"replace-in-files-cli": "^3.0.0",
-		"sass": "^1.83.4",
-		"storybook": "^8.5.2",
-		"typescript": "^5.7.3"
+		"sass": "^1.86.3",
+		"storybook": "^8.6.12",
+		"typescript": "^5.8.3"
 	}
 }

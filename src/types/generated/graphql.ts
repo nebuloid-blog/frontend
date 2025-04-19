@@ -16,6 +16,11 @@ export type Scalars = {
 	Float: { input: number; output: number; }
 };
 
+export type AccessToken = {
+	__typename?: 'AccessToken';
+	accessToken: Scalars['String']['output'];
+};
+
 export type AdditionalEntityFields = {
 	path?: InputMaybe<Scalars['String']['input']>;
 	type?: InputMaybe<Scalars['String']['input']>;
@@ -45,11 +50,15 @@ export type Mutation = {
 	__typename?: 'Mutation';
 	createCourse: Scalars['ID']['output'];
 	createProject: Scalars['ID']['output'];
-	createUser?: Maybe<Scalars['String']['output']>;
+	createUser: UserAuth;
 	deleteCourse: Scalars['Boolean']['output'];
 	deleteProject: Scalars['Boolean']['output'];
 	deleteUser: Scalars['Boolean']['output'];
-	signInUser?: Maybe<Scalars['String']['output']>;
+	replaceRefreshToken: AccessToken;
+	revokeAllRefreshTokens: Scalars['Boolean']['output'];
+	revokeAllRefreshTokensGlobal: Scalars['Boolean']['output'];
+	revokeRefreshToken: Scalars['Boolean']['output'];
+	signInUser: UserAuth;
 	updateCourse: Scalars['Boolean']['output'];
 	updateProject: Scalars['Boolean']['output'];
 };
@@ -72,7 +81,6 @@ export type MutationCreateProjectArgs = {
 export type MutationCreateUserArgs = {
 	email: Scalars['String']['input'];
 	password: Scalars['String']['input'];
-	role?: InputMaybe<Role>;
 	username: Scalars['String']['input'];
 };
 
@@ -88,7 +96,12 @@ export type MutationDeleteProjectArgs = {
 
 
 export type MutationDeleteUserArgs = {
-	id: Scalars['ID']['input'];
+	userId: Scalars['ID']['input'];
+};
+
+
+export type MutationRevokeAllRefreshTokensArgs = {
+	userId: Scalars['ID']['input'];
 };
 
 
@@ -150,8 +163,9 @@ export type QueryIndexArticlesArgs = {
 };
 
 export enum Role {
+	Administrator = 'ADMINISTRATOR',
 	Guest = 'GUEST',
-	Owner = 'OWNER',
+	Moderator = 'MODERATOR',
 	User = 'USER'
 }
 
@@ -161,6 +175,12 @@ export type User = {
 	id: Scalars['ID']['output'];
 	role: Role;
 	username: Scalars['String']['output'];
+};
+
+export type UserAuth = {
+	__typename?: 'UserAuth';
+	accessToken: Scalars['String']['output'];
+	user: User;
 };
 
 export type GetArticleQueryVariables = Exact<{
@@ -179,6 +199,65 @@ export type IndexArticlesQueryVariables = Exact<{
 
 export type IndexArticlesQuery = { __typename?: 'Query', indexArticles?: Array<{ __typename?: 'Article', html: string, data: { __typename?: 'ArticleData', slug: string, title: string } }> | null };
 
+export type ReplaceRefreshTokenMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ReplaceRefreshTokenMutation = { __typename?: 'Mutation', replaceRefreshToken: { __typename?: 'AccessToken', accessToken: string } };
+
+export type RevokeRefreshTokenMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type RevokeRefreshTokenMutation = { __typename?: 'Mutation', revokeRefreshToken: boolean };
+
+export type RevokeAllRefreshTokensMutationVariables = Exact<{
+	userId: Scalars['ID']['input'];
+}>;
+
+
+export type RevokeAllRefreshTokensMutation = { __typename?: 'Mutation', revokeAllRefreshTokens: boolean };
+
+export type RevokeAllRefreshTokensGlobalMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type RevokeAllRefreshTokensGlobalMutation = { __typename?: 'Mutation', revokeAllRefreshTokensGlobal: boolean };
+
+export type GetMeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetMeQuery = { __typename?: 'Query', getMe?: { __typename?: 'User', id: string, email: string, username: string, role: Role } | null };
+
+export type CreateUserMutationVariables = Exact<{
+	email: Scalars['String']['input'];
+	username: Scalars['String']['input'];
+	password: Scalars['String']['input'];
+}>;
+
+
+export type CreateUserMutation = { __typename?: 'Mutation', createUser: { __typename?: 'UserAuth', accessToken: string, user: { __typename?: 'User', id: string, email: string, username: string, role: Role } } };
+
+export type SignInUserMutationVariables = Exact<{
+	username: Scalars['String']['input'];
+	password: Scalars['String']['input'];
+}>;
+
+
+export type SignInUserMutation = { __typename?: 'Mutation', signInUser: { __typename?: 'UserAuth', accessToken: string, user: { __typename?: 'User', id: string, email: string, username: string, role: Role } } };
+
+export type DeleteUserMutationVariables = Exact<{
+	userId: Scalars['ID']['input'];
+}>;
+
+
+export type DeleteUserMutation = { __typename?: 'Mutation', deleteUser: boolean };
+
 
 export const GetArticleDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetArticle"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"file"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"directory"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"branch"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getArticle"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"file"},"value":{"kind":"Variable","name":{"kind":"Name","value":"file"}}},{"kind":"Argument","name":{"kind":"Name","value":"directory"},"value":{"kind":"Variable","name":{"kind":"Name","value":"directory"}}},{"kind":"Argument","name":{"kind":"Name","value":"branch"},"value":{"kind":"Variable","name":{"kind":"Name","value":"branch"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]} as unknown as DocumentNode<GetArticleQuery, GetArticleQueryVariables>;
 export const IndexArticlesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"IndexArticles"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"branch"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"indexArticles"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"branch"},"value":{"kind":"Variable","name":{"kind":"Name","value":"branch"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]} as unknown as DocumentNode<IndexArticlesQuery, IndexArticlesQueryVariables>;
+export const ReplaceRefreshTokenDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ReplaceRefreshToken"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"replaceRefreshToken"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"accessToken"}}]}}]}}]} as unknown as DocumentNode<ReplaceRefreshTokenMutation, ReplaceRefreshTokenMutationVariables>;
+export const RevokeRefreshTokenDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"RevokeRefreshToken"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"revokeRefreshToken"}}]}}]} as unknown as DocumentNode<RevokeRefreshTokenMutation, RevokeRefreshTokenMutationVariables>;
+export const RevokeAllRefreshTokensDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"RevokeAllRefreshTokens"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"revokeAllRefreshTokens"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"userId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userId"}}}]}]}}]} as unknown as DocumentNode<RevokeAllRefreshTokensMutation, RevokeAllRefreshTokensMutationVariables>;
+export const RevokeAllRefreshTokensGlobalDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"RevokeAllRefreshTokensGlobal"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"revokeAllRefreshTokensGlobal"}}]}}]} as unknown as DocumentNode<RevokeAllRefreshTokensGlobalMutation, RevokeAllRefreshTokensGlobalMutationVariables>;
+export const GetMeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetMe"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getMe"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"role"}}]}}]}}]} as unknown as DocumentNode<GetMeQuery, GetMeQueryVariables>;
+export const CreateUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateUser"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"username"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"Argument","name":{"kind":"Name","value":"username"},"value":{"kind":"Variable","name":{"kind":"Name","value":"username"}}},{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"role"}}]}},{"kind":"Field","name":{"kind":"Name","value":"accessToken"}}]}}]}}]} as unknown as DocumentNode<CreateUserMutation, CreateUserMutationVariables>;
+export const SignInUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"SignInUser"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"username"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"signInUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"username"},"value":{"kind":"Variable","name":{"kind":"Name","value":"username"}}},{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"role"}}]}},{"kind":"Field","name":{"kind":"Name","value":"accessToken"}}]}}]}}]} as unknown as DocumentNode<SignInUserMutation, SignInUserMutationVariables>;
+export const DeleteUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteUser"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"userId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userId"}}}]}]}}]} as unknown as DocumentNode<DeleteUserMutation, DeleteUserMutationVariables>;

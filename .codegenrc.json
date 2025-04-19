@@ -1,7 +1,0 @@
-{
-	"schema": "https://api.nebuloid.dev",
-	"documents": ["src/**/*.(ts|tsx)"],
-	"generates": {
-		"./src/types/generated/": {"preset": "client"}
-	}
-}

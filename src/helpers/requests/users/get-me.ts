@@ -2,7 +2,7 @@
 
 import {getMe as getMeQuery} from '@helpers/graphql/users'
 import {backendUrl} from '@helpers/variables'
-import {request} from 'graphql-request'
+import {GraphQLClient} from 'graphql-request'
 
 interface GetMeParams {
 	accessToken: string,
@@ -13,8 +13,10 @@ Uses the given access token to request
 	the current user's data.
 **/
 const getMe = async (params: GetMeParams) => {
-	const response = await request(
-		backendUrl,
+	// This client houses our API request method!
+	const client = new GraphQLClient(backendUrl)
+
+	const response = await client.request(
 		getMeQuery,
 		{ },
 		{Authorization: `Bearer ${params.accessToken}`},

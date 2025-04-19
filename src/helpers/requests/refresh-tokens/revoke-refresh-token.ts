@@ -5,8 +5,7 @@ import {
 } from '@helpers/graphql/refresh-tokens'
 
 import {backendUrl} from '@helpers/variables'
-import {request} from 'graphql-request'
-
+import {GraphQLClient} from 'graphql-request'
 
 interface RevokeRefreshTokenParams {
 	accessToken: string,
@@ -21,8 +20,16 @@ You don't need to be the owner of the token
 const revokeRefreshToken = async (
 	params: RevokeRefreshTokenParams,
 ) => {
-	const response = await request(
+	// This client houses our API request method!
+	const client = new GraphQLClient(
 		backendUrl,
+		// Create a custom fetch with credentials included.
+		{fetch: (url, options) => (
+			fetch(url, {...options, credentials: 'include'})
+		)},
+	)
+
+	const response = await client.request(
 		revokeRefreshTokenQuery,
 		{ },
 		{Authorization: `Bearer ${params.accessToken}`},

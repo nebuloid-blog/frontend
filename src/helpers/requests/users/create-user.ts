@@ -5,7 +5,7 @@ import {
 } from '@helpers/graphql/users'
 
 import {backendUrl} from '@helpers/variables'
-import {request} from 'graphql-request'
+import {GraphQLClient} from 'graphql-request'
 
 interface CreateUserParams {
 	username: string,
@@ -27,8 +27,10 @@ const createUser = async (
 		throw new Error('Passwords do not match.')
 	}
 
-	const response = await request(
-		backendUrl,
+	// This client houses our API request method!
+	const client = new GraphQLClient(backendUrl)
+
+	const response = await client.request(
 		createUserQuery,
 		{
 			username: params.username,

@@ -5,7 +5,7 @@ import {
 } from '@helpers/graphql/refresh-tokens'
 
 import {backendUrl} from '@helpers/variables'
-import {request} from 'graphql-request'
+import {GraphQLClient} from 'graphql-request'
 
 type ReplaceRefreshTokenParams = never
 
@@ -18,8 +18,16 @@ It also generates a new pair of access/refresh tokens for
 const replaceRefreshToken = async (
 	params?: ReplaceRefreshTokenParams,
 ) => {
-	const response = await request(
+	// This client houses our API request method!
+	const client = new GraphQLClient(
 		backendUrl,
+		// Create a custom fetch with credentials included.
+		{fetch: (url, options) => (
+			fetch(url, {...options, credentials: 'include'})
+		)},
+	)
+
+	const response = await client.request(
 		replaceRefreshTokenQuery,
 		{ },
 	)

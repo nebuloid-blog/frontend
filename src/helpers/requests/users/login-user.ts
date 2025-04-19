@@ -5,7 +5,7 @@ import {
 } from '@helpers/graphql/users'
 
 import {backendUrl} from '@helpers/variables'
-import {request} from 'graphql-request'
+import {GraphQLClient} from 'graphql-request'
 
 interface LoginUserParams {
 	username: string,
@@ -19,8 +19,17 @@ Given a username and password,
 const loginUser = async (
 	params: LoginUserParams,
 ) => {
-	const response = await request(
+	// This client houses our API request method!
+	const client = new GraphQLClient(
 		backendUrl,
+
+		// Create a custom fetch with credentials included.
+		{fetch: (url, options) => (
+			fetch(url, {...options, credentials: 'include'})
+		)},
+	)
+
+	const response = await client.request(
 		loginUserQuery,
 		{
 			username: params.username,

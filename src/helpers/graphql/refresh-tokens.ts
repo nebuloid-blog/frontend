@@ -1,17 +1,16 @@
 import {graphql} from '@app/types/generated'
 
 const replaceRefreshToken = graphql(/* GraphQL */ `
-	mutation ReplaceRefreshToken($refreshToken: String!) {
-		replaceRefreshToken(refreshToken: $refreshToken) {
+	mutation ReplaceRefreshToken {
+		replaceRefreshToken {
 			accessToken
-			refreshToken
 		}
 	}
 `)
 
 const revokeRefreshToken = graphql(/* GraphQL */ `
-	mutation RevokeRefreshToken($refreshToken: String!) {
-		revokeRefreshToken(refreshToken: $refreshToken)
+	mutation RevokeRefreshToken {
+		revokeRefreshToken
 	}
 `)
 

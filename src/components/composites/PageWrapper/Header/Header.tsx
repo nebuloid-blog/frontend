@@ -1,7 +1,9 @@
 'use client'
 
 import {MenuBar, MenuButton} from '@components/MenuBar'
+import {AuthenticationContext} from '@contexts/Authentication'
 import {ColorSchemeContext} from '@contexts/ColorScheme'
+import {useLogoutUser} from '@hooks/authentication'
 import {useSafeContext} from '@hooks/use-safe-context'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
@@ -17,6 +19,11 @@ const Header: FC<Props> = ( ) => {
 	// Without its usage outside of this component, it has
 	//  zero implications for CSS stylings.
 	const [colorScheme, setColorScheme] = useSafeContext(ColorSchemeContext)
+
+	// Now we can determine "me" data.
+	const {me} = useSafeContext(AuthenticationContext)
+	const {logoutUser} = useLogoutUser( )
+	const loggedIn = me != null
 
 	const nextColorScheme = useMemo(( ): ColorScheme => {
 		if (colorScheme === 'dark') return 'light'
@@ -74,11 +81,43 @@ const Header: FC<Props> = ( ) => {
 			</MenuBar>
 
 			{/* Authentication Options */}
-			{/*
-				Sign In / Register
-				Sign Out / View Profile
-				...
-			*/}
+			<MenuBar>
+				{loggedIn
+					? (
+						<>
+							<MenuButton onClick = {logoutUser}>
+								Sign Out
+							</MenuButton>
+
+							<MenuButton
+								base = {Link}
+								href = '/user-settings'
+								highlight = {basePath === '/user-settings'}
+							>
+								Hello, {me.username}!
+							</MenuButton>
+						</>
+					)
+					: (
+						<>
+							<MenuButton
+								base = {Link}
+								href = '/sign-in'
+								highlight = {basePath === '/sign-in'}
+							>
+								Sign In
+							</MenuButton>
+
+							<MenuButton
+								base = {Link}
+								href = '/register'
+								highlight = {basePath === '/register'}
+							>
+								Register
+							</MenuButton>
+						</>
+					)}
+			</MenuBar>
 		</header>
 	)
 }

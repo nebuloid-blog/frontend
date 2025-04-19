@@ -1,11 +1,13 @@
 import {indexArticles} from '@helpers/graphql/articles'
 import {backendUrl} from '@helpers/variables'
-import {request} from 'graphql-request'
+import {GraphQLClient} from 'graphql-request'
 
 const getArticleSlugs = async ( ) => {
 	try {
-		const response = await request(
-			backendUrl,
+		// This client houses our API request method!
+		const client = new GraphQLClient(backendUrl)
+
+		const response = await client.request(
 			indexArticles,
 			{ },
 		)

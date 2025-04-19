@@ -28,11 +28,15 @@ const useAuthentication = ( ) => {
 
 	const loggedIn = accessToken != null
 
-	// Run this only once on mount.
+	// Ensure this `useEffect` runs only once on mount.
+	const hasRun = useRef(false)
 	useEffect(
 		// This is an `async` iife function.
 		// Since `useEffect` expects no promise, we void it out.
 		( ) => void (async ( ) => {
+			if (hasRun.current) return
+			hasRun.current = true
+
 			setError(null)
 			setLoading(true)
 

@@ -21,10 +21,6 @@ const useDeleteUser = ( ) => {
 		// Access Token
 		accessToken,
 		clearAccessToken,
-
-		// Refresh Token
-		refreshToken,
-		clearRefreshToken,
 	} = useSafeContext(AuthenticationContext)
 
 	const [loading, setLoading] = useState<boolean>(false)
@@ -42,7 +38,6 @@ const useDeleteUser = ( ) => {
 					loggedIn === false
 					|| me == null
 					|| accessToken == null
-					|| refreshToken == null
 				) throw new Error('User not logged in.')
 
 				try {
@@ -54,11 +49,11 @@ const useDeleteUser = ( ) => {
 
 				catch {
 					// Attempt to replace the auth tokens.
-					const tokens = await replaceRefreshToken({refreshToken})
+					const {accessToken} = await replaceRefreshToken( )
 
 					// Try once again...
 					await requestDeleteUser({
-						accessToken: tokens.accessToken,
+						accessToken: accessToken,
 						userId: me.id,
 					})
 				}
@@ -68,7 +63,6 @@ const useDeleteUser = ( ) => {
 				// A failed deletion should not logout a user.
 				setMe(null)
 				clearAccessToken( )
-				clearRefreshToken( )
 				setLoading(false)
 			}
 
@@ -81,7 +75,6 @@ const useDeleteUser = ( ) => {
 			me,
 			loggedIn,
 			accessToken,
-			refreshToken,
 		],
 	)
 

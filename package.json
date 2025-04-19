@@ -57,7 +57,7 @@
 		"generate:indent":
 			"yarn indent ./src/**/generated/**/*.ts",
 		"generate:code":
-			"echo \nGenerating... && graphql-codegen --config .codegenrc.json",
+			"echo \nGenerating... && graphql-codegen --config .codegen.ts",
 		"generate:lint":
 			"echo \nLinting... && eslint ./src/**/generated/**/*.ts --no-ignore"
 	},

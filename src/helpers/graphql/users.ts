@@ -30,10 +30,7 @@ const createUser = graphql(/* GraphQL */ `
 				username
 				role
 			}
-			tokens {
-				accessToken
-				refreshToken
-			}
+			accessToken
 		}
 	}
 `)
@@ -53,10 +50,7 @@ const signInUser = graphql(/* GraphQL */ `
 				username
 				role
 			}
-			tokens {
-				accessToken
-				refreshToken
-			}
+			accessToken
 		}
 	}
 `)

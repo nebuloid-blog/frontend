@@ -3,8 +3,7 @@
 import {GetMeQuery} from '@app/types/generated/graphql'
 import {replaceRefreshToken} from '@helpers/requests/refresh-tokens'
 import {getMe} from '@helpers/requests/users'
-import {useCallback, useEffect, useState} from 'react'
-import {useDocumentCookie} from './use-document-cookie'
+import {useCallback, useEffect, useRef, useState} from 'react'
 
 type Me = NonNullable<GetMeQuery['getMe']>
 
@@ -19,54 +18,43 @@ const useAuthentication = ( ) => {
 		setAccessToken,
 	] = useState<string | null>(null)
 
-	const [
-		refreshToken,
-		setRefreshToken,
-		clearRefreshToken,
-	] = useDocumentCookie('refreshToken')
-
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState<Error | null>(null)
 
-	// Created just to have symmetry with clearRefreshToken.
-	const clearAccessToken: (( ) => void) = useCallback(
-		( ) => void setAccessToken(null),
-		[ ],
-	)
+	// Created just to clear access token quickly.
+	const clearAccessToken = useCallback(( ) => {
+		setAccessToken(null)
+	}, [ ])
 
-	const loggedIn = refreshToken != null
+	const loggedIn = accessToken != null
 
-	// Run this only once on mount.
+	// Ensure this `useEffect` runs only once on mount.
+	const hasRun = useRef(false)
 	useEffect(
 		// This is an `async` iife function.
 		// Since `useEffect` expects no promise, we void it out.
 		( ) => void (async ( ) => {
+			if (hasRun.current) return
+			hasRun.current = true
+
 			setError(null)
 			setLoading(true)
 
-			if (refreshToken == null) {
-				// No refresh token.
-				setLoading(false)
-				return
-			}
-
 			try {
 				// Attempt to replace the refresh token and make an access token.
-				const tokens = await replaceRefreshToken({refreshToken})
+				const {accessToken} = await replaceRefreshToken( )
 
 				// Attempt to obtain the current user.
-				const me = await getMe({accessToken: tokens.accessToken})
+				const me = await getMe({accessToken})
 				if (me == null) throw new Error('Can\'t find user.')
 
 				setMe(me)
-				setAccessToken(tokens.accessToken)
-				setRefreshToken(tokens.refreshToken)
+				setAccessToken(accessToken)
 				setLoading(false)
 			}
 
 			catch (error) {
 				clearAccessToken( )
-				clearRefreshToken( )
 				setError(error as Error)
 				setLoading(false)
 			}
@@ -79,11 +67,6 @@ const useAuthentication = ( ) => {
 		accessToken,
 		setAccessToken,
 		clearAccessToken,
-
-		// Refresh Token
-		refreshToken,
-		setRefreshToken,
-		clearRefreshToken,
 
 		// User Data
 		me,

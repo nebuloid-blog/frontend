@@ -5,7 +5,7 @@ import {
 } from '@helpers/graphql/users'
 
 import {backendUrl} from '@helpers/variables'
-import {request} from 'graphql-request'
+import {GraphQLClient} from 'graphql-request'
 
 interface DeleteUserParams {
 	accessToken: string,
@@ -22,8 +22,10 @@ TODO: Make userId optional.
 const deleteUser = async (
 	params: DeleteUserParams,
 ) => {
-	const response = await request(
-		backendUrl,
+	// This client houses our API request method!
+	const client = new GraphQLClient(backendUrl)
+
+	const response = await client.request(
 		deleteUserQuery,
 		{userId: params.userId},
 		{Authorization: `Bearer ${params.accessToken}`},

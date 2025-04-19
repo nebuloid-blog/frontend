@@ -13,7 +13,6 @@ const useCreateUser = ( ) => {
 		setMe,
 		loggedIn,
 		setAccessToken,
-		setRefreshToken,
 	} = useSafeContext(AuthenticationContext)
 
 	const [loading, setLoading] = useState<boolean>(false)
@@ -32,11 +31,10 @@ const useCreateUser = ( ) => {
 				}
 
 				// Attempt to create the user and update context data.
-				const {user, tokens} = await requestCreateUser(params)
+				const {user, accessToken} = await requestCreateUser(params)
 
 				setMe(user)
-				setAccessToken(tokens.accessToken)
-				setRefreshToken(tokens.refreshToken)
+				setAccessToken(accessToken)
 				setLoading(false)
 			}
 

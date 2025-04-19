@@ -3,6 +3,7 @@
 		"next.config.js",
 		"next-env.d.ts",
 		"eslint.config.mjs",
+		".codegen.ts"
 	],
 	"include": [
 		"src/**/*",

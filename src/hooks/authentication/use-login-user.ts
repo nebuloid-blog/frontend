@@ -16,7 +16,6 @@ const useLoginUser = ( ) => {
 		setMe,
 		loggedIn,
 		setAccessToken,
-		setRefreshToken,
 	} = useSafeContext(AuthenticationContext)
 
 	const [loading, setLoading] = useState<boolean>(false)
@@ -34,11 +33,10 @@ const useLoginUser = ( ) => {
 				}
 
 				// Attempt to log the user in and update context data.
-				const {user, tokens} = await requestLoginUser(params)
+				const {user, accessToken} = await requestLoginUser(params)
 
 				setMe(user)
-				setAccessToken(tokens.accessToken)
-				setRefreshToken(tokens.refreshToken)
+				setAccessToken(accessToken)
 				setLoading(false)
 			}
 
